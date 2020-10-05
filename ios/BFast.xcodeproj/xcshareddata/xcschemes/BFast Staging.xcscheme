@@ -10,13 +10,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "cp ${PROJECT_DIR}/../.env.customer ${PROJECT_DIR}/../.env&#10;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "cp ${PROJECT_DIR}/../.env.customer.staging ${PROJECT_DIR}/../.env&#10;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "BFast.app"
-                     BlueprintName = "BFast"
+                     BlueprintIdentifier = "90846163252B7889009078F7"
+                     BuildableName = "BFast Staging.app"
+                     BlueprintName = "BFast Staging"
                      ReferencedContainer = "container:BFast.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,9 +32,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "BFast.app"
-               BlueprintName = "BFast"
+               BlueprintIdentifier = "90846163252B7889009078F7"
+               BuildableName = "BFast Staging.app"
+               BlueprintName = "BFast Staging"
                ReferencedContainer = "container:BFast.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,9 +62,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BFast.app"
-            BlueprintName = "BFast"
+            BlueprintIdentifier = "90846163252B7889009078F7"
+            BuildableName = "BFast Staging.app"
+            BlueprintName = "BFast Staging"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,16 +75,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "BFast.app"
-            BlueprintName = "BFast"
+            BlueprintIdentifier = "90846163252B7889009078F7"
+            BuildableName = "BFast Staging.app"
+            BlueprintName = "BFast Staging"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

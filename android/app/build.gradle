@@ -1,5 +1,9 @@
 apply plugin: "com.android.application"
 
+/* react-native-config setup */
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+/* end of react-native-config setup */
+
 import com.android.build.OutputFile
 
 /**
@@ -78,7 +82,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -134,7 +138,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        resValue "string", "build_config_package", "com.bfast"
     }
+
     splits {
         abi {
             reset()
@@ -143,6 +150,7 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -151,6 +159,7 @@ android {
             keyPassword 'android'
         }
     }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug

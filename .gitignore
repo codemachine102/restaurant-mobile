@@ -1,4 +1,4 @@
-# OSX
+# macOS
 #
 .DS_Store
 
@@ -36,6 +36,7 @@ npm-debug.log
 yarn-error.log
 
 # BUCK
+#
 buck-out/
 \.buckd/
 *.keystore
@@ -53,7 +54,24 @@ buck-out/
 */fastlane/screenshots
 
 # Bundle artifact
+#
 *.jsbundle
 
 # CocoaPods
+#
 /ios/Pods/
+
+# Misc
+#
+.env
+.env.dev
+
+# Builds
+#
+/android/app/staging
+/android/app/production
+*.aab
+*.apk
+
+# react-native-config codegen
+/ios/tmp.xcconfig

@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1130"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "cp ${PROJECT_DIR}/../.env.venue ${PROJECT_DIR}/../.env&#10;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "90846180252B7927009078F7"
+                     BuildableName = "BFast Venue.app"
+                     BlueprintName = "BFast Venue"
+                     ReferencedContainer = "container:BFast.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "BFast-tvOS.app"
-               BlueprintName = "BFast-tvOS"
+               BlueprintIdentifier = "90846180252B7927009078F7"
+               BuildableName = "BFast Venue.app"
+               BlueprintName = "BFast Venue"
                ReferencedContainer = "container:BFast.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,16 +46,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "BFast-tvOSTests.xctest"
-               BlueprintName = "BFast-tvOSTests"
-               ReferencedContainer = "container:BFast.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -54,9 +62,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BFast-tvOS.app"
-            BlueprintName = "BFast-tvOS"
+            BlueprintIdentifier = "90846180252B7927009078F7"
+            BuildableName = "BFast Venue.app"
+            BlueprintName = "BFast Venue"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -67,16 +75,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "BFast-tvOS.app"
-            BlueprintName = "BFast-tvOS"
+            BlueprintIdentifier = "90846180252B7927009078F7"
+            BuildableName = "BFast Venue.app"
+            BlueprintName = "BFast Venue"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
