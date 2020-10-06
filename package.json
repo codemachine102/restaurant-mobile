@@ -15,7 +15,17 @@
     "ios:run:venue:production": "react-native run-ios --scheme \"BFast Venue\"",
     "lint": "eslint app/",
     "lint:fix": "yarn lint --fix",
-    "test": "jest"
+    "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
+    "clean:android": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
+    "clean:ios": "rm -rf ~/Library/MobileDevice/Provisioning\\ Profiles",
+    "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && yarn cache clean && yarn install",
+    "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
+    "android:logcat": "$ANDROID_HOME/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V",
+    "android:avd": "cd $ANDROID_HOME/tools/bin && ./avdmanager list avd",
+    "ios:devices": "xcrun simctl list devices",
+    "bump:build": "react-native-version --increment-build",
+    "precommit": "bump:build",
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "@absinthe/socket": "^0.2.1",

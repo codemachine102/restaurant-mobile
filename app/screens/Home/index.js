@@ -12,6 +12,8 @@ const HomeScreen = () => {
   const dispatch = useDispatch()
   const { viewer } = useApp()
 
+  const fullName = Utils.UserProfile.formatFullName(viewer.profile)
+
   const handleLogOut = useCallback(() => {
     dispatch(logOutRequest())
   }, [dispatch])
@@ -19,9 +21,7 @@ const HomeScreen = () => {
   return (
     <Container>
       <Content>
-        <GreetingsMessage mb={6}>
-          Welcome, {Utils.UserProfile.formatFullName(viewer.profile)}!
-        </GreetingsMessage>
+        <GreetingsMessage mb={6}>Welcome, {fullName}!</GreetingsMessage>
         <Button title="Log out" onPress={handleLogOut} />
       </Content>
     </Container>
