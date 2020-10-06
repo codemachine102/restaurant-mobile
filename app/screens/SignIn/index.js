@@ -4,7 +4,11 @@ import i18n from 'i18n'
 
 import ValidationService from 'services/validation'
 
+import * as Routes from 'navigation/routes'
+
 import AppConfig from 'config/app'
+
+import { ReactNavigationPropTypes } from 'constants/propTypes'
 
 import {
   Container,
@@ -16,21 +20,12 @@ import {
   Inner,
   Content,
   FormTextInput,
+  Footer,
+  Button,
+  LinkButton,
 } from './styles'
 
-// import {
-//   Logo,
-//   Form,
-//   Field,
-//   Inner,
-//   Content,
-//   Footer,
-//   Button,
-//   LinkButton,
-//   FormTextInput,
-// } from './styles'
-
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
 
   const initialValues = useMemo(() => {
@@ -67,6 +62,17 @@ const SignInScreen = () => {
     passwordRef.current.focus()
   }, [])
 
+  const handleForgotPassword = useCallback(
+    (values) => {
+      return () => {
+        navigation.navigate(Routes.ForgotPassword, {
+          email: values.email,
+        })
+      }
+    },
+    [navigation],
+  )
+
   const renderForm = useCallback(
     ({ values, submitting, handleSubmit }) => {
       return (
@@ -96,24 +102,24 @@ const SignInScreen = () => {
               secureTextEntry
             />
           </Content>
+
+          <Footer>
+            <Button
+              title={i18n.t('screen.signIn.button.signIn')}
+              mb={4}
+              isProgress={submitting}
+              onPress={handleSubmit}
+            />
+
+            <LinkButton onPress={handleForgotPassword(values)}>
+              {i18n.t('screen.signIn.button.forgotPassword')}
+            </LinkButton>
+          </Footer>
         </Inner>
       )
     },
-    [handleSubmitEmail],
+    [handleForgotPassword, handleSubmitEmail],
   )
-
-  //   <Footer>
-  //   <Button
-  //     title={i18n.t('screen.signIn.button.signIn')}
-  //     mb={6}
-  //     isProgress={submitting}
-  //     onPress={handleSubmit}
-  //   />
-
-  //   <LinkButton onPress={handleForgotPassword(values)}>
-  //     {i18n.t('screen.signIn.button.forgotPassword')}
-  //   </LinkButton>
-  // </Footer>
 
   return (
     <Container>
@@ -128,6 +134,10 @@ const SignInScreen = () => {
   )
 }
 
+SignInScreen.propTypes = {
+  navigation: ReactNavigationPropTypes.navigation.isRequired,
+}
+
 export { SignInScreen }
 
 // import React, { useRef, useMemo, useCallback } from 'react'
@@ -135,24 +145,10 @@ export { SignInScreen }
 
 // import { signIn } from 'services/api/queries/auth'
 
-// import { ReactNavigationPropTypes } from 'constants/propTypes'
-// import * as Routes from 'navigation/routes'
-
 // import { signInSuccess } from 'store/slices/session'
 
 // const SignInScreen = ({ navigation }) => {
 //   const dispatch = useDispatch()
-
-//   const handleForgotPassword = useCallback(
-//     (values) => {
-//       return () => {
-//         navigation.navigate(Routes.ForgotPassword, {
-//           email: values.email,
-//         })
-//       }
-//     },
-//     [navigation],
-//   )
 
 //   const onSubmit = useCallback(
 //     async (values) => {
@@ -171,17 +167,6 @@ export { SignInScreen }
 //     },
 //     [dispatch],
 //   )
-
-//   return (
-//     <Container>
-//       <Scrollable fromTop toBottom>
-//       </Scrollable>
-//     </Container>
-//   )
-// }
-
-// SignInScreen.propTypes = {
-//   navigation: ReactNavigationPropTypes.navigation.isRequired,
 // }
 
 // export { SignInScreen }

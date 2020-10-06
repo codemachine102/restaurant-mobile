@@ -10,10 +10,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		15229576150B4EDC80F2E9C3 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */; };
 		1886945EE711B8B3D1139444 /* libPods-BFast Venue Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD5EF3B4F18376A474E76C /* libPods-BFast Venue Staging.a */; };
+		19E59C2753D54F32B7F6A788 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */; };
+		1C1E9773F0D44CC2B4478454 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */; };
+		210D179C0F934E1EAB0B4266 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		2A387789675C4488BE31DFF0 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */; };
+		4A782474094B403490FEBC07 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */; };
 		73FCEA0ED4080CE11E6706B8 /* libPods-BFast Customer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7E9A452BDB859D5C1964DE /* libPods-BFast Customer.a */; };
+		74C71B7483034DFC90C5A449 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */; };
 		7C941EE46DCDF0BB547E1411 /* libPods-BFast Venue.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CDFE118F2714F399C81447 /* libPods-BFast Venue.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8A211A4174C14CFDBEAFD8A9 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */; };
+		8DDE71D69F4540A0AFAF51B4 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */; };
 		908460A6252B6791009078F7 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 908460A5252B6791009078F7 /* Config.xcconfig */; };
 		90846167252B7889009078F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		90846168252B7889009078F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -30,6 +39,45 @@
 		908461A9252B7981009078F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		908461AA252B7981009078F7 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 908460A5252B6791009078F7 /* Config.xcconfig */; };
 		908461AC252B7981009078F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		9086C694252CD97600635485 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */; };
+		9086C695252CD97600635485 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */; };
+		9086C696252CD97600635485 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */; };
+		9086C697252CD97600635485 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */; };
+		9086C698252CD97600635485 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */; };
+		9086C699252CD97600635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		9086C69A252CD97600635485 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */; };
+		9086C69B252CD97600635485 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */; };
+		9086C69C252CD97600635485 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */; };
+		9086C69D252CD97600635485 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */; };
+		9086C69E252CD97600635485 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */; };
+		9086C69F252CD97600635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		9086C6A4252CD98600635485 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */; };
+		9086C6A5252CD98600635485 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */; };
+		9086C6A6252CD98600635485 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */; };
+		9086C6A7252CD98600635485 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */; };
+		9086C6A8252CD98600635485 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */; };
+		9086C6A9252CD98600635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		9086C6AA252CD98600635485 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */; };
+		9086C6AB252CD98600635485 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */; };
+		9086C6AC252CD98600635485 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */; };
+		9086C6AD252CD98600635485 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */; };
+		9086C6AE252CD98600635485 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */; };
+		9086C6AF252CD98600635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		9086C6B4252CD9A300635485 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */; };
+		9086C6B5252CD9A300635485 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */; };
+		9086C6B6252CD9A300635485 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */; };
+		9086C6B7252CD9A300635485 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */; };
+		9086C6B8252CD9A300635485 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */; };
+		9086C6B9252CD9A300635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		9086C6BA252CD9A300635485 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */; };
+		9086C6BB252CD9A300635485 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */; };
+		9086C6BC252CD9A300635485 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */; };
+		9086C6BD252CD9A300635485 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */; };
+		9086C6BE252CD9A300635485 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */; };
+		9086C6BF252CD9A300635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		967CC28D61BD4AA2AA43093A /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */; };
+		98C847CF8B774100BACC8E2B /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */; };
+		F2340DEB69D74A8B853078FF /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */; };
 		FED08A3C8FC77340640F0196 /* libPods-BFast Customer Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1300ACF9351FD82EE9944C /* libPods-BFast Customer Staging.a */; };
 /* End PBXBuildFile section */
 
@@ -41,12 +89,17 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BFast/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BFast/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BFast/main.m; sourceTree = "<group>"; };
+		14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-SemiBoldItalic.ttf"; path = "../app/assets/fonts/SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		214A4E85395849579BC0802F /* Pods-BFast Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer.release.xcconfig"; path = "Target Support Files/Pods-BFast Customer/Pods-BFast Customer.release.xcconfig"; sourceTree = "<group>"; };
 		2653A892BD394513DFF2DD21 /* Pods-BFast Venue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue.release.xcconfig"; path = "Target Support Files/Pods-BFast Venue/Pods-BFast Venue.release.xcconfig"; sourceTree = "<group>"; };
 		29CDFE118F2714F399C81447 /* libPods-BFast Venue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Venue.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA6B216347F269B38CBF0DA /* Pods-BFast Venue Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue Staging.release.xcconfig"; path = "Target Support Files/Pods-BFast Venue Staging/Pods-BFast Venue Staging.release.xcconfig"; sourceTree = "<group>"; };
+		2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-BlackItalic.ttf"; path = "../app/assets/fonts/SourceSansPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Regular.ttf"; path = "../app/assets/fonts/SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		30356262F298BFF20429B7D8 /* Pods-BFast Venue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue.debug.xcconfig"; path = "Target Support Files/Pods-BFast Venue/Pods-BFast Venue.debug.xcconfig"; sourceTree = "<group>"; };
+		4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-SemiBold.ttf"; path = "../app/assets/fonts/SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		67886DAE6C78185D6DED02A0 /* libPods-BFast-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Bold.ttf"; path = "../app/assets/fonts/SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BFast/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865E7FE27493267E5A8B07DA /* libPods-BFast-BFastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-BFastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1300ACF9351FD82EE9944C /* libPods-BFast Customer Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Customer Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,11 +109,18 @@
 		908461B2252B7981009078F7 /* BFast Venue Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Venue Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD4AD1E0D77C1F9D75BA623 /* Pods-BFast Customer Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer Staging.debug.xcconfig"; path = "Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging.debug.xcconfig"; sourceTree = "<group>"; };
 		9EDD5EF3B4F18376A474E76C /* libPods-BFast Venue Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Venue Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-BoldItalic.ttf"; path = "../app/assets/fonts/SourceSansPro-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-LightItalic.ttf"; path = "../app/assets/fonts/SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		B3BE7D829917A403EAA452DE /* Pods-BFast Venue Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue Staging.debug.xcconfig"; path = "Target Support Files/Pods-BFast Venue Staging/Pods-BFast Venue Staging.debug.xcconfig"; sourceTree = "<group>"; };
+		B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Black.ttf"; path = "../app/assets/fonts/SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
 		CC7E9A452BDB859D5C1964DE /* libPods-BFast Customer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Customer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Italic.ttf"; path = "../app/assets/fonts/SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
+		E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-ExtraLight.ttf"; path = "../app/assets/fonts/SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
+		E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-ExtraLightItalic.ttf"; path = "../app/assets/fonts/SourceSansPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		EAEC9667237395E6606E8A47 /* Pods-BFast Customer Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer Staging.release.xcconfig"; path = "Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SourceSansPro-Light.ttf"; path = "../app/assets/fonts/SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		EFDFD7BD1C14728BC8F26209 /* Pods-BFast Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer.debug.xcconfig"; path = "Target Support Files/Pods-BFast Customer/Pods-BFast Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		F0A2968E0B9CE3127D250C88 /* libPods-BFast-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +191,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		338E85902E744E0E8A1E1524 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B811C08B9E274C0A9ACC9C59 /* SourceSansPro-Black.ttf */,
+				2DE1497CC297475A9C80B5C8 /* SourceSansPro-BlackItalic.ttf */,
+				77A99F5C1E904E0CA0031CF6 /* SourceSansPro-Bold.ttf */,
+				A41AF71C4FDA4D7DBC705C5B /* SourceSansPro-BoldItalic.ttf */,
+				E02B2408F5EE4DB5A1192F9A /* SourceSansPro-ExtraLight.ttf */,
+				E731D2CA622F4584B82F86E4 /* SourceSansPro-ExtraLightItalic.ttf */,
+				DFD0122EF2994993ABAA5EE0 /* SourceSansPro-Italic.ttf */,
+				EEB7EE57F04A40C0AFEB56AD /* SourceSansPro-Light.ttf */,
+				A60924A6CC7A422D9A7DEEAE /* SourceSansPro-LightItalic.ttf */,
+				2E9CC5700432436C98FB8C00 /* SourceSansPro-Regular.ttf */,
+				4B58931DEF7A49AA80FFAA29 /* SourceSansPro-SemiBold.ttf */,
+				14367400EB1641C19B444689 /* SourceSansPro-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +226,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A8F39D5E7F949E3913966C3D /* Pods */,
+				338E85902E744E0E8A1E1524 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -309,6 +389,18 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				908460A6252B6791009078F7 /* Config.xcconfig in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8DDE71D69F4540A0AFAF51B4 /* SourceSansPro-Black.ttf in Resources */,
+				19E59C2753D54F32B7F6A788 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				74C71B7483034DFC90C5A449 /* SourceSansPro-Bold.ttf in Resources */,
+				4A782474094B403490FEBC07 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				967CC28D61BD4AA2AA43093A /* SourceSansPro-ExtraLight.ttf in Resources */,
+				98C847CF8B774100BACC8E2B /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				8A211A4174C14CFDBEAFD8A9 /* SourceSansPro-Italic.ttf in Resources */,
+				F2340DEB69D74A8B853078FF /* SourceSansPro-Light.ttf in Resources */,
+				1C1E9773F0D44CC2B4478454 /* SourceSansPro-LightItalic.ttf in Resources */,
+				15229576150B4EDC80F2E9C3 /* SourceSansPro-Regular.ttf in Resources */,
+				2A387789675C4488BE31DFF0 /* SourceSansPro-SemiBold.ttf in Resources */,
+				210D179C0F934E1EAB0B4266 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +411,18 @@
 				9084616C252B7889009078F7 /* LaunchScreen.storyboard in Resources */,
 				9084616D252B7889009078F7 /* Config.xcconfig in Resources */,
 				9084616E252B7889009078F7 /* Images.xcassets in Resources */,
+				9086C694252CD97600635485 /* SourceSansPro-Black.ttf in Resources */,
+				9086C695252CD97600635485 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				9086C696252CD97600635485 /* SourceSansPro-Bold.ttf in Resources */,
+				9086C697252CD97600635485 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				9086C698252CD97600635485 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				9086C699252CD97600635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				9086C69A252CD97600635485 /* SourceSansPro-Italic.ttf in Resources */,
+				9086C69B252CD97600635485 /* SourceSansPro-Light.ttf in Resources */,
+				9086C69C252CD97600635485 /* SourceSansPro-LightItalic.ttf in Resources */,
+				9086C69D252CD97600635485 /* SourceSansPro-Regular.ttf in Resources */,
+				9086C69E252CD97600635485 /* SourceSansPro-SemiBold.ttf in Resources */,
+				9086C69F252CD97600635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +433,18 @@
 				90846189252B7927009078F7 /* LaunchScreen.storyboard in Resources */,
 				9084618A252B7927009078F7 /* Config.xcconfig in Resources */,
 				9084618C252B7927009078F7 /* Images.xcassets in Resources */,
+				9086C6A4252CD98600635485 /* SourceSansPro-Black.ttf in Resources */,
+				9086C6A5252CD98600635485 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				9086C6A6252CD98600635485 /* SourceSansPro-Bold.ttf in Resources */,
+				9086C6A7252CD98600635485 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				9086C6A8252CD98600635485 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				9086C6A9252CD98600635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				9086C6AA252CD98600635485 /* SourceSansPro-Italic.ttf in Resources */,
+				9086C6AB252CD98600635485 /* SourceSansPro-Light.ttf in Resources */,
+				9086C6AC252CD98600635485 /* SourceSansPro-LightItalic.ttf in Resources */,
+				9086C6AD252CD98600635485 /* SourceSansPro-Regular.ttf in Resources */,
+				9086C6AE252CD98600635485 /* SourceSansPro-SemiBold.ttf in Resources */,
+				9086C6AF252CD98600635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +455,18 @@
 				908461A9252B7981009078F7 /* LaunchScreen.storyboard in Resources */,
 				908461AA252B7981009078F7 /* Config.xcconfig in Resources */,
 				908461AC252B7981009078F7 /* Images.xcassets in Resources */,
+				9086C6B4252CD9A300635485 /* SourceSansPro-Black.ttf in Resources */,
+				9086C6B5252CD9A300635485 /* SourceSansPro-BlackItalic.ttf in Resources */,
+				9086C6B6252CD9A300635485 /* SourceSansPro-Bold.ttf in Resources */,
+				9086C6B7252CD9A300635485 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				9086C6B8252CD9A300635485 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				9086C6B9252CD9A300635485 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
+				9086C6BA252CD9A300635485 /* SourceSansPro-Italic.ttf in Resources */,
+				9086C6BB252CD9A300635485 /* SourceSansPro-Light.ttf in Resources */,
+				9086C6BC252CD9A300635485 /* SourceSansPro-LightItalic.ttf in Resources */,
+				9086C6BD252CD9A300635485 /* SourceSansPro-Regular.ttf in Resources */,
+				9086C6BE252CD9A300635485 /* SourceSansPro-SemiBold.ttf in Resources */,
+				9086C6BF252CD9A300635485 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

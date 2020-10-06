@@ -3,11 +3,11 @@ import { fontSize, space, color, borderRadius, borderColor } from 'styled-system
 
 import { getColor, fontFamilyComposite } from 'theme'
 
+import { Box } from '../Box'
 import { FieldLabel as FieldLabelUI } from '../FieldLabel'
+import { FieldBottom as FieldBottomUI } from '../FieldBottom'
 
-export { FieldBottom } from '../FieldBottom'
-
-export const Container = styled.View``
+export const Container = styled(Box)``
 
 export const Input = styled.TextInput.attrs((props) => {
   return {
@@ -62,6 +62,18 @@ export const Input = styled.TextInput.attrs((props) => {
   ${fontFamilyComposite}
 `
 
-export const FieldLabel = styled(FieldLabelUI).attrs({ mb: 2 })`
+export const FieldLabel = styled(FieldLabelUI).attrs(() => {
+  return {
+    mb: 2,
+  }
+})`
+  ${space}
+`
+
+export const FieldBottom = styled(FieldBottomUI).attrs(() => {
+  return {
+    mt: 2,
+  }
+})`
   ${space}
 `

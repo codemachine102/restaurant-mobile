@@ -7,8 +7,8 @@ export const Container = styled(Box)``
 
 export const Message = styled(Text).attrs(() => {
   return {
+    color: 'negative',
     fontSize: 0,
-    color: 'bittersweet',
     numberOfLines: 2,
   }
 })``
