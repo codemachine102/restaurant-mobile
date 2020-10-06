@@ -126,6 +126,8 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    flavorDimensions "app"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -138,8 +140,17 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
+        lintOptions {
+            checkReleaseBuilds false // Prevent crashing because of dynamic app_icon value
+        }
+
+        renderscriptTargetApi 23
+        renderscriptSupportModeEnabled true
 
         resValue "string", "build_config_package", "com.bfast"
+        resValue "string", "LINKING_UNIVERSAL_SCHEMA", "https"
     }
 
     splits {
@@ -164,12 +175,38 @@ android {
         debug {
             signingConfig signingConfigs.debug
         }
+
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    productFlavors {
+        venueStaging {
+            applicationIdSuffix ".venue.staging"
+            resValue "string", "app_name", "BFast Venue Staging"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "staging.venue.bfast.com"
+        }
+
+        venueProduction {
+            applicationIdSuffix ".venue"
+            resValue "string", "app_name", "BFast Venue"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "venue.bfast.com"
+        }
+
+        consumerStaging {
+            applicationIdSuffix ".consumer.staging"
+            resValue "string", "app_name", "BFast Staging"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "staging.bfast.com"
+        }
+
+        consumerProduction {
+            applicationIdSuffix ".consumer"
+            resValue "string", "app_name", "BFast"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "bfast.com"
         }
     }
 

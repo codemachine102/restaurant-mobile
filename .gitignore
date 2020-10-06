@@ -63,6 +63,7 @@ buck-out/
 
 # Misc
 #
+.env
 .env.customer
 .env.customer.staging
 .env.venue

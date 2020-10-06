@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>$(DEEP_LINK_IDENTIFIER)</string>
+			<string>$(LINKING_DEEP_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(DEEP_LINK_URL_SCHEMA)</string>
+				<string>$(LINKING_DEEP_SCHEMA)</string>
 			</array>
 		</dict>
 	</array>
