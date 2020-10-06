@@ -14,6 +14,8 @@ import GET_ME from 'graphql/queries/me.graphql'
 import { selectIsAuthenticated } from 'store/slices/session'
 import { selectTheme } from 'store/slices/theme'
 
+import { RootNavigator } from 'navigation/navigators/root'
+
 import { ProgressScreen } from 'screens/Progress'
 
 const StatefulNavigation = () => {
@@ -34,7 +36,7 @@ const StatefulNavigation = () => {
     <ThemeProvider {...{ theme }}>
       <AppProvider {...{ viewer }}>
         <NavigationContainer ref={NavigationService.navigationRef} onReady={handleNavigationReady}>
-          <ProgressScreen />
+          {meQuery.loading ? <ProgressScreen /> : <RootNavigator />}
         </NavigationContainer>
       </AppProvider>
     </ThemeProvider>

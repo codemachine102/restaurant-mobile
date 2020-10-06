@@ -15,7 +15,7 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "90846163252B7889009078F7"
-                     BuildableName = "BFast Staging.app"
+                     BuildableName = "BFast Customer Staging.app"
                      BlueprintName = "BFast Customer Staging"
                      ReferencedContainer = "container:BFast.xcodeproj">
                   </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "90846163252B7889009078F7"
-               BuildableName = "BFast Staging.app"
+               BuildableName = "BFast Customer Staging.app"
                BlueprintName = "BFast Customer Staging"
                ReferencedContainer = "container:BFast.xcodeproj">
             </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90846163252B7889009078F7"
-            BuildableName = "BFast Staging.app"
+            BuildableName = "BFast Customer Staging.app"
             BlueprintName = "BFast Customer Staging"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "90846163252B7889009078F7"
-            BuildableName = "BFast Staging.app"
+            BuildableName = "BFast Customer Staging.app"
             BlueprintName = "BFast Customer Staging"
             ReferencedContainer = "container:BFast.xcodeproj">
          </BuildableReference>

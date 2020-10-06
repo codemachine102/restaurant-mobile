@@ -5,8 +5,7 @@ import { createSlice, createSelector } from '@reduxjs/toolkit'
 import noop from 'lodash/noop'
 
 const initialState = {
-  token:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwZGZiZGU4Mi1iZTRlLTQ4YzQtYTZjNi1lMzQ3NGE3YWM2NjEiLCJrZXkiOiJWUFBUV1ZEajlNdkoiLCJpYXQiOjE2MDE5OTY5MzIsImV4cCI6MTYwMjA4MzMzMn0.MUAvWGZkCB0mhsJwQ5igd2b02muW3T8til19gaHthXA',
+  token: null,
   refreshToken: null,
 }
 
