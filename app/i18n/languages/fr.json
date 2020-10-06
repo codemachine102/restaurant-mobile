@@ -1,0 +1,44 @@
+{
+  "form": {
+    "validator": {
+      "presence": "[EN] is required",
+      "matching": "[EN] doesn't match",
+      "email": "[EN] is invalid email"
+    }
+  },
+  "screen": {
+    "signIn": {
+      "form": {
+        "label": {
+          "email": "[EN] Email",
+          "password": "[EN] Password"
+        },
+        "placeholder": {
+          "email": "[EN] Enter your email",
+          "password": "[EN] Enter your password"
+        }
+      },
+      "button": {
+        "signIn": "[EN] Sign in",
+        "forgotPassword": "[EN] Forgot your password?"
+      }
+    },
+    "resetPassword": {
+      "form": {
+        "label": {
+          "email": "[EN] Email"
+        },
+        "placeholder": {
+          "email": "[EN] Enter your email"
+        }
+      },
+      "phrase": {
+        "instruction": "[EN] Please enter your email to reset\nyour password"
+      },
+      "button": {
+        "send": "[EN] Send reset link",
+        "back": "[EN] Go back"
+      }
+    }
+  }
+}

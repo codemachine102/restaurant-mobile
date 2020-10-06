@@ -1,0 +1,6 @@
+fragment UserProfileFields on UserProfile {
+  id
+  firstName
+  lastName
+  photoUrl
+}
