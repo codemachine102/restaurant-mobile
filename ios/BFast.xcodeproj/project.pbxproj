@@ -11,8 +11,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1886945EE711B8B3D1139444 /* libPods-BFast Venue Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDD5EF3B4F18376A474E76C /* libPods-BFast Venue Staging.a */; };
-		1AA085841C33DD9F8A0EED04 /* libPods-BFast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7EE522E65E2A7FAB2D763 /* libPods-BFast.a */; };
-		68389AD8490F1E560207F3C8 /* libPods-BFast Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8B00BE659A8EDD7CE9B802 /* libPods-BFast Staging.a */; };
+		73FCEA0ED4080CE11E6706B8 /* libPods-BFast Customer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7E9A452BDB859D5C1964DE /* libPods-BFast Customer.a */; };
 		7C941EE46DCDF0BB547E1411 /* libPods-BFast Venue.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CDFE118F2714F399C81447 /* libPods-BFast Venue.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		908460A6252B6791009078F7 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 908460A5252B6791009078F7 /* Config.xcconfig */; };
@@ -31,44 +30,38 @@
 		908461A9252B7981009078F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		908461AA252B7981009078F7 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 908460A5252B6791009078F7 /* Config.xcconfig */; };
 		908461AC252B7981009078F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		FDA2FCCED4164C7BBF13EA94 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		FED08A3C8FC77340640F0196 /* libPods-BFast Customer Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1300ACF9351FD82EE9944C /* libPods-BFast Customer Staging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		130E5D24224756967A683EDE /* Pods-BFast-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-BFast-tvOSTests/Pods-BFast-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BFast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* BFast Customer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Customer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BFast/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BFast/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BFast/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BFast/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BFast/main.m; sourceTree = "<group>"; };
-		21F340612D1D91E63C768964 /* Pods-BFast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast.release.xcconfig"; path = "Target Support Files/Pods-BFast/Pods-BFast.release.xcconfig"; sourceTree = "<group>"; };
-		21F7EE522E65E2A7FAB2D763 /* libPods-BFast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		214A4E85395849579BC0802F /* Pods-BFast Customer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer.release.xcconfig"; path = "Target Support Files/Pods-BFast Customer/Pods-BFast Customer.release.xcconfig"; sourceTree = "<group>"; };
 		2653A892BD394513DFF2DD21 /* Pods-BFast Venue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue.release.xcconfig"; path = "Target Support Files/Pods-BFast Venue/Pods-BFast Venue.release.xcconfig"; sourceTree = "<group>"; };
 		29CDFE118F2714F399C81447 /* libPods-BFast Venue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Venue.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA6B216347F269B38CBF0DA /* Pods-BFast Venue Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue Staging.release.xcconfig"; path = "Target Support Files/Pods-BFast Venue Staging/Pods-BFast Venue Staging.release.xcconfig"; sourceTree = "<group>"; };
 		30356262F298BFF20429B7D8 /* Pods-BFast Venue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue.debug.xcconfig"; path = "Target Support Files/Pods-BFast Venue/Pods-BFast Venue.debug.xcconfig"; sourceTree = "<group>"; };
-		35D085D9BEC5DC43FBCD89F2 /* Pods-BFast Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Staging.debug.xcconfig"; path = "Target Support Files/Pods-BFast Staging/Pods-BFast Staging.debug.xcconfig"; sourceTree = "<group>"; };
-		4282A15774DA9E9363843449 /* Pods-BFast-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-BFast-tvOS/Pods-BFast-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6684B22FBBDE1BE94525A590 /* Pods-BFast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast.debug.xcconfig"; path = "Target Support Files/Pods-BFast/Pods-BFast.debug.xcconfig"; sourceTree = "<group>"; };
 		67886DAE6C78185D6DED02A0 /* libPods-BFast-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75D47F315A746A582FDEE8F0 /* Pods-BFast Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Staging.release.xcconfig"; path = "Target Support Files/Pods-BFast Staging/Pods-BFast Staging.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BFast/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		865E7FE27493267E5A8B07DA /* libPods-BFast-BFastTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-BFastTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		869BC69084AD554B9A65A2A6 /* Pods-BFast-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-tvOS.release.xcconfig"; path = "Target Support Files/Pods-BFast-tvOS/Pods-BFast-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		8A1300ACF9351FD82EE9944C /* libPods-BFast Customer Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Customer Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		908460A5252B6791009078F7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		90846174252B7889009078F7 /* BFast Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90846174252B7889009078F7 /* BFast Customer Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Customer Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90846192252B7927009078F7 /* BFast Venue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Venue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		908461B2252B7981009078F7 /* BFast Venue Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BFast Venue Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AD4AD1E0D77C1F9D75BA623 /* Pods-BFast Customer Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer Staging.debug.xcconfig"; path = "Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging.debug.xcconfig"; sourceTree = "<group>"; };
 		9EDD5EF3B4F18376A474E76C /* libPods-BFast Venue Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Venue Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB8B00BE659A8EDD7CE9B802 /* libPods-BFast Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B079C7C7AF7B81A65E488F0E /* Pods-BFast-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-BFast-tvOSTests/Pods-BFast-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3BE7D829917A403EAA452DE /* Pods-BFast Venue Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Venue Staging.debug.xcconfig"; path = "Target Support Files/Pods-BFast Venue Staging/Pods-BFast Venue Staging.debug.xcconfig"; sourceTree = "<group>"; };
-		BEF38FF7980A8159C30F5640 /* Pods-BFast-BFastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-BFastTests.release.xcconfig"; path = "Target Support Files/Pods-BFast-BFastTests/Pods-BFast-BFastTests.release.xcconfig"; sourceTree = "<group>"; };
-		C52CA9CE4500E65EE7B53734 /* Pods-BFast-BFastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast-BFastTests.debug.xcconfig"; path = "Target Support Files/Pods-BFast-BFastTests/Pods-BFast-BFastTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC7E9A452BDB859D5C1964DE /* libPods-BFast Customer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast Customer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAEC9667237395E6606E8A47 /* Pods-BFast Customer Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer Staging.release.xcconfig"; path = "Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EFDFD7BD1C14728BC8F26209 /* Pods-BFast Customer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFast Customer.debug.xcconfig"; path = "Target Support Files/Pods-BFast Customer/Pods-BFast Customer.debug.xcconfig"; sourceTree = "<group>"; };
 		F0A2968E0B9CE3127D250C88 /* libPods-BFast-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BFast-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,8 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDA2FCCED4164C7BBF13EA94 /* BuildFile in Frameworks */,
-				1AA085841C33DD9F8A0EED04 /* libPods-BFast.a in Frameworks */,
+				73FCEA0ED4080CE11E6706B8 /* libPods-BFast Customer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68389AD8490F1E560207F3C8 /* libPods-BFast Staging.a in Frameworks */,
+				FED08A3C8FC77340640F0196 /* libPods-BFast Customer Staging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,10 +123,10 @@
 				865E7FE27493267E5A8B07DA /* libPods-BFast-BFastTests.a */,
 				67886DAE6C78185D6DED02A0 /* libPods-BFast-tvOS.a */,
 				F0A2968E0B9CE3127D250C88 /* libPods-BFast-tvOSTests.a */,
-				AB8B00BE659A8EDD7CE9B802 /* libPods-BFast Staging.a */,
 				29CDFE118F2714F399C81447 /* libPods-BFast Venue.a */,
 				9EDD5EF3B4F18376A474E76C /* libPods-BFast Venue Staging.a */,
-				21F7EE522E65E2A7FAB2D763 /* libPods-BFast.a */,
+				CC7E9A452BDB859D5C1964DE /* libPods-BFast Customer.a */,
+				8A1300ACF9351FD82EE9944C /* libPods-BFast Customer Staging.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,8 +156,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BFast.app */,
-				90846174252B7889009078F7 /* BFast Staging.app */,
+				13B07F961A680F5B00A75B9A /* BFast Customer.app */,
+				90846174252B7889009078F7 /* BFast Customer Staging.app */,
 				90846192252B7927009078F7 /* BFast Venue.app */,
 				908461B2252B7981009078F7 /* BFast Venue Staging.app */,
 			);
@@ -175,20 +167,14 @@
 		A8F39D5E7F949E3913966C3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6684B22FBBDE1BE94525A590 /* Pods-BFast.debug.xcconfig */,
-				21F340612D1D91E63C768964 /* Pods-BFast.release.xcconfig */,
-				C52CA9CE4500E65EE7B53734 /* Pods-BFast-BFastTests.debug.xcconfig */,
-				BEF38FF7980A8159C30F5640 /* Pods-BFast-BFastTests.release.xcconfig */,
-				4282A15774DA9E9363843449 /* Pods-BFast-tvOS.debug.xcconfig */,
-				869BC69084AD554B9A65A2A6 /* Pods-BFast-tvOS.release.xcconfig */,
-				130E5D24224756967A683EDE /* Pods-BFast-tvOSTests.debug.xcconfig */,
-				B079C7C7AF7B81A65E488F0E /* Pods-BFast-tvOSTests.release.xcconfig */,
-				35D085D9BEC5DC43FBCD89F2 /* Pods-BFast Staging.debug.xcconfig */,
-				75D47F315A746A582FDEE8F0 /* Pods-BFast Staging.release.xcconfig */,
 				30356262F298BFF20429B7D8 /* Pods-BFast Venue.debug.xcconfig */,
 				2653A892BD394513DFF2DD21 /* Pods-BFast Venue.release.xcconfig */,
 				B3BE7D829917A403EAA452DE /* Pods-BFast Venue Staging.debug.xcconfig */,
 				2DA6B216347F269B38CBF0DA /* Pods-BFast Venue Staging.release.xcconfig */,
+				EFDFD7BD1C14728BC8F26209 /* Pods-BFast Customer.debug.xcconfig */,
+				214A4E85395849579BC0802F /* Pods-BFast Customer.release.xcconfig */,
+				9AD4AD1E0D77C1F9D75BA623 /* Pods-BFast Customer Staging.debug.xcconfig */,
+				EAEC9667237395E6606E8A47 /* Pods-BFast Customer Staging.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -196,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* BFast */ = {
+		13B07F861A680F5B00A75B9A /* BFast Customer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BFast" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BFast Customer" */;
 			buildPhases = (
 				A1528F7DAF2C98B675BEDFA9 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -212,14 +198,14 @@
 			);
 			dependencies = (
 			);
-			name = BFast;
+			name = "BFast Customer";
 			productName = BFast;
-			productReference = 13B07F961A680F5B00A75B9A /* BFast.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* BFast Customer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		90846163252B7889009078F7 /* BFast Staging */ = {
+		90846163252B7889009078F7 /* BFast Customer Staging */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90846171252B7889009078F7 /* Build configuration list for PBXNativeTarget "BFast Staging" */;
+			buildConfigurationList = 90846171252B7889009078F7 /* Build configuration list for PBXNativeTarget "BFast Customer Staging" */;
 			buildPhases = (
 				90846164252B7889009078F7 /* [CP] Check Pods Manifest.lock */,
 				90846165252B7889009078F7 /* Start Packager */,
@@ -233,9 +219,9 @@
 			);
 			dependencies = (
 			);
-			name = "BFast Staging";
+			name = "BFast Customer Staging";
 			productName = BFast;
-			productReference = 90846174252B7889009078F7 /* BFast Staging.app */;
+			productReference = 90846174252B7889009078F7 /* BFast Customer Staging.app */;
 			productType = "com.apple.product-type.application";
 		};
 		90846180252B7927009078F7 /* BFast Venue */ = {
@@ -307,8 +293,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BFast */,
-				90846163252B7889009078F7 /* BFast Staging */,
+				13B07F861A680F5B00A75B9A /* BFast Customer */,
+				90846163252B7889009078F7 /* BFast Customer Staging */,
 				90846180252B7927009078F7 /* BFast Venue */,
 				908461A0252B7981009078F7 /* BFast Venue Staging */,
 			);
@@ -379,7 +365,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BFast/Pods-BFast-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BFast Customer/Pods-BFast Customer-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
@@ -390,7 +376,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BFast/Pods-BFast-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BFast Customer/Pods-BFast Customer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		90846164252B7889009078F7 /* [CP] Check Pods Manifest.lock */ = {
@@ -408,7 +394,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BFast Staging-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BFast Customer Staging-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -454,7 +440,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BFast Staging/Pods-BFast Staging-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
@@ -465,7 +451,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BFast Staging/Pods-BFast Staging-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BFast Customer Staging/Pods-BFast Customer Staging-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		90846181252B7927009078F7 /* [CP] Check Pods Manifest.lock */ = {
@@ -633,7 +619,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BFast-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BFast Customer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -703,24 +689,24 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6684B22FBBDE1BE94525A590 /* Pods-BFast.debug.xcconfig */;
+			baseConfigurationReference = EFDFD7BD1C14728BC8F26209 /* Pods-BFast Customer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfast;
+				DISPLAY_NAME = BFast;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BFast/Info.plist;
-				KEK = testing;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfast;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bfast;
-				PRODUCT_NAME = BFast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.customer;
+				PRODUCT_NAME = "BFast Customer";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -729,23 +715,23 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21F340612D1D91E63C768964 /* Pods-BFast.release.xcconfig */;
+			baseConfigurationReference = 214A4E85395849579BC0802F /* Pods-BFast Customer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DISPLAY_NAME = BFast;
+				INFOPLIST_FILE = BFast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				LINKING_DEEP_SCHEMA = bfast;
-				INFOPLIST_FILE = BFast/Info.plist;
-				KEK = testing;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bfast;
-				PRODUCT_NAME = BFast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.customer;
+				PRODUCT_NAME = "BFast Customer";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -868,24 +854,25 @@
 		};
 		90846172252B7889009078F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35D085D9BEC5DC43FBCD89F2 /* Pods-BFast Staging.debug.xcconfig */;
+			baseConfigurationReference = 9AD4AD1E0D77C1F9D75BA623 /* Pods-BFast Customer Staging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfaststaging;
+				DISPLAY_NAME = "BFast Staging";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfaststaging;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.staging;
-				PRODUCT_NAME = "BFast Staging";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.customer.staging;
+				PRODUCT_NAME = "BFast Customer Staging";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -895,23 +882,24 @@
 		};
 		90846173252B7889009078F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75D47F315A746A582FDEE8F0 /* Pods-BFast Staging.release.xcconfig */;
+			baseConfigurationReference = EAEC9667237395E6606E8A47 /* Pods-BFast Customer Staging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfaststaging;
+				DISPLAY_NAME = "BFast Staging";
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfaststaging;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.staging;
-				PRODUCT_NAME = "BFast Staging";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bfast.customer.staging;
+				PRODUCT_NAME = "BFast Customer Staging";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -925,12 +913,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfastvenue;
+				DISPLAY_NAME = "BFast Venue";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfastvenue;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -952,11 +941,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfastvenue;
+				DISPLAY_NAME = "BFast Venue";
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfastvenue;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -977,12 +967,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfastvenuestaging;
+				DISPLAY_NAME = "BFast Venue Staging";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfastvenuestaging;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1004,11 +995,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
-				LINKING_DEEP_SCHEMA = bfastvenuestaging;
+				DISPLAY_NAME = "BFast Venue Staging";
 				INFOPLIST_FILE = BFast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINKING_DEEP_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				LINKING_DEEP_SCHEMA = bfastvenuestaging;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1025,7 +1017,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BFast" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BFast Customer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1043,7 +1035,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90846171252B7889009078F7 /* Build configuration list for PBXNativeTarget "BFast Staging" */ = {
+		90846171252B7889009078F7 /* Build configuration list for PBXNativeTarget "BFast Customer Staging" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90846172252B7889009078F7 /* Debug */,

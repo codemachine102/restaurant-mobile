@@ -197,16 +197,16 @@ android {
             resValue "string", "LINKING_UNIVERSAL_HOST", "venue.bfast.com"
         }
 
-        consumerStaging {
-            applicationIdSuffix ".consumer.staging"
+        customerStaging {
+            applicationIdSuffix ".customer.staging"
             resValue "string", "app_name", "BFast Staging"
-            resValue "string", "LINKING_UNIVERSAL_HOST", "staging.bfast.com"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "staging.customer.bfast.com"
         }
 
-        consumerProduction {
-            applicationIdSuffix ".consumer"
+        customerProduction {
+            applicationIdSuffix ".customer"
             resValue "string", "app_name", "BFast"
-            resValue "string", "LINKING_UNIVERSAL_HOST", "bfast.com"
+            resValue "string", "LINKING_UNIVERSAL_HOST", "customer.bfast.com"
         }
     }
 

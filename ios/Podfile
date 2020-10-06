@@ -9,11 +9,11 @@ def pods()
   use_react_native!(:path => config["reactNativePath"])
 end
 
-target 'BFast' do
+target 'BFast Customer' do
   pods()
 end
 
-target 'BFast Staging' do
+target 'BFast Customer Staging' do
   pods()
 end
 
