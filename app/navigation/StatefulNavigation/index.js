@@ -14,6 +14,8 @@ import GET_ME from 'graphql/queries/me.graphql'
 import { selectIsAuthenticated } from 'store/slices/session'
 import { selectTheme } from 'store/slices/theme'
 
+import { ProgressScreen } from 'screens/Progress'
+
 const StatefulNavigation = () => {
   const theme = useSelector(selectTheme)
   const isAuthenticated = useSelector(selectIsAuthenticated)
@@ -32,7 +34,7 @@ const StatefulNavigation = () => {
     <ThemeProvider {...{ theme }}>
       <AppProvider {...{ viewer }}>
         <NavigationContainer ref={NavigationService.navigationRef} onReady={handleNavigationReady}>
-          {null}
+          <ProgressScreen />
         </NavigationContainer>
       </AppProvider>
     </ThemeProvider>

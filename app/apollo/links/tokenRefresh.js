@@ -7,7 +7,7 @@ import identity from 'lodash/identity'
 
 import {
   selectToken,
-  selectRefreshToken,
+  // selectRefreshToken,
   logOutRequest,
   refreshTokenSuccess,
 } from 'store/slices/session'
@@ -32,7 +32,6 @@ export const tokenRefreshLink = ({ store }) => {
     },
 
     fetchAccessToken: () => {
-      console.log('refresh')
       // const refreshToken = selectRefreshToken(store.getState())
       // return refresh({ refreshToken })
     },

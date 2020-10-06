@@ -9,14 +9,12 @@ import DebugConfig from './debug'
 
 const manageKeyboard = () => {
   PickingService.invokeForPlatform({
-    platform: {
-      ios: () => {
-        const KeyboardManager = require('react-native-keyboard-manager').default
+    ios: () => {
+      const KeyboardManager = require('react-native-keyboard-manager').default
 
-        KeyboardManager.setKeyboardDistanceFromTextField(5)
-        KeyboardManager.setToolbarPreviousNextButtonEnable(true)
-        KeyboardManager.setShouldShowToolbarPlaceholder(false)
-      },
+      KeyboardManager.setKeyboardDistanceFromTextField(5)
+      KeyboardManager.setToolbarPreviousNextButtonEnable(true)
+      KeyboardManager.setShouldShowToolbarPlaceholder(false)
     },
   })
 }
