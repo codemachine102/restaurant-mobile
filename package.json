@@ -127,8 +127,7 @@
     "app/**/*.{js,jsx,json}": [
       "yarn lint:fix",
       "yarn stylelint",
-      "prettier --config .prettierrc --write",
-      "git add"
+      "prettier --config .prettierrc --write"
     ]
   }
 }
