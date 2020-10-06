@@ -1,0 +1,7 @@
+#import "../fragments/authToken.graphql"
+
+mutation SignInByEmail($email: String!, $password: String!, $withRefresh: Boolean) {
+  signInByEmail(email: $email, password: $password, withRefresh: $withRefresh) {
+    ...AuthTokenFields
+  }
+}

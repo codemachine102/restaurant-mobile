@@ -1,4 +1,8 @@
 import React, { useRef, useMemo, useCallback } from 'react'
+import { useMutation } from '@apollo/client'
+import { useDispatch } from 'react-redux'
+
+import get from 'lodash/get'
 
 import i18n from 'i18n'
 
@@ -6,9 +10,13 @@ import ValidationService from 'services/validation'
 
 import * as Routes from 'navigation/routes'
 
+import SIGN_IN_BY_EMAIL from 'graphql/mutations/signInByEmail.graphql'
+
 import AppConfig from 'config/app'
 
 import { ReactNavigationPropTypes } from 'constants/propTypes'
+
+import { signInSuccess } from 'store/slices/session'
 
 import {
   Container,
@@ -27,6 +35,9 @@ import {
 
 const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
+
+  const dispatch = useDispatch()
+  const [signIn] = useMutation(SIGN_IN_BY_EMAIL)
 
   const initialValues = useMemo(() => {
     return {
@@ -56,7 +67,22 @@ const SignInScreen = ({ navigation }) => {
     })
   }
 
-  const onSubmit = () => {}
+  const onSubmit = useCallback(
+    async (values) => {
+      try {
+        const signInMutation = await signIn({ variables: values })
+        const signInResponse = get(signInMutation, 'data.signInByEmail')
+
+        dispatch(
+          signInSuccess({
+            token: signInResponse.accessToken,
+            refreshToken: signInResponse.refreshToken,
+          }),
+        )
+      } catch (error) {} // eslint-disable-line no-empty
+    },
+    [signIn, dispatch],
+  )
 
   const handleSubmitEmail = useCallback(() => {
     passwordRef.current.focus()
