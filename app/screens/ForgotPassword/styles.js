@@ -1,10 +1,10 @@
 import styled from 'styled-components/native'
 
-import { Box, Link } from 'components/ui'
+import { Box, Link, Text } from 'components/ui'
 
-export { Form } from 'react-final-form'
+export { Form, Field } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
-export { FormField, FormTextInput } from 'components/blocks'
+export { FormTextInput } from 'components/blocks'
 export { Button } from 'components/ui'
 
 export const Top = styled.View`
@@ -37,3 +37,12 @@ export const LinkButton = styled(Link).attrs(() => {
     },
   }
 })``
+
+export const Instruction = styled(Text).attrs(() => {
+  return {
+    mb: 5,
+    color: 'gray100',
+  }
+})`
+  text-align: center;
+`

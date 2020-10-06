@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import * as Routes from 'navigation/routes'
 
-// import { ForgotPasswordScreen } from 'screens/ForgotPassword'
+import { ForgotPasswordScreen } from 'screens/ForgotPassword'
 import { SignInScreen } from 'screens/SignIn'
 
 const Stack = createStackNavigator()
@@ -18,7 +18,7 @@ const AuthNavigator = () => {
       }}
     >
       <Stack.Screen name={Routes.SignIn} component={SignInScreen} />
-      {/* <Stack.Screen name={Routes.ForgotPassword} component={ForgotPasswordScreen} /> */}
+      <Stack.Screen name={Routes.ForgotPassword} component={ForgotPasswordScreen} />
     </Stack.Navigator>
   )
 }
