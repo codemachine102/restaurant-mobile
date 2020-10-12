@@ -21,7 +21,8 @@ export const Top = styled(Box).attrs(() => {
 
 export const Middle = styled.View`
   flex-grow: 1;
-  padding-vertical: 20%;
+  justify-content: center;
+  padding-bottom: 10%;
 `
 
 export const Bottom = styled.View`
