@@ -33,23 +33,31 @@ const InnerBase = styled.View.attrs(() => {
 
 export const InnerFlat = styled(InnerBase.withComponent(Box))`
   ${(props) => {
-    return (
-      props.isPressed &&
-      css`
-        border-width: 1px;
-        border-color: ${mapToTheme('components.button.isPressed.innerFlat.border')};
-        background-color: ${mapToTheme('components.button.isPressed.innerFlat.bg')};
-      `
-    )
-  }}
+    if (props.isDisabled) {
+      return props.isOutlined
+        ? css`
+            border-width: 1px;
+            border-color: ${getColor('night50')};
+          `
+        : css`
+            background-color: ${getColor('night50')};
+          `
+    }
 
-  ${(props) => {
-    return (
-      props.isDisabled &&
-      css`
-        background-color: ${getColor('night50')};
+    if (props.isPressed) {
+      return css`
+        background-color: ${mapToTheme('components.button.isPressed.inner.bg')};
       `
-    )
+    }
+
+    if (props.isOutlined) {
+      return css`
+        border-width: 1px;
+        border-color: ${mapToTheme('components.button.isOutlined.inner.border')};
+      `
+    }
+
+    return null
   }}
 `
 
@@ -73,16 +81,34 @@ export const InnerGradient = styled(InnerBase.withComponent(LinearGradient)).att
 export const Title = styled(Text).attrs(() => {
   return {
     numberOfLines: 1,
-    color: 'white',
   }
 })`
   ${(props) => {
-    return (
-      props.isDisabled &&
-      css`
-        color: ${getColor('night100')};
+    if (props.isDisabled) {
+      return props.isOutlined
+        ? css`
+            color: ${getColor('night50')};
+          `
+        : css`
+            color: ${getColor('night100')};
+          `
+    }
+
+    if (props.isPressed) {
+      return css`
+        color: ${getColor('white')};
       `
-    )
+    }
+
+    if (props.isOutlined) {
+      return css`
+        color: ${mapToTheme('components.button.isOutlined.title.color')};
+      `
+    }
+
+    return css`
+      color: ${getColor('white')};
+    `
   }}
 `
 
