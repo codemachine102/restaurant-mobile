@@ -86,9 +86,9 @@ export const UsageHighlight = styled(Text).attrs(() => {
 
 export const LinkButton = styled(Link).attrs(() => {
   return {
-    messageProps: {
-      fontFamilyStyle: 'style.semiBold',
+    variant: 'neutral',
 
+    messageProps: {
       style: {
         textAlign: 'center',
       },

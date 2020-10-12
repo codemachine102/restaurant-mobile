@@ -149,6 +149,10 @@ const SignInScreen = ({ navigation }) => {
               isProgress={submitting}
               onPress={handleSubmit}
             />
+
+            <LinkButton onPress={handleForgotPassword(values)}>
+              {i18n.t('screen.signIn.button.forgotPassword')}
+            </LinkButton>
           </Footer>
         </Inner>
       )
@@ -194,11 +198,6 @@ const SignInScreen = ({ navigation }) => {
     </Container>
   )
 }
-
-// <LinkButton onPress={handleForgotPassword(values)}>
-//   {i18n.t('screen.signIn.button.forgotPassword')}
-// </LinkButton>
-// </Footer>
 
 SignInScreen.propTypes = {
   navigation: ReactNavigationPropTypes.navigation.isRequired,

@@ -4,7 +4,7 @@ import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { CachePersistor } from 'apollo-cache-persist'
 
-import { authLink, requestLink, tokenRefreshLink } from './links'
+import { authLink, requestLink } from './links'
 
 if (__DEV__) {
   global.AsyncStorage = AsyncStorage
@@ -29,7 +29,7 @@ export default function createClient({ store }) {
     cache,
 
     link: ApolloLink.from([
-      tokenRefreshLink({ store }),
+      // tokenRefreshLink({ store }),
       authLink({ store }),
       requestLink({ store }),
     ]),

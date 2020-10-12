@@ -4,9 +4,9 @@ query Me {
   me {
     id
 
-    emailCredentials {
+    phoneCredentials {
       id
-      email
+      phone
     }
 
     profile {

@@ -19,8 +19,8 @@ const style = {
   light: 'Light',
   lightItalic: 'LightItalic',
   regular: 'Regular',
-  semiBold: 'SemiBold',
-  semiBoldItalic: 'SemiBoldItalic',
+  semiBold: 'Semibold',
+  semiBoldItalic: 'SemiboldItalic',
 }
 
 export default {
