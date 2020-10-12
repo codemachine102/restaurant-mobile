@@ -150,31 +150,6 @@ const SignInScreen = ({ navigation }) => {
               onPress={handleSubmit}
             />
 
-            <Button
-              title={i18n.t('screen.signIn.button.signIn')}
-              mb={4}
-              isOutlined
-              isProgress={submitting}
-              onPress={handleSubmit}
-            />
-
-            <Button
-              title={i18n.t('screen.signIn.button.signIn')}
-              mb={4}
-              isDisabled
-              isProgress={submitting}
-              onPress={handleSubmit}
-            />
-
-            <Button
-              title={i18n.t('screen.signIn.button.signIn')}
-              mb={4}
-              isDisabled
-              isOutlined
-              isProgress={submitting}
-              onPress={handleSubmit}
-            />
-
             <LinkButton onPress={handleForgotPassword(values)}>
               {i18n.t('screen.signIn.button.forgotPassword')}
             </LinkButton>
