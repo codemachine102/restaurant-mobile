@@ -10,11 +10,11 @@
     "signIn": {
       "form": {
         "label": {
-          "email": "Email",
+          "phone": "Phone",
           "password": "Password"
         },
         "placeholder": {
-          "email": "Enter your email",
+          "phone": "Enter your phone number",
           "password": "Enter your password"
         }
       },

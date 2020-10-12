@@ -25,7 +25,7 @@ const isIOS13Plus = PickingService.invokeForPlatform({
 
 export const Container = styled(Box).attrs(() => {
   return {
-    bg: 'paperWhite20',
+    bg: 'night100',
   }
 })`
   flex: 1;

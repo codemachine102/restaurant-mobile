@@ -1,5 +1,11 @@
 const group = {
-  sourceSansPro: 'SourceSansPro',
+  sfProDisplay: 'SF Pro Display',
+  bfast: 'Bfast',
+}
+
+const separator = {
+  [group.sfProDisplay]: ' ',
+  [group.bfast]: ' ',
 }
 
 const style = {
@@ -20,4 +26,5 @@ const style = {
 export default {
   style,
   group,
+  separator,
 }

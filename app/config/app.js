@@ -12,7 +12,7 @@ export default {
   bundleIdentifier: VersionNumber.bundleIdentifier,
   appearance: { theme: 'main' },
   credentials: {
-    email: __DEV__ ? Secrets.AUTH_EMAIL : '',
+    phone: __DEV__ ? Secrets.AUTH_PHONE : '',
     password: __DEV__ ? Secrets.AUTH_PASSWORD : '',
   },
 }

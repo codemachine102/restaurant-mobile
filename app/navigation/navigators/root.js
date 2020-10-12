@@ -20,7 +20,7 @@ const RootNavigator = () => {
       headerMode="none"
       screenOptions={{
         header: () => {
-          return <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
+          return <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
         },
       }}
     >

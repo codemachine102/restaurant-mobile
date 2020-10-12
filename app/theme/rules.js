@@ -1,5 +1,8 @@
 import { system, compose, fontFamily } from 'styled-system'
 
+import get from 'lodash/get'
+import join from 'lodash/join'
+
 import { getShadow, getTypography, mapProps, getPx } from './helpers'
 
 export const tintColor = system({
@@ -55,13 +58,14 @@ export const shadowComposite = mapProps((props) => {
 export const fontFamilyComposite = mapProps((props) => {
   const fGroup = getTypography(props.fontFamilyGroup)(props)
   const fStyle = getTypography(props.fontFamilyStyle)(props)
+  const fSeparator = getTypography(`separator.${fGroup}`)(props)
 
   if (!fGroup || !fStyle) {
     return props
   }
 
   return {
-    fontFamily: `${fGroup}-${fStyle}`,
+    fontFamily: join([fGroup, fStyle], fSeparator),
     ...props,
   }
 })(fontFamily)

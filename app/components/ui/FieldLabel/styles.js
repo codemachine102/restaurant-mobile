@@ -1,4 +1,6 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
+
+import { getColor } from 'theme'
 
 import { Text } from '../Text'
 
@@ -6,9 +8,16 @@ export const Container = styled.View``
 
 export const Label = styled(Text).attrs(() => {
   return {
-    fontSize: 0,
-    color: 'gray100',
+    color: 'night50',
     numberOfLines: 1,
-    fontFamilyStyle: 'style.medium',
   }
-})``
+})`
+  ${(props) => {
+    return (
+      props.isFocused &&
+      css`
+        color: ${getColor('white')};
+      `
+    )
+  }}
+`

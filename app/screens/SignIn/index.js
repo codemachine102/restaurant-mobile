@@ -41,7 +41,7 @@ const SignInScreen = ({ navigation }) => {
 
   const initialValues = useMemo(() => {
     return {
-      email: AppConfig.credentials.email,
+      phone: AppConfig.credentials.phone,
       password: AppConfig.credentials.password,
       withRefresh: true,
     }
@@ -61,7 +61,7 @@ const SignInScreen = ({ navigation }) => {
 
     return ValidationService.validate(constraints, values, {
       alias: {
-        email: i18n.t('screen.signIn.form.label.email'),
+        phone: i18n.t('screen.signIn.form.label.phone'),
         password: i18n.t('screen.signIn.form.label.password'),
       },
     })
@@ -84,7 +84,7 @@ const SignInScreen = ({ navigation }) => {
     [signIn, dispatch],
   )
 
-  const handleSubmitEmail = useCallback(() => {
+  const handleSubmitPhone = useCallback(() => {
     passwordRef.current.focus()
   }, [])
 
@@ -105,16 +105,16 @@ const SignInScreen = ({ navigation }) => {
         <Inner>
           <Content>
             <FormField
-              name="email"
+              name="phone"
               component={FormTextInput}
-              keyboardType="email-address"
-              label={i18n.t('screen.signIn.form.label.email')}
-              placeholder={i18n.t('screen.signIn.form.placeholder.email')}
+              keyboardType="phone-pad"
+              label={i18n.t('screen.signIn.form.label.phone')}
+              placeholder={i18n.t('screen.signIn.form.placeholder.phone')}
               autoCapitalize="none"
               returnKeyType="next"
               mb={5}
               blurOnSubmit={false}
-              onSubmitEditing={handleSubmitEmail}
+              onSubmitEditing={handleSubmitPhone}
             />
 
             <FormField
@@ -128,23 +128,10 @@ const SignInScreen = ({ navigation }) => {
               secureTextEntry
             />
           </Content>
-
-          <Footer>
-            <Button
-              title={i18n.t('screen.signIn.button.signIn')}
-              mb={4}
-              isProgress={submitting}
-              onPress={handleSubmit}
-            />
-
-            <LinkButton onPress={handleForgotPassword(values)}>
-              {i18n.t('screen.signIn.button.forgotPassword')}
-            </LinkButton>
-          </Footer>
         </Inner>
       )
     },
-    [handleForgotPassword, handleSubmitEmail],
+    [handleForgotPassword, handleSubmitPhone],
   )
 
   return (
@@ -160,39 +147,21 @@ const SignInScreen = ({ navigation }) => {
   )
 }
 
+// <Footer>
+// <Button
+//   title={i18n.t('screen.signIn.button.signIn')}
+//   mb={4}
+//   isProgress={submitting}
+//   onPress={handleSubmit}
+// />
+
+// <LinkButton onPress={handleForgotPassword(values)}>
+//   {i18n.t('screen.signIn.button.forgotPassword')}
+// </LinkButton>
+// </Footer>
+
 SignInScreen.propTypes = {
   navigation: ReactNavigationPropTypes.navigation.isRequired,
 }
 
 export { SignInScreen }
-
-// import React, { useRef, useMemo, useCallback } from 'react'
-// import { useDispatch } from 'react-redux'
-
-// import { signIn } from 'services/api/queries/auth'
-
-// import { signInSuccess } from 'store/slices/session'
-
-// const SignInScreen = ({ navigation }) => {
-//   const dispatch = useDispatch()
-
-//   const onSubmit = useCallback(
-//     async (values) => {
-//       const response = await signIn(values)
-
-//       if (response.ok === false) {
-//         return
-//       }
-
-//       dispatch(
-//         signInSuccess({
-//           token: response.accessToken,
-//           refreshToken: response.refreshToken,
-//         }),
-//       )
-//     },
-//     [dispatch],
-//   )
-// }
-
-// export { SignInScreen }

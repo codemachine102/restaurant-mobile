@@ -11,36 +11,30 @@ export const Container = styled(Box)``
 
 export const Input = styled.TextInput.attrs((props) => {
   return {
-    bg: props.isDisabled ? 'gray80' : 'paperWhite20',
-    color: 'text',
-    selectionColor: getColor('emerald100')(props),
-    placeholderTextColor: getColor('gray100')(props),
-    px: 4,
-    py: props.multiline ? 3 : 0,
-    height: props.multiline ? 100 : 32,
-    borderRadius: 1,
+    selectionColor: getColor('white')(props),
+    placeholderTextColor: getColor(props.isDisabled ? 'night100' : 'night50')(props),
+    px: 5,
+    py: 0,
+    height: 48,
+    borderRadius: 3,
     fontSize: 1,
-    fontFamilyGroup: 'group.sourceSansPro',
+    fontFamilyGroup: 'group.sfProDisplay',
     fontFamilyStyle: 'style.regular',
     editable: !props.isDisabled,
     textAlign: props.isCentered ? 'center' : 'left',
     textAlignVertical: props.multiline ? 'top' : 'center',
   }
 })`
-  border-width: 1;
-
-  ${(props) => {
-    return css`
-      border-color: ${getColor(props.isFocused ? 'emerald100' : 'gray80')(props)};
-    `
-  }}
+  color: ${getColor('white')};
+  border-color: ${getColor('night50')};
+  border-width: 1px;
 
   ${(props) => {
     return (
       props.isDisabled &&
       css`
-        background-color: ${getColor('gray80')};
-        color: ${getColor('gray100')};
+        background-color: ${getColor('night50')};
+        color: ${getColor('night100')};
       `
     )
   }}
@@ -49,6 +43,7 @@ export const Input = styled.TextInput.attrs((props) => {
     return (
       props.hasError &&
       css`
+        color: ${getColor('negative')(props)};
         border-color: ${getColor('negative')(props)};
       `
     )
@@ -62,9 +57,15 @@ export const Input = styled.TextInput.attrs((props) => {
   ${fontFamilyComposite}
 `
 
+// ${(props) => {
+//   return css`
+//     border-color: ${getColor(props.isFocused ? 'emerald100' : 'gray80')(props)};
+//   `
+// }}
+
 export const FieldLabel = styled(FieldLabelUI).attrs(() => {
   return {
-    mb: 2,
+    mb: 3,
   }
 })`
   ${space}
@@ -72,7 +73,7 @@ export const FieldLabel = styled(FieldLabelUI).attrs(() => {
 
 export const FieldBottom = styled(FieldBottomUI).attrs(() => {
   return {
-    mt: 2,
+    mt: 3,
   }
 })`
   ${space}

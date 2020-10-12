@@ -15,6 +15,7 @@ const TextInput = ({
   isErrorMessageHidden,
   blurOnSubmit,
   returnKeyType,
+  keyboardType,
   onChange,
   secureTextEntry,
   autoCapitalize,
@@ -33,13 +34,14 @@ const TextInput = ({
 
   return (
     <Container {...props}>
-      <FieldLabel {...{ label }} />
+      <FieldLabel {...{ label, isFocused }} />
 
       <Input
         {...{
           value,
           placeholder,
           secureTextEntry,
+          keyboardType,
           returnKeyType,
           blurOnSubmit,
           isFocused,

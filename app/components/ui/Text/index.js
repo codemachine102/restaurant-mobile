@@ -7,7 +7,7 @@ import { fontFamilyComposite, lineHeightComposite } from 'theme'
 const Text = defaultProps({
   bg: 'clear',
   color: 'text',
-  fontFamilyGroup: 'group.sourceSansPro',
+  fontFamilyGroup: 'group.sfProDisplay',
   fontFamilyStyle: 'style.regular',
   fontSize: 1,
   allowFontScaling: false,

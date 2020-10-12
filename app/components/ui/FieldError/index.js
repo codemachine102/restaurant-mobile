@@ -10,7 +10,7 @@ import { Container, Message } from './styles'
 const FieldError = ({ error, style }) => {
   return (
     <Container {...{ style }}>
-      <Message>— {isArray(error) ? error[0] : error}</Message>
+      <Message>{isArray(error) ? error[0] : error}</Message>
     </Container>
   )
 }
