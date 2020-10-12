@@ -8,6 +8,11 @@
   },
   "screen": {
     "signIn": {
+      "phrase": {
+        "title": "Bfast",
+        "motto": "The most important\nApp of the day.",
+        "usage": "Use $[Bfast] to quickly and safely pick-up your food without delay."
+      },
       "form": {
         "label": {
           "phone": "Phone",

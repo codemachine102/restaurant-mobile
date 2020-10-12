@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import get from 'lodash/get'
 
 import i18n from 'i18n'
+import Utils from 'utils'
 
 import ValidationService from 'services/validation'
 
@@ -22,12 +23,19 @@ import {
   Container,
   Scrollable,
   Top,
+  Middle,
   Bottom,
   Form,
   FormField,
   Inner,
   Content,
   FormTextInput,
+  Title,
+  Motto,
+  Usage,
+  UsageHighlight,
+  Logo,
+  LogoContainer,
   Footer,
   Button,
   LinkButton,
@@ -134,10 +142,27 @@ const SignInScreen = ({ navigation }) => {
     [handleForgotPassword, handleSubmitPhone],
   )
 
+  const usage = Utils.Strings.replaceWithComponent(
+    i18n.t('screen.signIn.phrase.usage'),
+    (match, i) => {
+      return <UsageHighlight key={match + i}>{match}</UsageHighlight>
+    },
+  )
+
   return (
     <Container>
       <Scrollable fromTop toBottom>
-        <Top />
+        <Top>
+          <LogoContainer>
+            <Logo />
+          </LogoContainer>
+        </Top>
+
+        <Middle>
+          <Title>{i18n.t('screen.signIn.phrase.title')}</Title>
+          <Motto>{i18n.t('screen.signIn.phrase.motto')}</Motto>
+          <Usage>{usage}</Usage>
+        </Middle>
 
         <Bottom>
           <Form {...{ validate, initialValues, onSubmit }} render={renderForm} />

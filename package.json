@@ -84,6 +84,7 @@
     "react-native-splash-screen": "^3.2.0",
     "react-native-version-number": "^0.3.6",
     "react-redux": "^7.2.1",
+    "react-string-replace": "^0.4.4",
     "recompose": "^0.30.0",
     "recyclerlistview": "^3.0.0",
     "redux": "^4.0.5",

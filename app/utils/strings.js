@@ -2,6 +2,7 @@ import compact from 'lodash/compact'
 import join from 'lodash/join'
 import map from 'lodash/map'
 import split from 'lodash/split'
+import stringReplace from 'react-string-replace'
 import trim from 'lodash/trim'
 
 const makeAcronym = (str) => {
@@ -37,8 +38,13 @@ const sanitize = (str) => {
   return trim(singleSpaces(str))
 }
 
+const replaceWithComponent = (str, replacer, matcher = /\$\[(.+)\]/g) => {
+  return stringReplace(str, matcher, replacer)
+}
+
 export default {
   makeAcronym,
+  replaceWithComponent,
   sanitize,
   singleSpaces,
   stringToColor,
