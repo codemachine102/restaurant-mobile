@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import * as Routes from 'navigation/routes'
 
+import { SimpleHeader } from 'components/headers'
+
 import { ForgotPasswordScreen } from 'screens/ForgotPassword'
 import { SignInScreen } from 'screens/SignIn'
 
@@ -12,9 +14,12 @@ const AuthNavigator = () => {
   return (
     <Stack.Navigator
       initialRouteName={Routes.SignIn}
-      headerMode="none"
       screenOptions={{
         cardShadowEnabled: false,
+
+        header: (props) => {
+          return <SimpleHeader {...props} />
+        },
       }}
     >
       <Stack.Screen name={Routes.SignIn} component={SignInScreen} />
