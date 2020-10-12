@@ -1,6 +1,5 @@
 import { system, compose, fontFamily } from 'styled-system'
 
-import get from 'lodash/get'
 import join from 'lodash/join'
 
 import { getShadow, getTypography, mapProps, getPx } from './helpers'
