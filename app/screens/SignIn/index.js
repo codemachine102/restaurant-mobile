@@ -105,7 +105,7 @@ const SignInScreen = ({ navigation }) => {
     (values) => {
       return () => {
         navigation.navigate(Routes.ForgotPassword, {
-          email: values.email,
+          phone: values.phone,
         })
       }
     },
