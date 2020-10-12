@@ -55,8 +55,8 @@ function validate(values) {
 
   return ValidationService.validate(constraints, values, {
     alias: {
-      password: i18n.t('screen.resetPassword.form.label.password'),
-      passwordConfirm: i18n.t('screen.resetPassword.form.label.newPassword'),
+      password: i18n.t('screen.changePassword.form.label.password'),
+      passwordConfirm: i18n.t('screen.changePassword.form.label.newPassword'),
     },
   })
 }
@@ -64,7 +64,7 @@ function validate(values) {
 const ResetPasswordScreen = ({ navigation }) => {
   const passwordRef = useRef()
 
-  //   const [resetPassword] = useMutation(RESET_PASSWORD)
+  //   const [changePassword] = useMutation(RESET_PASSWORD)
 
   const onSubmit = () => {}
 
@@ -75,8 +75,8 @@ const ResetPasswordScreen = ({ navigation }) => {
           <FormField
             name="password"
             component={FormTextInput}
-            label={i18n.t('screen.resetPassword.form.label.password')}
-            placeholder={i18n.t('screen.resetPassword.form.placeholder.password')}
+            label={i18n.t('screen.changePassword.form.label.password')}
+            placeholder={i18n.t('screen.changePassword.form.placeholder.password')}
             autoCapitalize="none"
             mb={5}
             returnKeyType="next"
@@ -90,8 +90,8 @@ const ResetPasswordScreen = ({ navigation }) => {
             innerRef={passwordRef}
             name="passwordConfirm"
             component={FormTextInput}
-            label={i18n.t('screen.resetPassword.form.label.newPassword')}
-            placeholder={i18n.t('screen.resetPassword.form.placeholder.newPassword')}
+            label={i18n.t('screen.changePassword.form.label.newPassword')}
+            placeholder={i18n.t('screen.changePassword.form.placeholder.newPassword')}
             autoCapitalize="none"
             returnKeyType="go"
             secureTextEntry
@@ -100,7 +100,7 @@ const ResetPasswordScreen = ({ navigation }) => {
 
         <Footer>
           <Button
-            title={i18n.t('screen.resetPassword.button.send')}
+            title={i18n.t('screen.changePassword.button.send')}
             mb={4}
             isProgress={submitting}
             onPress={handleSubmit}
@@ -111,7 +111,7 @@ const ResetPasswordScreen = ({ navigation }) => {
   }, [])
 
   const usage = Utils.Strings.replaceWithComponent(
-    i18n.t('screen.resetPassword.phrase.usage'),
+    i18n.t('screen.changePassword.phrase.usage'),
     (match, i) => {
       return <UsageHighlight key={match + i}>{match}</UsageHighlight>
     },
@@ -129,13 +129,13 @@ const ResetPasswordScreen = ({ navigation }) => {
             <Logo />
           </LogoContainer>
           <BackToSignInLink onPress={navigateToSignIn}>
-            {i18n.t('screen.resetPassword.button.back')}
+            {i18n.t('screen.changePassword.button.back')}
           </BackToSignInLink>
         </Top>
 
         <Middle>
-          <Title>{i18n.t('screen.resetPassword.phrase.title')}</Title>
-          <Motto>{i18n.t('screen.resetPassword.phrase.motto')}</Motto>
+          <Title>{i18n.t('screen.changePassword.phrase.title')}</Title>
+          <Motto>{i18n.t('screen.changePassword.phrase.motto')}</Motto>
           <Usage>{usage}</Usage>
         </Middle>
 

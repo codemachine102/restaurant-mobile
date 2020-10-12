@@ -30,7 +30,7 @@
         "forgotPassword": "Forgot your password?"
       }
     },
-    "resetPassword": {
+    "changePassword": {
       "phrase": {
         "usage": "Choose new password and click on the button below. As far 6 symbols, 1 uppercase, 1 special symbol required.",
         "motto": "Change password",
@@ -49,6 +49,23 @@
       "button": {
         "send": "Change",
         "back": "Back to Sign In"
+      }
+    },
+    "resetPassword": {
+      "form": {
+        "label": {
+          "email": "Email"
+        },
+        "placeholder": {
+          "email": "Enter your email"
+        }
+      },
+      "phrase": {
+        "instruction": "Please enter your email to reset\nyour password"
+      },
+      "button": {
+        "send": "Send reset link",
+        "back": "Go back"
       }
     }
   }
