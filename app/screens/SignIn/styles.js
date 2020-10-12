@@ -7,13 +7,17 @@ import { Box, Link, Text, Image } from 'components/ui'
 export { Form } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
 export { FormField, FormTextInput } from 'components/blocks'
-export { Button } from 'components/ui'
+export { Button, TabBar } from 'components/ui'
 
 export const Top = styled(Box).attrs(() => {
   return {
     py: 4,
   }
-})``
+})`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
 
 export const Middle = styled.View`
   flex-grow: 1;

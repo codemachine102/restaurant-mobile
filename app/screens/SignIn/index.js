@@ -36,10 +36,16 @@ import {
   UsageHighlight,
   Logo,
   LogoContainer,
+  TabBar,
   Footer,
   Button,
   LinkButton,
 } from './styles'
+
+const TAB_HASH = {
+  SIGN_IN: 'SIGN_IN',
+  SIGN_UP: 'SIGN_UP',
+}
 
 const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
@@ -57,9 +63,8 @@ const SignInScreen = ({ navigation }) => {
 
   const validate = (values) => {
     const constraints = {
-      email: {
+      phone: {
         presence: true,
-        email: true,
       },
       password: {
         presence: true,
@@ -165,6 +170,15 @@ const SignInScreen = ({ navigation }) => {
           <LogoContainer>
             <Logo />
           </LogoContainer>
+
+          <TabBar
+            tabs={[
+              { id: TAB_HASH.SIGN_IN, label: i18n.t('screen.signIn.phrase.signIn') },
+              { id: TAB_HASH.SIGN_UP, label: i18n.t('screen.signIn.phrase.signUp') },
+            ]}
+            activeId={TAB_HASH.SIGN_IN}
+            isFluid={false}
+          />
         </Top>
 
         <Middle>
