@@ -136,6 +136,15 @@ const SignInScreen = ({ navigation }) => {
               secureTextEntry
             />
           </Content>
+
+          <Footer>
+            <Button
+              title={i18n.t('screen.signIn.button.signIn')}
+              mb={4}
+              isProgress={submitting}
+              onPress={handleSubmit}
+            />
+          </Footer>
         </Inner>
       )
     },
@@ -171,14 +180,6 @@ const SignInScreen = ({ navigation }) => {
     </Container>
   )
 }
-
-// <Footer>
-// <Button
-//   title={i18n.t('screen.signIn.button.signIn')}
-//   mb={4}
-//   isProgress={submitting}
-//   onPress={handleSubmit}
-// />
 
 // <LinkButton onPress={handleForgotPassword(values)}>
 //   {i18n.t('screen.signIn.button.forgotPassword')}

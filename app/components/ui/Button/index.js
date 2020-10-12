@@ -3,7 +3,7 @@ import PT from 'prop-types'
 
 import { StyledPropTypes } from 'constants/propTypes'
 
-import { Container, Title, Inner, ProgressIndicator } from './styles'
+import { Container, Title, InnerFlat, InnerGradient, ProgressIndicator } from './styles'
 
 const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) => {
   const [isPressed, setIsPressed] = useState(false)
@@ -20,6 +20,28 @@ const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) =
     if (onPress) onPress()
   }, [onPress])
 
+  const renderInner = () => {
+    const content = isProgress ? (
+      <ProgressIndicator {...{ variant }} />
+    ) : (
+      <Title {...{ variant, isDisabled, isPressed }}>{title}</Title>
+    )
+
+    if (isPressed || isDisabled) {
+      return (
+        <InnerFlat {...props} {...{ variant, isDisabled, isPressed }}>
+          {content}
+        </InnerFlat>
+      )
+    }
+
+    return (
+      <InnerGradient {...props} {...{ variant, isDisabled, isPressed }}>
+        {content}
+      </InnerGradient>
+    )
+  }
+
   return (
     <Container
       isDisabled={isDisabled || isProgress}
@@ -27,13 +49,7 @@ const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) =
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
     >
-      <Inner {...props} {...{ variant, isDisabled, isPressed }}>
-        {isProgress ? (
-          <ProgressIndicator {...{ variant }} />
-        ) : (
-          <Title {...{ variant, isDisabled, isPressed }}>{title}</Title>
-        )}
-      </Inner>
+      {renderInner()}
     </Container>
   )
 }

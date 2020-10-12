@@ -21,7 +21,9 @@ export const mapProps = (mapper) => {
 }
 
 export const mapToTheme = (key, prop = 'variant') => {
-  return theme(key, prop)
+  return (props) => {
+    return theme(key, prop)(props)(props)(props)
+  }
 }
 
 export const getColor = (key) => {

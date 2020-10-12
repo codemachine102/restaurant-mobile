@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components/native'
+import { space, border } from 'styled-system'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { UIActivityIndicator } from 'react-native-indicators'
+import LinearGradient from 'react-native-linear-gradient'
 
 import { getColor, mapToTheme } from 'theme'
 
@@ -13,24 +15,30 @@ export const Container = styled(TouchableWithoutFeedback).attrs((props) => {
   }
 })``
 
-export const Inner = styled(Box).attrs(() => {
+const InnerBase = styled.View.attrs(() => {
   return {
     px: 5,
+    borderRadius: 3,
   }
 })`
-  height: 40px;
-  min-width: 40px;
+  height: 56px;
+  min-width: 56px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
-  background-color: ${mapToTheme('components.generic.color')};
 
+  ${border}
+  ${space}
+`
+
+export const InnerFlat = styled(InnerBase.withComponent(Box))`
   ${(props) => {
     return (
       props.isPressed &&
       css`
-        background-color: ${mapToTheme('components.generic.isPressed.color')};
+        border-width: 1px;
+        border-color: ${mapToTheme('components.button.isPressed.innerFlat.border')};
+        background-color: ${mapToTheme('components.button.isPressed.innerFlat.bg')};
       `
     )
   }}
@@ -39,10 +47,27 @@ export const Inner = styled(Box).attrs(() => {
     return (
       props.isDisabled &&
       css`
-        background-color: ${getColor('gray80')};
+        background-color: ${getColor('night50')};
       `
     )
   }}
+`
+
+export const InnerGradient = styled(InnerBase.withComponent(LinearGradient)).attrs((props) => {
+  return {
+    colors: [
+      mapToTheme('components.button.innerGradient.bg.color1')(props),
+      mapToTheme('components.button.innerGradient.bg.color2')(props),
+    ],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  }
+})`
+  height: 56px;
+  min-width: 56px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Title = styled(Text).attrs(() => {
@@ -55,15 +80,16 @@ export const Title = styled(Text).attrs(() => {
     return (
       props.isDisabled &&
       css`
-        color: ${getColor('gray100')};
+        color: ${getColor('night100')};
       `
     )
   }}
 `
+
 export const ProgressIndicator = styled(UIActivityIndicator).attrs(() => {
   return {
     color: 'white',
-    size: 20,
+    size: 28,
   }
 })`
   position: absolute;
