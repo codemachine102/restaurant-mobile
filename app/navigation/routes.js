@@ -1,5 +1,6 @@
 export const Auth = 'Auth'
 export const ForgotPassword = 'ForgotPassword'
+export const ResetPassword = 'ResetPassword'
 export const Home = 'Home'
 export const Main = 'Main'
 export const Root = 'Root'

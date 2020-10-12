@@ -7,6 +7,8 @@ import ValidationService from 'services/validation'
 
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
+import * as Routes from 'navigation/routes'
+
 import {
   Container,
   Scrollable,
@@ -26,7 +28,7 @@ import {
   LogoContainer,
   Footer,
   Button,
-  // BackToSignInLink,
+  BackToSignInLink,
 } from './styles'
 
 function validate(values) {
@@ -37,15 +39,13 @@ function validate(values) {
       //   pattern: '(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z])',
       //   message: 'Must contain a capital, lowercase, and number',
       // },
-
       length: { minimum: 6, maximum: 100 },
     },
 
     passwordConfirm: {
       presence: true,
       equality: {
-        attribute: 'pass',
-        message: 'Passwords do not match',
+        attribute: 'password',
         comparator: (v1, v2) => {
           return v1 === v2
         },
@@ -55,13 +55,13 @@ function validate(values) {
 
   return ValidationService.validate(constraints, values, {
     alias: {
-      password: i18n.t('screen.signIn.form.label.phone'),
-      passwordConfirm: i18n.t('screen.signIn.form.label.password'),
+      password: i18n.t('screen.resetPassword.form.label.password'),
+      passwordConfirm: i18n.t('screen.resetPassword.form.label.newPassword'),
     },
   })
 }
 
-const ResetPasswordScreen = () => {
+const ResetPasswordScreen = ({ navigation }) => {
   const passwordRef = useRef()
 
   //   const [resetPassword] = useMutation(RESET_PASSWORD)
@@ -75,8 +75,8 @@ const ResetPasswordScreen = () => {
           <FormField
             name="password"
             component={FormTextInput}
-            label={i18n.t('screen.signIn.form.label.password')}
-            placeholder={i18n.t('screen.signIn.form.placeholder.password')}
+            label={i18n.t('screen.resetPassword.form.label.password')}
+            placeholder={i18n.t('screen.resetPassword.form.placeholder.password')}
             autoCapitalize="none"
             mb={5}
             returnKeyType="next"
@@ -90,8 +90,8 @@ const ResetPasswordScreen = () => {
             innerRef={passwordRef}
             name="passwordConfirm"
             component={FormTextInput}
-            label={i18n.t('screen.signIn.form.label.password')}
-            placeholder={i18n.t('screen.signIn.form.placeholder.password')}
+            label={i18n.t('screen.resetPassword.form.label.newPassword')}
+            placeholder={i18n.t('screen.resetPassword.form.placeholder.newPassword')}
             autoCapitalize="none"
             returnKeyType="go"
             secureTextEntry
@@ -100,7 +100,7 @@ const ResetPasswordScreen = () => {
 
         <Footer>
           <Button
-            title={i18n.t('screen.signIn.button.signIn')}
+            title={i18n.t('screen.resetPassword.button.send')}
             mb={4}
             isProgress={submitting}
             onPress={handleSubmit}
@@ -111,11 +111,15 @@ const ResetPasswordScreen = () => {
   }, [])
 
   const usage = Utils.Strings.replaceWithComponent(
-    i18n.t('screen.signIn.phrase.usage'),
+    i18n.t('screen.resetPassword.phrase.usage'),
     (match, i) => {
       return <UsageHighlight key={match + i}>{match}</UsageHighlight>
     },
   )
+
+  const navigateToSignIn = () => {
+    return navigation.navigate(Routes.SignIn)
+  }
 
   return (
     <Container>
@@ -124,12 +128,14 @@ const ResetPasswordScreen = () => {
           <LogoContainer>
             <Logo />
           </LogoContainer>
-          {/* <BackToSignInLink>Back</BackToSignInLink> */}
+          <BackToSignInLink onPress={navigateToSignIn}>
+            {i18n.t('screen.resetPassword.button.back')}
+          </BackToSignInLink>
         </Top>
 
         <Middle>
-          <Title>{i18n.t('screen.signIn.phrase.title')}</Title>
-          <Motto>{i18n.t('screen.signIn.phrase.motto')}</Motto>
+          <Title>{i18n.t('screen.resetPassword.phrase.title')}</Title>
+          <Motto>{i18n.t('screen.resetPassword.phrase.motto')}</Motto>
           <Usage>{usage}</Usage>
         </Middle>
 
