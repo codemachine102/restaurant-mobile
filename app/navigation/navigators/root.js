@@ -1,11 +1,12 @@
 import React from 'react'
-import { StatusBar } from 'react-native'
 import { useSelector } from 'react-redux'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { selectIsAuthenticated } from 'store/slices/session'
 
 import * as Routes from 'navigation/routes'
+
+import { SimpleHeader } from 'components/headers'
 
 import { AuthNavigator } from './auth'
 import { MainNavigator } from './main'
@@ -17,10 +18,11 @@ const RootNavigator = () => {
 
   return (
     <Stack.Navigator
-      headerMode="none"
       screenOptions={{
-        header: () => {
-          return <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+        cardShadowEnabled: false,
+
+        header: (props) => {
+          return <SimpleHeader {...props} />
         },
       }}
     >
