@@ -1,12 +1,26 @@
-const group = {
-  sfProDisplay: 'SF Pro Display',
-  bfast: 'Bfast',
-}
+import PickingService from 'services/picking'
 
-const separator = {
-  [group.sfProDisplay]: ' ',
-  [group.bfast]: ' ',
-}
+const group = PickingService.forPlatform({
+  ios: {
+    sfProDisplay: 'SF Pro Display',
+    bfast: 'Bfast',
+  },
+  android: {
+    sfProDisplay: 'SF-Pro-Display',
+    bfast: 'Bfast',
+  },
+})
+
+const separator = PickingService.forPlatform({
+  ios: {
+    [group.sfProDisplay]: ' ',
+    [group.bfast]: ' ',
+  },
+  android: {
+    [group.sfProDisplay]: '-',
+    [group.bfast]: '-',
+  },
+})
 
 const style = {
   black: 'Black',
