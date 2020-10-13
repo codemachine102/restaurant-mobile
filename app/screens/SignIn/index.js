@@ -9,13 +9,12 @@ import Utils from 'utils'
 
 import ValidationService from 'services/validation'
 
-import * as Routes from 'navigation/routes'
-
-import SIGN_IN from 'graphql/mutations/signIn.graphql'
-
 import AppConfig from 'config/app'
 
+import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
+
+import SIGN_IN from 'graphql/mutations/signIn.graphql'
 
 import { signInSuccess } from 'store/slices/session'
 
@@ -154,7 +153,7 @@ const SignInScreen = ({ navigation }) => {
           <Footer>
             <Button
               title={i18n.t('screen.signIn.button.signIn')}
-              mb={4}
+              mb={6}
               isProgress={submitting}
               onPress={handleSubmit}
             />
