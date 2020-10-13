@@ -11,7 +11,7 @@ import ValidationService from 'services/validation'
 
 import * as Routes from 'navigation/routes'
 
-import SIGN_IN_BY_EMAIL from 'graphql/mutations/signInByEmail.graphql'
+import SIGN_IN from 'graphql/mutations/signIn.graphql'
 
 import AppConfig from 'config/app'
 
@@ -51,7 +51,7 @@ const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
 
   const dispatch = useDispatch()
-  const [signIn] = useMutation(SIGN_IN_BY_EMAIL)
+  const [signIn] = useMutation(SIGN_IN)
 
   const initialValues = useMemo(() => {
     return {

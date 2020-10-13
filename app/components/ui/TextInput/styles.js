@@ -11,6 +11,9 @@ export const Container = styled(Box)``
 
 export const Input = styled.TextInput.attrs((props) => {
   return {
+    bg: 'night75',
+    color: 'white',
+    borderColor: 'night50',
     selectionColor: getColor('white')(props),
     placeholderTextColor: getColor(props.isDisabled ? 'night100' : 'night50')(props),
     px: 5,
@@ -25,9 +28,14 @@ export const Input = styled.TextInput.attrs((props) => {
     textAlignVertical: props.multiline ? 'top' : 'center',
   }
 })`
-  color: ${getColor('white')};
-  border-color: ${getColor('night50')};
   border-width: 1px;
+
+  ${space}
+  ${color}
+  ${fontSize}
+  ${borderRadius}
+  ${borderColor}
+  ${fontFamilyComposite}
 
   ${(props) => {
     return (
@@ -48,20 +56,7 @@ export const Input = styled.TextInput.attrs((props) => {
       `
     )
   }}
-
-  ${space}
-  ${color}
-  ${fontSize}
-  ${borderRadius}
-  ${borderColor}
-  ${fontFamilyComposite}
 `
-
-// ${(props) => {
-//   return css`
-//     border-color: ${getColor(props.isFocused ? 'emerald100' : 'gray80')(props)};
-//   `
-// }}
 
 export const FieldLabel = styled(FieldLabelUI).attrs(() => {
   return {

@@ -5,7 +5,7 @@ import { StyledPropTypes } from 'constants/propTypes'
 
 import { Container, Title, InnerFlat, InnerGradient, ProgressIndicator } from './styles'
 
-const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) => {
+const Button = ({ title, variant, isDisabled, isOutlined, isProgress, onPress, ...props }) => {
   const [isPressed, setIsPressed] = useState(false)
 
   const handlePressIn = useCallback(() => {
@@ -24,12 +24,12 @@ const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) =
     const content = isProgress ? (
       <ProgressIndicator {...{ variant }} />
     ) : (
-      <Title {...{ variant, isDisabled, isPressed }}>{title}</Title>
+      <Title {...{ variant, isDisabled, isOutlined, isPressed }}>{title}</Title>
     )
 
-    if (isPressed || isDisabled) {
+    if (isPressed || isDisabled || isOutlined) {
       return (
-        <InnerFlat {...props} {...{ variant, isDisabled, isPressed }}>
+        <InnerFlat {...props} {...{ variant, isDisabled, isOutlined, isPressed }}>
           {content}
         </InnerFlat>
       )
@@ -56,6 +56,7 @@ const Button = ({ title, variant, isDisabled, isProgress, onPress, ...props }) =
 
 Button.propTypes = {
   isDisabled: PT.bool,
+  isOutlined: PT.bool,
   isProgress: PT.bool,
   title: PT.string.isRequired,
   variant: StyledPropTypes.variant,
@@ -64,6 +65,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   isDisabled: false,
+  isOutlined: false,
   isProgress: false,
   onPress: null,
   variant: 'primary',

@@ -13,13 +13,23 @@ export default {
     },
   },
 
-  isPressed: {
-    innerFlat: {
-      bg: {
+  isOutlined: {
+    inner: {
+      border: {
         primary: getColor('persimmon100'),
       },
+    },
 
-      border: {
+    title: {
+      color: {
+        primary: getColor('persimmon100'),
+      },
+    },
+  },
+
+  isPressed: {
+    inner: {
+      bg: {
         primary: getColor('persimmon100'),
       },
     },
