@@ -1,5 +1,4 @@
 import styled from 'styled-components/native'
-import { margin } from 'styled-system'
 
 import { logoImage } from 'assets/images'
 
@@ -32,7 +31,7 @@ export const Bottom = styled.View`
 
 export const Inner = styled.View``
 export const Content = styled.View`
-  ${margin}
+  margin-bottom: 20%;
 `
 
 export const Footer = styled(Box).attrs(() => {

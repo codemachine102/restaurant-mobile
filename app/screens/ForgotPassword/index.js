@@ -1,11 +1,13 @@
-import React, { useRef, useCallback, useState, useMemo } from 'react'
+import React, { useRef, useCallback, useState } from 'react'
+import { useMutation } from '@apollo/client'
 
 import i18n from 'i18n'
+import RESET from 'graphql/mutations/resetPassword.graphql'
+import CHANGE from 'graphql/mutations/changePassword.graphql'
 
 import ValidationService from 'services/validation'
 
 import { ReactNavigationPropTypes } from 'constants/propTypes'
-import AppConfig from 'config/app'
 
 import * as Routes from 'navigation/routes'
 
@@ -30,35 +32,6 @@ import {
   BackToSignInLink,
 } from './styles'
 
-function validate(values) {
-  const constraints = {
-    password: {
-      presence: true,
-      length: { minimum: 6, maximum: 100 },
-    },
-    passwordConfirm: {
-      presence: true,
-      equality: {
-        attribute: 'password',
-        comparator: (v1, v2) => {
-          return v1 === v2
-        },
-      },
-    },
-    phone: {
-      presence: true,
-    },
-  }
-
-  return ValidationService.validate(constraints, values, {
-    alias: {
-      phone: i18n.t('screen.forgotPassword.form.lable.phone'),
-      password: i18n.t('screen.forgotPassword.form.label.password'),
-      passwordConfirm: i18n.t('screen.forgotPassword.form.label.passwordConfirm'),
-    },
-  })
-}
-
 const progress = {
   phone: 'Phone',
   code: 'Code',
@@ -66,33 +39,95 @@ const progress = {
   success: 'Success',
 }
 
-const ForgotPasswordScreen = ({ navigation, route }) => {
+const ForgotPasswordScreen = ({ navigation }) => {
+  const passwordRef = useRef()
   const [stage, setStage] = useState(progress.phone)
 
-  const initialValues = useMemo(() => {
-    return {
-      phone: route.params?.phone || AppConfig.credentials.phone || '',
-      withRefresh: true,
-    }
-  }, [route])
+  const [resetPass] = useMutation(RESET, {
+    onCompleted: () => {
+      return setStage(progress.code)
+    },
+  })
 
-  const passwordRef = useRef()
+  const [changePass] = useMutation(CHANGE, {
+    onCompleted: () => {
+      return setStage(progress.success)
+    },
+  })
 
-  const onSubmit = () => {
-    setStage(progress.code)
-  }
+  const onSubmit = useCallback(
+    (values) => {
+      switch (stage) {
+        case progress.phone:
+          resetPass({ variables: values })
+          break
+        case progress.code:
+        case progress.password:
+          changePass({ variables: values })
+          break
+        default:
+          break
+      }
+    },
+    [stage, resetPass, changePass],
+  )
 
   const focusPasword = useCallback(() => {
     return passwordRef.current?.focus()
   }, [])
 
+  const validate = useCallback(
+    (values) => {
+      let constraints
+      switch (stage) {
+        case progress.phone:
+          constraints = {
+            phone: {
+              presence: true,
+            },
+          }
+          break
+        case progress.code:
+          constraints = {}
+          break
+        case progress.password:
+          constraints = {
+            password: {
+              presence: true,
+              length: { minimum: 6, maximum: 100 },
+            },
+            passwordConfirm: {
+              presence: true,
+              equality: {
+                attribute: 'password',
+                comparator: (v1, v2) => {
+                  return v1 === v2
+                },
+              },
+            },
+          }
+          break
+        default:
+      }
+
+      return ValidationService.validate(constraints, values, {
+        alias: {
+          phone: i18n.t('screen.forgotPassword.form.lable.phone'),
+          password: i18n.t('screen.forgotPassword.form.label.password'),
+          passwordConfirm: i18n.t('screen.forgotPassword.form.label.passwordConfirm'),
+        },
+      })
+    },
+    [stage],
+  )
+
   const renderForm = useCallback(
-    ({ submitting, handleSubmit }) => {
+    ({ submitting, handleSubmit, invalid }) => {
       switch (stage) {
         case progress.phone:
           return (
             <Inner>
-              <Content mb={11}>
+              <Content>
                 <FormField
                   name="phone"
                   component={FormTextInput}
@@ -107,8 +142,8 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
                 <Button
                   title={i18n.t('screen.forgotPassword.button.reset')}
                   mb={4}
+                  disabled={invalid}
                   isProgress={submitting}
-                  isLast
                   onPress={handleSubmit}
                 />
               </Footer>
@@ -148,6 +183,7 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
                 <Button
                   title={i18n.t('screen.forgotPassword.button.change')}
                   mb={4}
+                  disabled={invalid}
                   isProgress={submitting}
                   onPress={handleSubmit}
                 />
@@ -186,7 +222,7 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
         </Middle>
 
         <Bottom>
-          <Form {...{ validate, onSubmit, initialValues }} render={renderForm} />
+          <Form {...{ validate, onSubmit }} render={renderForm} />
         </Bottom>
       </Scrollable>
     </Container>
@@ -195,7 +231,6 @@ const ForgotPasswordScreen = ({ navigation, route }) => {
 
 ForgotPasswordScreen.propTypes = {
   navigation: ReactNavigationPropTypes.navigation.isRequired,
-  route: ReactNavigationPropTypes.route.isRequired,
 }
 
 export { ForgotPasswordScreen }
