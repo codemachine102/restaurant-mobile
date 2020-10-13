@@ -211,6 +211,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
           </LogoContainer>
 
           <BackToSignInLink onPress={navigateToSignIn}>
+            {/* <LeftArrow /> */}
             {i18n.t('screen.forgotPassword.button.back')}
           </BackToSignInLink>
         </Top>

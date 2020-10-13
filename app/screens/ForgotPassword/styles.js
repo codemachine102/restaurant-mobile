@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-import { logoImage } from 'assets/images'
+import { logoImage, userIcon } from 'assets/images'
 
 import { Box, Link, Text, Image } from 'components/ui'
 
@@ -60,6 +60,14 @@ export const Logo = styled(Image).attrs(() => {
   width: 40px;
   height: 29px;
 `
+export const LeftArrow = styled(Image).attrs(() => {
+  return {
+    source: userIcon,
+  }
+})`
+  width: 15px;
+  height: 15px;
+`
 
 export const Title = styled(Text).attrs(() => {
   return {
@@ -89,9 +97,11 @@ export const UsageHighlight = styled(Text).attrs(() => {
 export const BackToSignInLink = styled(Link).attrs(() => {
   return {
     messageProps: {
-      style: {
-        textAlign: 'right',
-      },
+      style: {},
     },
   }
-})``
+})`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`
