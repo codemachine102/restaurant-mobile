@@ -36,6 +36,7 @@ export const Content = styled.View``
 export const Footer = styled(Box).attrs(() => {
   return {
     mt: 7,
+    px: 11,
   }
 })``
 

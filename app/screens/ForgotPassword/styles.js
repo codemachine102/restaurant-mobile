@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
 
-import { logoImage, userIcon } from 'assets/images'
+import { logoImage, arrowIcon } from 'assets/images'
 
-import { Box, Link, Text, Image } from 'components/ui'
+import { Box, Text, Image, Icon, TouchableOpacity } from 'components/ui'
 
 export { Form } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
@@ -30,13 +30,13 @@ export const Bottom = styled.View`
 `
 
 export const Inner = styled.View``
-export const Content = styled.View`
-  margin-bottom: 20%;
-`
+
+export const Content = styled.View``
 
 export const Footer = styled(Box).attrs(() => {
   return {
     mt: 7,
+    px: 11,
   }
 })``
 
@@ -60,14 +60,6 @@ export const Logo = styled(Image).attrs(() => {
   width: 40px;
   height: 29px;
 `
-export const LeftArrow = styled(Image).attrs(() => {
-  return {
-    source: userIcon,
-  }
-})`
-  width: 15px;
-  height: 15px;
-`
 
 export const Title = styled(Text).attrs(() => {
   return {
@@ -86,22 +78,27 @@ export const Motto = styled(Text).attrs(() => {
   }
 })``
 
-export const Usage = styled(Text)``
+export const Usage = styled(Text)`
+  width: 70%;
+`
 
-export const UsageHighlight = styled(Text).attrs(() => {
+export const BackToSignIn = styled(TouchableOpacity)`
+  flex-direction: row;
+  align-items: center;
+`
+
+export const BackToSignInText = styled(Text).attrs(() => {
   return {
-    fontFamilyGroup: 'group.bfast',
+    color: 'persimmon75',
   }
 })``
 
-export const BackToSignInLink = styled(Link).attrs(() => {
+export const BackToSignInIcon = styled(Icon).attrs(() => {
   return {
-    messageProps: {
-      style: {},
-    },
+    mr: 3,
+    glyph: arrowIcon,
   }
 })`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  width: 14px;
+  height: 10px;
 `

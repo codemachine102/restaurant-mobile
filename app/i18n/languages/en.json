@@ -32,33 +32,33 @@
     },
     "forgotPassword": {
       "phrase": {
-        "usageReset": "Choose new password and click on the button below. As far 6 symbols, 1 uppercase, 1 special symbol required.",
-        "usagePhone": "Enter your phone number and click Reset button to change your password.",
-        "usageCode": "Type the sercret code from the SMS we sent to ther form below.",
-        "usageSuccess": "Your password was successfuly changed. Go to sign in page and continue use your account.",
+        "title": "Bfast",
         "motto": "Forgot password",
-        "title": "Bfast"
+        "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
+        "enterSecretCode": "Type the secret code from the SMS we sent to the form below.",
+        "enterPassword": "Choose new password and click on the button below. As far 8 symbols, 1 uppercase, 1 special symbol required.",
+        "success": "Your password was successfully changed. Go to sign in page and continue use your account."
       },
       "form": {
         "label": {
           "phone": "Phone Number",
           "code": "Secret Code",
           "password": "New Password",
-          "passwordConfirm": "Confirm Password"
+          "confirmPassword": "Confirm Password"
         },
         "placeholder": {
           "phone": "Type your phone number",
           "code": "Enter code",
           "password": "Enter new password",
-          "passwordConfirm": "Re-enter password"
+          "confirmPassword": "Re-enter new password"
         }
       },
       "button": {
+        "backToSignIn": "Back to Sign In",
         "reset": "Reset",
-        "proceed": "Proceed",
-        "change": "Change",
         "signIn": "Sign In",
-        "back": "Back to Sign In"
+        "proceed": "Proceed",
+        "change": "Change"
       }
     }
   }

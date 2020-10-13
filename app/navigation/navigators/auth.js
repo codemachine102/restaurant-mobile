@@ -5,8 +5,8 @@ import * as Routes from 'navigation/routes'
 
 import { SimpleHeader } from 'components/headers'
 
-import { SignInScreen } from 'screens/SignIn'
 import { ForgotPasswordScreen } from 'screens/ForgotPassword'
+import { SignInScreen } from 'screens/SignIn'
 import { SignUpScreen } from 'screens/SignUp'
 
 const Stack = createStackNavigator()
