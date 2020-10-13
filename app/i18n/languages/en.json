@@ -30,42 +30,35 @@
         "forgotPassword": "Forgot your password?"
       }
     },
-    "changePassword": {
+    "forgotPassword": {
       "phrase": {
-        "usage": "Choose new password and click on the button below. As far 6 symbols, 1 uppercase, 1 special symbol required.",
-        "motto": "Change password",
+        "usageReset": "Choose new password and click on the button below. As far 6 symbols, 1 uppercase, 1 special symbol required.",
+        "usagePhone": "Enter your phone number and click Reset button to change your password.",
+        "usageCode": "Type the sercret code from the SMS we sent to ther form below.",
+        "usageSuccess": "Your password was successfuly changed. Go to sign in page and continue use your account.",
+        "motto": "Forgot password",
         "title": "Bfast"
       },
       "form": {
         "label": {
+          "phone": "Phone Number",
+          "code": "Secret Code",
           "password": "New Password",
-          "newPassword": "Confirm Password"
+          "passwordConfirm": "Confirm Password"
         },
         "placeholder": {
+          "phone": "Type your phone number",
+          "code": "Enter code",
           "password": "Enter new password",
-          "newPassword": "Re-enter password"
+          "passwordConfirm": "Re-enter password"
         }
       },
       "button": {
-        "send": "Change",
+        "reset": "Reset",
+        "proceed": "Proceed",
+        "change": "Change",
+        "signIn": "Sign In",
         "back": "Back to Sign In"
-      }
-    },
-    "resetPassword": {
-      "form": {
-        "label": {
-          "email": "Email"
-        },
-        "placeholder": {
-          "email": "Enter your email"
-        }
-      },
-      "phrase": {
-        "instruction": "Please enter your email to reset\nyour password"
-      },
-      "button": {
-        "send": "Send reset link",
-        "back": "Go back"
       }
     }
   }

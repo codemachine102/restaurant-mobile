@@ -1,48 +1,98 @@
 import styled from 'styled-components/native'
+import { margin } from 'styled-system'
 
-import { Box, Link, Text } from 'components/ui'
+import { logoImage } from 'assets/images'
 
-export { Form, Field } from 'react-final-form'
+import { Box, Link, Text, Image } from 'components/ui'
+
+export { Form } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
-export { FormTextInput } from 'components/blocks'
-export { Button } from 'components/ui'
+export { FormField, FormTextInput } from 'components/blocks'
+export { Button, TabBar } from 'components/ui'
 
-export const Top = styled.View`
+export const Top = styled(Box).attrs(() => {
+  return {
+    py: 4,
+  }
+})`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const Middle = styled.View`
   flex-grow: 1;
+  padding-top: 15%;
+  padding-bottom: 10%;
 `
 
 export const Bottom = styled.View`
-  flex: 1;
   justify-content: flex-end;
 `
 
 export const Inner = styled.View``
-
-export const Content = styled.View``
+export const Content = styled.View`
+  ${margin}
+`
 
 export const Footer = styled(Box).attrs(() => {
   return {
-    mt: 8,
+    mt: 7,
   }
 })``
 
-export const LinkButton = styled(Link).attrs(() => {
+export const LogoContainer = styled(Box).attrs(() => {
+  return {
+    size: 56,
+    borderRadius: 3,
+    borderColor: 'night50',
+  }
+})`
+  border-width: 1px;
+  align-items: center;
+  justify-content: center;
+`
+
+export const Logo = styled(Image).attrs(() => {
+  return {
+    source: logoImage,
+  }
+})`
+  width: 40px;
+  height: 29px;
+`
+
+export const Title = styled(Text).attrs(() => {
+  return {
+    mb: 4,
+    fontSize: 3,
+    fontFamilyGroup: 'group.bfast',
+    color: 'persimmon100',
+  }
+})``
+
+export const Motto = styled(Text).attrs(() => {
+  return {
+    mb: 4,
+    fontSize: 2,
+    fontFamilyGroup: 'group.bfast',
+  }
+})``
+
+export const Usage = styled(Text)``
+
+export const UsageHighlight = styled(Text).attrs(() => {
+  return {
+    fontFamilyGroup: 'group.bfast',
+  }
+})``
+
+export const BackToSignInLink = styled(Link).attrs(() => {
   return {
     messageProps: {
-      fontFamilyStyle: 'style.semiBold',
-
       style: {
-        textAlign: 'center',
+        textAlign: 'right',
       },
     },
   }
 })``
-
-export const Instruction = styled(Text).attrs(() => {
-  return {
-    mb: 5,
-    color: 'gray100',
-  }
-})`
-  text-align: center;
-`
