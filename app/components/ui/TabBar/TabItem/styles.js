@@ -4,8 +4,9 @@ import { getColor } from 'theme'
 
 import { Box } from '../../Box'
 import { Text } from '../../Text'
+import { TouchableOpacity } from '../../TouchableOpacity'
 
-export const Container = styled(Box).attrs(() => {
+export const Container = styled(Box.withComponent(TouchableOpacity)).attrs(() => {
   return {
     px: 6,
     borderRadius: 3,

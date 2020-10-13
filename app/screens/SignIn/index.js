@@ -112,6 +112,15 @@ const SignInScreen = ({ navigation }) => {
     [navigation],
   )
 
+  const handleTabChange = useCallback(
+    (nextTab) => {
+      if (nextTab === TAB_HASH.SIGN_UP) {
+        navigation.navigate(Routes.SignUp)
+      }
+    },
+    [navigation],
+  )
+
   const renderForm = useCallback(
     ({ values, submitting, handleSubmit }) => {
       return (
@@ -182,6 +191,7 @@ const SignInScreen = ({ navigation }) => {
             ]}
             activeId={TAB_HASH.SIGN_IN}
             isFluid={false}
+            onTabChange={handleTabChange}
           />
         </Top>
 
