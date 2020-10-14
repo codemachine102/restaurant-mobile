@@ -168,7 +168,7 @@ const renderPasswordStage = ({ refs, meta: { invalid, submitting, handleSubmit }
 
 const SignUpScreen = ({ navigation }) => {
   const passwordRef = useRef()
-  const phoneNumber = useRef(null)
+  const phoneNumberRef = useRef(null)
   const [codeTimer, setCodeTimer] = useState(59)
   const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
   const dispatch = useDispatch()
@@ -217,7 +217,7 @@ const SignUpScreen = ({ navigation }) => {
     (values) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          phoneNumber.current = values.phone
+          phoneNumberRef.current = values.phone
           sendCode({ variables: values })
           break
         case STAGE_HASH.ENTER_CODE:
@@ -298,7 +298,7 @@ const SignUpScreen = ({ navigation }) => {
             loading,
             handleResend: () => {
               setCodeTimer(59)
-              return sendCode({ variables: { phone: phoneNumber } })
+              return sendCode({ variables: { phone: phoneNumberRef } })
             },
             hasResend: codeTimer <= 0,
           })

@@ -64,7 +64,7 @@
     "signUp": {
       "phrase": {
         "title": "Bfast",
-        "mottoPhone": "Verirfy your phone number",
+        "mottoPhone": "Verify your phone number",
         "mottoCode": "Submitting code",
         "mottoPassword": "Set up your password",
         "enterPhoneNumber": "Please make sure your phone number is correct. We will send a verfication code to this number.",
