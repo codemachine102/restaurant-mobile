@@ -1,5 +1,6 @@
 import React, { useRef, useCallback, useState, useMemo, useEffect } from 'react'
 import { useLazyQuery, useMutation } from '@apollo/client'
+import { useDispatch } from 'react-redux'
 
 import assign from 'lodash/assign'
 import isEqual from 'lodash/isEqual'
@@ -16,8 +17,7 @@ import SEND_CODE from 'graphql/queries/sendPhoneCode.graphql'
 import VERIFY_CODE from 'graphql/queries/verifyPhone.graphql'
 import SIGN_UP from 'graphql/mutations/signUp.graphql'
 
-import { useDispatch } from 'react-redux/lib/hooks/useDispatch'
-import { TAB_HASH } from '../Common/constants'
+import { TAB_HASH } from 'screens/common/constants'
 
 import {
   Container,
