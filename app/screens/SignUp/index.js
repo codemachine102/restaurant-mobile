@@ -297,6 +297,7 @@ const SignUpScreen = ({ navigation }) => {
             ...payload,
             loading,
             handleResend: () => {
+              setCodeTimer(59)
               return sendCode({ variables: { phone: phoneNumber } })
             },
             hasResend: codeTimer <= 0,
