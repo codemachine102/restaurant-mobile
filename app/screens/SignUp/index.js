@@ -1,5 +1,5 @@
-import React, { useRef, useCallback, useState, useMemo } from 'react'
-import { useMutation } from '@apollo/client'
+import React, { useRef, useCallback, useState, useMemo, useEffect } from 'react'
+import { useLazyQuery, useMutation } from '@apollo/client'
 
 import assign from 'lodash/assign'
 import isEqual from 'lodash/isEqual'
@@ -7,13 +7,16 @@ import isEqual from 'lodash/isEqual'
 import i18n from 'i18n'
 
 import ValidationService from 'services/validation'
+import { signInSuccess } from 'store/slices/session'
 
 import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
-import RESET_PASSWORD from 'graphql/mutations/resetPassword.graphql'
-import CHANGE_PASSWORD from 'graphql/mutations/changePassword.graphql'
+import SEND_CODE from 'graphql/queries/sendPhoneCode.graphql'
+import VERIFY_CODE from 'graphql/queries/verifyPhone.graphql'
+import SIGN_UP from 'graphql/mutations/signUp.graphql'
 
+import { useDispatch } from 'react-redux/lib/hooks/useDispatch'
 import { TAB_HASH } from '../Common/constants'
 
 import {
@@ -21,6 +24,7 @@ import {
   Scrollable,
   Top,
   Middle,
+  TimerText,
   Bottom,
   Form,
   TabBar,
@@ -70,9 +74,11 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
 }
 
 const renderCodeStage = ({
-  meta: { invalid, submitting, handleSubmit },
+  meta: { invalid, handleSubmit },
   navigation,
-  // isValidCode,
+  handleResend,
+  loading,
+  hasResend,
 }) => {
   return (
     <Inner>
@@ -87,13 +93,22 @@ const renderCodeStage = ({
       </Content>
 
       <Footer>
-        <Button
-          title={i18n.t('screen.signUp.button.resend')}
-          mb={4}
-          isDisabled={invalid}
-          isProgress={submitting}
-          onPress={handleSubmit}
-        />
+        {hasResend ? (
+          <Button
+            title={i18n.t('screen.signUp.button.resend')}
+            mb={4}
+            isProgress={loading}
+            onPress={handleSubmit}
+          />
+        ) : (
+          <Button
+            title={i18n.t('screen.signUp.button.proceed')}
+            mb={4}
+            isDisabled={invalid}
+            isProgress={loading}
+            onPress={handleResend}
+          />
+        )}
         <Button
           title={i18n.t('screen.signUp.button.back')}
           isOutlined
@@ -153,7 +168,70 @@ const renderPasswordStage = ({ refs, meta: { invalid, submitting, handleSubmit }
 
 const SignUpScreen = ({ navigation }) => {
   const passwordRef = useRef()
+  const phoneNumber = useRef(null)
+  const [codeTimer, setCodeTimer] = useState(59)
   const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
+  const dispatch = useDispatch()
+
+  const [sendCode] = useLazyQuery(SEND_CODE, {
+    onCompleted: () => {
+      return setStage(STAGE_HASH.ENTER_CODE)
+    },
+  })
+
+  const [verifyCode, { loading }] = useLazyQuery(VERIFY_CODE, {
+    onCompleted: () => {
+      return setStage(STAGE_HASH.ENTER_PASSWORD)
+    },
+  })
+
+  const [signUp] = useMutation(SIGN_UP, {
+    onCompleted: ({ signUp: { accessToken, refreshToken } }) => {
+      dispatch(
+        signInSuccess({
+          token: accessToken,
+          refreshToken,
+        }),
+      )
+    },
+  })
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (stage === STAGE_HASH.ENTER_CODE) {
+      const timer = setInterval(() => {
+        setCodeTimer((v) => {
+          if (v === 1) {
+            clearInterval(timer)
+          }
+          return v - 1
+        })
+      }, 1000)
+
+      return () => {
+        return clearInterval(timer)
+      }
+    }
+  }, [stage, loading])
+
+  const onSubmit = useCallback(
+    (values) => {
+      switch (stage) {
+        case STAGE_HASH.ENTER_PHONE:
+          phoneNumber.current = values.phone
+          sendCode({ variables: values })
+          break
+        case STAGE_HASH.ENTER_CODE:
+          verifyCode({ variables: values })
+          break
+        case STAGE_HASH.ENTER_PASSWORD:
+          signUp({ variables: values })
+          break
+        default:
+          break
+      }
+    },
+    [stage, signUp, verifyCode, sendCode],
+  )
 
   const validate = useCallback(
     (values) => {
@@ -197,33 +275,6 @@ const SignUpScreen = ({ navigation }) => {
     },
     [stage],
   )
-  const [resetPassword] = useMutation(RESET_PASSWORD, {
-    onCompleted: () => {
-      return setStage(STAGE_HASH.ENTER_CODE)
-    },
-  })
-
-  const [changePassword] = useMutation(CHANGE_PASSWORD, {
-    onCompleted: () => {
-      return setStage(STAGE_HASH.CHANGE_SUCCESS)
-    },
-  })
-
-  const onSubmit = useCallback(
-    (values) => {
-      switch (stage) {
-        case STAGE_HASH.ENTER_PHONE:
-          resetPassword({ variables: values })
-          break
-        case STAGE_HASH.ENTER_PASSWORD:
-          changePassword({ variables: values })
-          break
-        default:
-          break
-      }
-    },
-    [stage, resetPassword, changePassword],
-  )
 
   const handleTabChange = useCallback(
     (nextTab) => {
@@ -242,15 +293,29 @@ const SignUpScreen = ({ navigation }) => {
         case STAGE_HASH.ENTER_PHONE:
           return renderPhoneStage(payload)
         case STAGE_HASH.ENTER_CODE:
-          return renderCodeStage(payload)
+          return renderCodeStage({
+            ...payload,
+            loading,
+            handleResend: () => {
+              return sendCode({ variables: { phone: phoneNumber } })
+            },
+            hasResend: codeTimer <= 0,
+          })
         case STAGE_HASH.ENTER_PASSWORD:
           return renderPasswordStage(payload)
         default:
           return null
       }
     },
-    [stage, navigation],
+    [stage, navigation, loading, sendCode, codeTimer],
   )
+
+  const displayTimer = useMemo(() => {
+    if (stage === STAGE_HASH.ENTER_CODE && codeTimer > 0) {
+      return <TimerText>{`00:${codeTimer}`}</TimerText>
+    }
+    return null
+  }, [stage, codeTimer])
 
   const usageAndMoto = useMemo(() => {
     let usage
@@ -303,6 +368,7 @@ const SignUpScreen = ({ navigation }) => {
         <Middle>
           <Title>{i18n.t('screen.signUp.phrase.title')}</Title>
           {usageAndMoto}
+          {displayTimer}
         </Middle>
 
         <Bottom>

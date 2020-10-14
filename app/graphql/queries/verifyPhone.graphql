@@ -1,0 +1,5 @@
+query VerifyPhone($phone: String!, $code: String!, $withRefresh: Boolean) {
+  verifyPhone(phone: $phone, code: $code, withRefresh: $withRefresh) {
+      ok
+  }
+}

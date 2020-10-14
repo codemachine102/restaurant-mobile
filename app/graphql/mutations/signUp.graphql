@@ -1,0 +1,7 @@
+#import "../fragments/authToken.graphql"
+
+mutation SignUp($phone: String!, $password: String!, $withRefresh: Boolean) {
+  signUp(phone: $phone, password: $password, withRefresh: $withRefresh) {
+    ...AuthTokenFields
+  }
+}

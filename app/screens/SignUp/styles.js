@@ -1,8 +1,8 @@
 import styled from 'styled-components/native'
 
-import { logoImage, arrowIcon } from 'assets/images'
+import { logoImage } from 'assets/images'
 
-import { Box, Text, Image, Icon, TouchableOpacity } from 'components/ui'
+import { Box, Text, Image } from 'components/ui'
 
 export { Form } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
@@ -82,23 +82,9 @@ export const Usage = styled(Text)`
   width: 70%;
 `
 
-export const BackToSignIn = styled(TouchableOpacity)`
-  flex-direction: row;
-  align-items: center;
-`
-
-export const BackToSignInText = styled(Text).attrs(() => {
+export const TimerText = styled(Text).attrs(() => {
   return {
-    color: 'persimmon75',
+    color: 'persimmon100',
+    mt: 2,
   }
 })``
-
-export const BackToSignInIcon = styled(Icon).attrs(() => {
-  return {
-    mr: 3,
-    glyph: arrowIcon,
-  }
-})`
-  width: 14px;
-  height: 10px;
-`
