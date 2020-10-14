@@ -17,6 +17,7 @@ import { ReactNavigationPropTypes } from 'constants/propTypes'
 import SIGN_IN from 'graphql/mutations/signIn.graphql'
 
 import { signInSuccess } from 'store/slices/session'
+import { TAB_HASH } from '../Common/constants'
 
 import {
   Container,
@@ -40,11 +41,6 @@ import {
   Button,
   LinkButton,
 } from './styles'
-
-const TAB_HASH = {
-  SIGN_IN: 'SIGN_IN',
-  SIGN_UP: 'SIGN_UP',
-}
 
 const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()

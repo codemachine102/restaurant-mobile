@@ -60,6 +60,37 @@
         "proceed": "Proceed",
         "change": "Change"
       }
+    },
+    "signUp": {
+      "phrase": {
+        "title": "Bfast",
+        "mottoPhone": "Verirfy your phone number",
+        "mottoCode": "Submitting code",
+        "mottoPassword": "Set up your password",
+        "enterPhoneNumber": "Please make sure your phone number is correct. We well send a verfication code to this number.",
+        "enterSecretCode": "Thank you!\nWe care about your account security. \n\nPlease type the verification code sent.",
+        "enterPassword": "Let's create your password. As far 8 symbols, 1 uppercase, 1 special symbol required."
+      },
+      "form": {
+        "label": {
+          "phone": "Phone Number",
+          "code": "Verification code",
+          "password": "New Password",
+          "confirmPassword": "Confirm Password"
+        },
+        "placeholder": {
+          "phone": "Type your phone number",
+          "code": "Type your verification code",
+          "password": "Enter new password",
+          "confirmPassword": "Re-enter new password"
+        }
+      },
+      "button": {
+        "back": "Back",
+        "proceed": "Proceed",
+        "resend": "Resend",
+        "confirm": "Confirm"
+      }
     }
   }
 }
