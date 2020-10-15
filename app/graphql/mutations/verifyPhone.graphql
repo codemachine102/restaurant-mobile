@@ -1,0 +1,5 @@
+mutation VerifyPhone($phone: String!, $code: String!, $withRefresh: Boolean, $password: String!) {
+  verifyPhone(phone: $phone, code: $code, withRefresh: $withRefresh, password: $password) {
+    ...AuthTokenFields
+  }
+}

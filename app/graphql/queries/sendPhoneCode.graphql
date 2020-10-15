@@ -1,5 +1,0 @@
-query SendPhoneCode($phone: String!) {
-  sendPhoneCode(phone: $phone) {
-    ok
-  }
-}

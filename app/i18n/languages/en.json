@@ -35,54 +35,47 @@
         "title": "Bfast",
         "motto": "Forgot password",
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
-        "enterSecretCode": "Type the secret code from the SMS we sent to the form below.",
-        "enterPassword": "Choose new password and click on the button below. As far 8 symbols, 1 uppercase, 1 special symbol required.",
+        "enterCode&Password": "Please type the verification code from SMS and change your passsword\n\n Didn't receive the code?",
         "success": "Your password was successfully changed. Go to sign in page and continue use your account."
       },
       "form": {
         "label": {
           "phone": "Phone Number",
-          "code": "Secret Code",
-          "password": "New Password",
-          "confirmPassword": "Confirm Password"
+          "code": "Verification Code",
+          "password": "New Password"
         },
         "placeholder": {
           "phone": "Type your phone number",
           "code": "Enter code",
-          "password": "Enter new password",
-          "confirmPassword": "Re-enter new password"
+          "password": "Enter new password"
         }
       },
       "button": {
         "backToSignIn": "Back to Sign In",
         "reset": "Reset",
+        "back": "Back",
         "signIn": "Sign In",
-        "proceed": "Proceed",
-        "change": "Change"
+        "confirm": "Confirm"
       }
     },
     "signUp": {
       "phrase": {
         "title": "Bfast",
-        "mottoPhone": "Verify your phone number",
-        "mottoCode": "Submitting code",
-        "mottoPassword": "Set up your password",
+        "motto": "Verify your phone number",
         "enterPhoneNumber": "Please make sure your phone number is correct. We will send a verfication code to this number.",
-        "enterSecretCode": "Thank you!\nWe care about your account security. \n\nPlease type the verification code sent.",
-        "enterPassword": "Let's create your password. As far 8 symbols, 1 uppercase, 1 special symbol required."
+        "enterCode&Password": "Please type the verification code from SMS and set up your passsword",
+        "noCode": "Didn't receive the code?  "
       },
       "form": {
         "label": {
           "phone": "Phone Number",
           "code": "Verification code",
-          "password": "New Password",
-          "confirmPassword": "Confirm Password"
+          "password": "New Password"
         },
         "placeholder": {
           "phone": "Type your phone number",
           "code": "Type your verification code",
-          "password": "Enter new password",
-          "confirmPassword": "Re-enter new password"
+          "password": "Enter new password"
         }
       },
       "button": {
