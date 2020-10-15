@@ -102,3 +102,14 @@ export const BackToSignInIcon = styled(Icon).attrs(() => {
   width: 14px;
   height: 10px;
 `
+export const TimerText = styled(Text).attrs(() => {
+  return {
+    color: 'persimmon100',
+  }
+})``
+
+export const ResendText = styled(Text).attrs(() => {
+  return {
+    color: 'persimmon100',
+  }
+})``

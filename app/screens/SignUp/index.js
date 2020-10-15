@@ -87,6 +87,7 @@ const renderCodePasswordStage = ({
           mb={5}
           keyboardType="number-pad"
           returnKeyType="next"
+          blurOnSubmit={false}
           label={i18n.t('screen.signUp.form.label.code')}
           placeholder={i18n.t('screen.signUp.form.placeholder.code')}
           onSubmitEditing={() => {
@@ -130,7 +131,7 @@ const SignUpScreen = ({ navigation }) => {
   const secondFieldRef = useRef()
   const phoneNumberRef = useRef(null)
   const [codeTimer, setCodeTimer] = useState(59)
-  const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
+  const [stage, setStage] = useState(STAGE_HASH.ENTER_CODE_PASSWORD)
   const dispatch = useDispatch()
 
   const [sendCode, { loading }] = useMutation(SIGN_UP, {

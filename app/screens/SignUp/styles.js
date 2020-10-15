@@ -90,6 +90,6 @@ export const TimerText = styled(Text).attrs(() => {
 
 export const ResendText = styled(Text).attrs(() => {
   return {
-    color: 'persimmon75',
+    color: 'persimmon100',
   }
 })``

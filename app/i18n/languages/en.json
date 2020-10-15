@@ -35,8 +35,9 @@
         "title": "Bfast",
         "motto": "Forgot password",
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
-        "enterCode&Password": "Please type the verification code from SMS and change your passsword\n\n Didn't receive the code?",
-        "success": "Your password was successfully changed. Go to sign in page and continue use your account."
+        "enterCode&Password": "Please type the verification code from SMS and change your passsword\n",
+        "success": "Your password was successfully changed. Go to sign in page and continue use your account.",
+        "noCode": "Didn't receive the code?  "
       },
       "form": {
         "label": {
@@ -54,6 +55,7 @@
         "backToSignIn": "Back to Sign In",
         "reset": "Reset",
         "back": "Back",
+        "resend": "Resend",
         "signIn": "Sign In",
         "confirm": "Confirm"
       }
@@ -63,19 +65,19 @@
         "title": "Bfast",
         "motto": "Verify your phone number",
         "enterPhoneNumber": "Please make sure your phone number is correct. We will send a verfication code to this number.",
-        "enterCode&Password": "Please type the verification code from SMS and set up your passsword",
+        "enterCode&Password": "Please type the verification code from SMS and set up your passsword\n",
         "noCode": "Didn't receive the code?  "
       },
       "form": {
         "label": {
           "phone": "Phone Number",
           "code": "Verification code",
-          "password": "New Password"
+          "password": "Password"
         },
         "placeholder": {
           "phone": "Type your phone number",
           "code": "Type your verification code",
-          "password": "Enter new password"
+          "password": "Enter password"
         }
       },
       "button": {
