@@ -1,12 +1,13 @@
-import React, { useRef, useCallback, useState, useMemo, useEffect } from 'react'
+import React, { useRef, useCallback, useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { useDispatch } from 'react-redux'
+import { Duration } from 'luxon'
 
 import assign from 'lodash/assign'
 
 import i18n from 'i18n'
-
 import ValidationService from 'services/validation'
+
 import { signInSuccess } from 'store/slices/session'
 
 import * as Routes from 'navigation/routes'
@@ -15,7 +16,7 @@ import { ReactNavigationPropTypes } from 'constants/propTypes'
 import VERIFY_PHONE from 'graphql/mutations/verifyPhone.graphql'
 import SIGN_UP from 'graphql/mutations/signUp.graphql'
 
-import { TAB_HASH } from 'screens/common/constants'
+import { TAB_HASH, useTimer } from 'screens/common/auth'
 import { Text } from 'components/ui'
 
 import {
@@ -43,7 +44,7 @@ import {
 
 const STAGE_HASH = {
   ENTER_PHONE: 'ENTER_PHONE',
-  ENTER_CODE_PASSWORD: 'ENTER_CODE_PASSWORD',
+  ENTER_PASSWORD: 'ENTER_CODE_PASSWORD',
 }
 
 const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
@@ -75,8 +76,8 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
 const renderCodePasswordStage = ({
   refs: { secondFieldRef },
   meta: { invalid, handleSubmit },
-  navigation,
   loading,
+  setStage,
 }) => {
   return (
     <Inner>
@@ -96,9 +97,9 @@ const renderCodePasswordStage = ({
         />
 
         <FormField
-          innerRef={secondFieldRef}
           name="password"
           component={FormTextInput}
+          innerRef={secondFieldRef}
           label={i18n.t('screen.signUp.form.label.password')}
           placeholder={i18n.t('screen.signUp.form.placeholder.password')}
           autoCapitalize="none"
@@ -115,11 +116,12 @@ const renderCodePasswordStage = ({
           isProgress={loading}
           onPress={handleSubmit}
         />
+
         <Button
           title={i18n.t('screen.signUp.button.back')}
           isOutlined
           onPress={() => {
-            return navigation.goBack()
+            return setStage(STAGE_HASH.ENTER_PHONE)
           }}
         />
       </Footer>
@@ -128,19 +130,21 @@ const renderCodePasswordStage = ({
 }
 
 const SignUpScreen = ({ navigation }) => {
+  const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
+  const [countdown, hasEnded, startCountDown] = useTimer(60)
+
   const secondFieldRef = useRef()
-  const phoneNumberRef = useRef(null)
-  const [codeTimer, setCodeTimer] = useState(59)
-  const [stage, setStage] = useState(STAGE_HASH.ENTER_CODE_PASSWORD)
+  const phoneNumberRef = useRef()
   const dispatch = useDispatch()
 
-  const [sendCode, { loading }] = useMutation(SIGN_UP, {
+  const [signUp, { loading }] = useMutation(SIGN_UP, {
     onCompleted: () => {
-      return setStage(STAGE_HASH.ENTER_CODE_PASSWORD)
+      setStage(STAGE_HASH.ENTER_PASSWORD)
+      startCountDown()
     },
   })
 
-  const [signUp] = useMutation(VERIFY_PHONE, {
+  const [verifyPhone] = useMutation(VERIFY_PHONE, {
     onCompleted: ({ verifyPhone: { accessToken, refreshToken } }) => {
       dispatch(
         signInSuccess({
@@ -150,39 +154,22 @@ const SignUpScreen = ({ navigation }) => {
       )
     },
   })
-  // eslint-disable-next-line consistent-return
-  useEffect(() => {
-    if (stage === STAGE_HASH.ENTER_CODE_PASSWORD) {
-      const timer = setInterval(() => {
-        setCodeTimer((v) => {
-          if (v === 1) {
-            clearInterval(timer)
-          }
-          return v - 1
-        })
-      }, 1000)
-
-      return () => {
-        return clearInterval(timer)
-      }
-    }
-  }, [stage, loading])
 
   const onSubmit = useCallback(
     (values) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
           phoneNumberRef.current = values.phone
-          sendCode({ variables: values })
-          break
-        case STAGE_HASH.ENTER_CODE_PASSWORD:
           signUp({ variables: values })
+          break
+        case STAGE_HASH.ENTER_PASSWORD:
+          verifyPhone({ variables: values })
           break
         default:
           break
       }
     },
-    [stage, signUp, sendCode],
+    [stage, signUp, verifyPhone],
   )
 
   const validate = useCallback(
@@ -194,7 +181,7 @@ const SignUpScreen = ({ navigation }) => {
             presence: true,
           },
         },
-        stage === STAGE_HASH.ENTER_CODE_PASSWORD && {
+        stage === STAGE_HASH.ENTER_PASSWORD && {
           code: {
             presence: true,
           },
@@ -227,16 +214,13 @@ const SignUpScreen = ({ navigation }) => {
 
   const renderForm = useCallback(
     (meta) => {
-      const payload = { meta, navigation, refs: { secondFieldRef } }
+      const payload = { meta, navigation, refs: { secondFieldRef }, loading, setStage }
 
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
           return renderPhoneStage(payload)
-        case STAGE_HASH.ENTER_CODE_PASSWORD:
-          return renderCodePasswordStage({
-            ...payload,
-            loading,
-          })
+        case STAGE_HASH.ENTER_PASSWORD:
+          return renderCodePasswordStage(payload)
         default:
           return null
       }
@@ -244,38 +228,46 @@ const SignUpScreen = ({ navigation }) => {
     [stage, navigation, loading],
   )
 
-  const displayTimer = useMemo(() => {
-    if (stage === STAGE_HASH.ENTER_CODE_PASSWORD) {
+  const renderTimer = () => {
+    if (stage === STAGE_HASH.ENTER_PASSWORD) {
       const handleResend = () => {
-        setCodeTimer(59)
-        return sendCode({ variables: { phone: phoneNumberRef } })
+        startCountDown()
+        return signUp({ variables: { phone: phoneNumberRef } })
       }
 
       return (
         <Text>
-          {i18n.t('screen.signUp.phrase.noCode')}
-          {codeTimer > 0 ? (
-            <TimerText>{`00:${codeTimer}`}</TimerText>
+          {`${i18n.t('screen.signUp.phrase.noCode')}  `}
+
+          {!hasEnded ? (
+            <TimerText>{Duration.fromObject({ seconds: countdown }).toFormat('mm:ss')}</TimerText>
           ) : (
             <ResendText onPress={handleResend}>{i18n.t('screen.signUp.button.resend')}</ResendText>
           )}
         </Text>
       )
     }
-    return null
-  }, [stage, codeTimer, sendCode])
 
-  const renderUsage = useMemo(() => {
+    return null
+  }
+
+  const renderUsage = () => {
     const usage = assign(
-      {},
       stage === STAGE_HASH.ENTER_PHONE && { v: i18n.t('screen.signUp.phrase.enterPhoneNumber') },
-      stage === STAGE_HASH.ENTER_CODE_PASSWORD && {
-        v: i18n.t('screen.signUp.phrase.enterCode&Password'),
+      stage === STAGE_HASH.ENTER_PASSWORD && {
+        v: i18n.t('screen.signUp.phrase.enterPassword'),
       },
     )
 
     return <Usage>{usage.v}</Usage>
-  }, [stage])
+  }
+
+  const initialValues = {
+    phone: '',
+    code: '',
+    password: '',
+    withRefresh: true,
+  }
 
   return (
     <Container>
@@ -287,8 +279,8 @@ const SignUpScreen = ({ navigation }) => {
 
           <TabBar
             tabs={[
-              { id: TAB_HASH.SIGN_IN, label: i18n.t('screen.signIn.phrase.signIn') },
-              { id: TAB_HASH.SIGN_UP, label: i18n.t('screen.signIn.phrase.signUp') },
+              { id: TAB_HASH.SIGN_IN, label: i18n.t('screen.signUp.phrase.signIn') },
+              { id: TAB_HASH.SIGN_UP, label: i18n.t('screen.signUp.phrase.signUp') },
             ]}
             activeId={TAB_HASH.SIGN_UP}
             isFluid={false}
@@ -299,12 +291,13 @@ const SignUpScreen = ({ navigation }) => {
         <Middle>
           <Title>{i18n.t('screen.signUp.phrase.title')}</Title>
           <Motto>{i18n.t('screen.signUp.phrase.motto')}</Motto>
-          {renderUsage}
-          {displayTimer}
+
+          {renderUsage()}
+          {renderTimer()}
         </Middle>
 
         <Bottom>
-          <Form {...{ validate, onSubmit }} render={renderForm} />
+          <Form {...{ validate, onSubmit, initialValues }} render={renderForm} />
         </Bottom>
       </Scrollable>
     </Container>

@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState, useEffect, useMemo } from 'react'
+import React, { useRef, useCallback, useState } from 'react'
 import { useMutation } from '@apollo/client'
 
 import assign from 'lodash/assign'
@@ -13,6 +13,8 @@ import { ReactNavigationPropTypes } from 'constants/propTypes'
 import RESET_PASSWORD from 'graphql/mutations/resetPassword.graphql'
 import CHANGE_PASSWORD from 'graphql/mutations/changePassword.graphql'
 import { Text } from 'components/ui'
+
+import { useTimer } from '../common/auth'
 
 import {
   Container,
@@ -41,7 +43,7 @@ import {
 
 const STAGE_HASH = {
   ENTER_PHONE: 'ENTER_PHONE',
-  ENTER_CODE_PASSWORD: 'ENTER_CODE_PASSWORD',
+  ENTER_PASSWORD: 'ENTER_PASSWORD',
   SUCCESS: 'CHANGE_SUCCESS',
 }
 
@@ -143,12 +145,12 @@ const renderSuccess = ({ navigation }) => {
 const ForgotPasswordScreen = ({ navigation }) => {
   const secondFieldRef = useRef()
   const phoneNumberRef = useRef(null)
-  const [codeTimer, setCodeTimer] = useState(59)
-  const [stage, setStage] = useState(STAGE_HASH.ENTER_CODE_PASSWORD)
+  const [countdown, hasEnded, startCountDown] = useTimer(60)
+  const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
 
-  const [sendCode, { loading }] = useMutation(RESET_PASSWORD, {
+  const [resetPassword, { loading }] = useMutation(RESET_PASSWORD, {
     onCompleted: () => {
-      return setStage(STAGE_HASH.ENTER_CODE_PASSWORD)
+      return setStage(STAGE_HASH.ENTER_PASSWORD)
     },
   })
 
@@ -157,39 +159,22 @@ const ForgotPasswordScreen = ({ navigation }) => {
       return setStage(STAGE_HASH.SUCCESS)
     },
   })
-  // eslint-disable-next-line consistent-return
-  useEffect(() => {
-    if (stage === STAGE_HASH.ENTER_CODE_PASSWORD) {
-      const timer = setInterval(() => {
-        setCodeTimer((v) => {
-          if (v === 1) {
-            clearInterval(timer)
-          }
-          return v - 1
-        })
-      }, 1000)
-
-      return () => {
-        return clearInterval(timer)
-      }
-    }
-  }, [stage, loading])
 
   const onSubmit = useCallback(
     (values) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
           phoneNumberRef.current = values.phone
-          sendCode({ variables: values })
+          resetPassword({ variables: values })
           break
-        case STAGE_HASH.ENTER_CODE_PASSWORD:
+        case STAGE_HASH.ENTER_PASSWORD:
           changePassword({ variables: values })
           break
         default:
           break
       }
     },
-    [stage, changePassword, sendCode],
+    [stage, changePassword, resetPassword],
   )
 
   const validate = useCallback(
@@ -201,7 +186,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
             presence: true,
           },
         },
-        stage === STAGE_HASH.ENTER_CODE_PASSWORD && {
+        stage === STAGE_HASH.ENTER_PASSWORD && {
           code: {
             presence: true,
           },
@@ -230,7 +215,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
           return renderPhoneStage(payload)
-        case STAGE_HASH.ENTER_CODE_PASSWORD:
+        case STAGE_HASH.ENTER_PASSWORD:
           return renderCodePasswordStage({
             ...payload,
             loading,
@@ -248,18 +233,19 @@ const ForgotPasswordScreen = ({ navigation }) => {
     return navigation.navigate(Routes.SignIn)
   }, [navigation])
 
-  const displayTimer = useMemo(() => {
-    if (stage === STAGE_HASH.ENTER_CODE_PASSWORD) {
+  const renderTimer = () => {
+    if (stage === STAGE_HASH.ENTER_PASSWORD) {
       const handleResend = () => {
-        setCodeTimer(59)
-        return sendCode({ variables: { phone: phoneNumberRef } })
+        startCountDown()
+        return resetPassword({ variables: { phone: phoneNumberRef } })
       }
 
       return (
         <Text>
-          {i18n.t('screen.forgotPassword.phrase.noCode')}
-          {codeTimer > 0 ? (
-            <TimerText>{`00:${codeTimer}`}</TimerText>
+          {`${i18n.t('screen.forgotPassword.phrase.noCode')}  `}
+
+          {!hasEnded ? (
+            <TimerText>{`00:${countdown}  `}</TimerText>
           ) : (
             <ResendText onPress={handleResend}>
               {i18n.t('screen.forgotPassword.button.resend')}
@@ -269,24 +255,30 @@ const ForgotPasswordScreen = ({ navigation }) => {
       )
     }
     return null
-  }, [stage, codeTimer, sendCode])
+  }
 
-  const renderUsage = useMemo(() => {
+  const renderUsage = () => {
     const usage = assign(
-      {},
       stage === STAGE_HASH.ENTER_PHONE && {
         v: i18n.t('screen.forgotPassword.phrase.enterPhoneNumber'),
       },
-      stage === STAGE_HASH.ENTER_CODE_PASSWORD && {
-        v: i18n.t('screen.forgotPassword.phrase.enterCode&Password'),
+      stage === STAGE_HASH.ENTER_PASSWORD && {
+        v: i18n.t('screen.forgotPassword.phrase.enterPassword'),
       },
       stage === STAGE_HASH.SUCCESS && {
         v: i18n.t('screen.forgotPassword.phrase.success'),
       },
     )
 
-    return <Usage>{usage.v}</Usage>
-  }, [stage])
+    return <Usage>{usage?.v}</Usage>
+  }
+
+  const initialValues = {
+    phone: '',
+    code: '',
+    password: '',
+    withRefresh: true,
+  }
 
   return (
     <Container>
@@ -310,12 +302,13 @@ const ForgotPasswordScreen = ({ navigation }) => {
         <Middle>
           <Title>{i18n.t('screen.forgotPassword.phrase.title')}</Title>
           <Motto>{i18n.t('screen.forgotPassword.phrase.motto')}</Motto>
-          {renderUsage}
-          {displayTimer}
+
+          {renderUsage()}
+          {renderTimer()}
         </Middle>
 
         <Bottom>
-          <Form {...{ validate, onSubmit }} render={renderForm} />
+          <Form {...{ validate, onSubmit, initialValues }} render={renderForm} />
         </Bottom>
       </Scrollable>
     </Container>

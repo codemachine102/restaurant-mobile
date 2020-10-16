@@ -16,7 +16,7 @@ import { ReactNavigationPropTypes } from 'constants/propTypes'
 
 import SIGN_IN from 'graphql/mutations/signIn.graphql'
 
-import { TAB_HASH } from 'screens/common/constants'
+import { TAB_HASH } from 'screens/common/auth'
 import { signInSuccess } from 'store/slices/session'
 
 import {

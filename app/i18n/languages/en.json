@@ -35,9 +35,9 @@
         "title": "Bfast",
         "motto": "Forgot password",
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
-        "enterCode&Password": "Please type the verification code from SMS and change your passsword\n",
+        "enterPassword": "Please type the verification code from SMS and change your passsword\n",
         "success": "Your password was successfully changed. Go to sign in page and continue use your account.",
-        "noCode": "Didn't receive the code?  "
+        "noCode": "Didn't receive the code?"
       },
       "form": {
         "label": {
@@ -63,10 +63,12 @@
     "signUp": {
       "phrase": {
         "title": "Bfast",
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
         "motto": "Verify your phone number",
         "enterPhoneNumber": "Please make sure your phone number is correct. We will send a verfication code to this number.",
-        "enterCode&Password": "Please type the verification code from SMS and set up your passsword\n",
-        "noCode": "Didn't receive the code?  "
+        "enterPassword": "Please type the verification code from SMS and set up your password\n",
+        "noCode": "Didn't receive the code?"
       },
       "form": {
         "label": {
@@ -85,6 +87,49 @@
         "proceed": "Proceed",
         "resend": "Resend",
         "confirm": "Confirm"
+      }
+    },
+    "venueCreation": {
+      "phrase": {
+        "title": "Bfast",
+        "motto": "Fill your venue information",
+        "usage": "You will be able to change this information anytime.",
+        "info": "Info",
+        "menu": "Menu"
+      },
+      "sections": {
+        "generalInfo": "General Information",
+        "workingHours": "Working hours",
+        "locations": "Locations"
+      },
+      "button": {
+        "save": "Save",
+        "addVenuePhoto": "Add Venue photos",
+        "addException": "Add Exception"
+      },
+      "form": {
+        "label": {
+          "venueName": "Venue Name",
+          "priceRange": "Price Range",
+          "cuisineType": "Cuisine Type",
+          "taxId": "Tax ID Number",
+          "day": "Day",
+          "time": "Time",
+          "venueAddress": "Venue Address"
+        },
+        "placeholder": {
+          "venueName": "Type venue name",
+          "active": "Active",
+          "inactive": "Inactive",
+          "$": "$",
+          "$$": "$$",
+          "$$$": "$$$",
+          "cuisineType": "Choose cuisine type",
+          "taxId": "Type your tax id number",
+          "day": "Mon - Sun",
+          "time": "Choose time range",
+          "venueAddress": "Current location"
+        }
       }
     }
   }
