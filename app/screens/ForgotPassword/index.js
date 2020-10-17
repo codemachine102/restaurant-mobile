@@ -135,7 +135,7 @@ const renderChangeSuccess = ({ navigation }) => {
 
 const ForgotPasswordScreen = ({ navigation }) => {
   const valuesRef = useRef({})
-  const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
+  const [stage, setStage] = useState(STAGE_HASH.CHANGE_SUCCESS)
 
   const [resetPassword, resetResponse] = useMutation(RESET_PASSWORD, {
     onCompleted: () => {
@@ -294,7 +294,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
             <Logo />
           </LogoContainer>
 
-          {stage !== STAGE_HASH.SUCCESS && (
+          {stage !== STAGE_HASH.CHANGE_SUCCESS && (
             <BackToSignIn onPress={handleBackPress}>
               <BackToSignInIcon />
 
