@@ -19,4 +19,4 @@ export {
   Usage,
   Button,
   TabBar,
-} from '../common/auth'
+} from 'screen/common/auth'

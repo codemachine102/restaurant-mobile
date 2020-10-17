@@ -9,9 +9,9 @@
   "screen": {
     "signIn": {
       "phrase": {
-        "title": "Bfast",
-        "motto": "The most important\nApp of the day.",
-        "usage": "Use $[Bfast] to quickly and safely pick-up your food without delay.",
+        "bfast": "Bfast",
+        "importantApp": "The most important App of the day.",
+        "useBfast": "Use $[Bfast] to quickly and safely pick-up your food without delay.",
         "signIn": "Sign In",
         "signUp": "Sign Up"
       },
@@ -32,11 +32,11 @@
     },
     "forgotPassword": {
       "phrase": {
-        "title": "Bfast",
-        "motto": "Forgot password",
+        "bfast": "Bfast",
+        "forgotPassword": "Forgot password",
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
-        "enterPassword": "Please type the verification code from SMS and change your passsword\n",
-        "success": "Your password was successfully changed. Go to sign in page and continue use your account.",
+        "enterPassword": "Please type the verification code from SMS and change your passsword.",
+        "changeSuccess": "Your password was successfully changed. Go to sign in page and continue use your account.",
         "noCode": "Didn't receive the code?"
       },
       "form": {
@@ -66,8 +66,8 @@
         "signIn": "Sign In",
         "signUp": "Sign Up",
         "motto": "Verify your phone number",
-        "enterPhoneNumber": "Please make sure your phone number is correct. We will send a verfication code to this number.",
-        "enterPassword": "Please type the verification code from SMS and set up your password\n",
+        "enterPhone": "Please make sure your phone number is correct. We will send a verfication code to this number.",
+        "enterPassword": "Please type the verification code from SMS and set up your password.",
         "noCode": "Didn't receive the code?"
       },
       "form": {
@@ -84,52 +84,9 @@
       },
       "button": {
         "back": "Back",
-        "proceed": "Proceed",
         "resend": "Resend",
+        "proceed": "Proceed",
         "confirm": "Confirm"
-      }
-    },
-    "venueCreation": {
-      "phrase": {
-        "title": "Bfast",
-        "motto": "Fill your venue information",
-        "usage": "You will be able to change this information anytime.",
-        "info": "Info",
-        "menu": "Menu"
-      },
-      "sections": {
-        "generalInfo": "General Information",
-        "workingHours": "Working hours",
-        "locations": "Locations"
-      },
-      "button": {
-        "save": "Save",
-        "addVenuePhoto": "Add Venue photos",
-        "addException": "Add Exception"
-      },
-      "form": {
-        "label": {
-          "venueName": "Venue Name",
-          "priceRange": "Price Range",
-          "cuisineType": "Cuisine Type",
-          "taxId": "Tax ID Number",
-          "day": "Day",
-          "time": "Time",
-          "venueAddress": "Venue Address"
-        },
-        "placeholder": {
-          "venueName": "Type venue name",
-          "active": "Active",
-          "inactive": "Inactive",
-          "$": "$",
-          "$$": "$$",
-          "$$$": "$$$",
-          "cuisineType": "Choose cuisine type",
-          "taxId": "Type your tax id number",
-          "day": "Mon - Sun",
-          "time": "Choose time range",
-          "venueAddress": "Current location"
-        }
       }
     }
   }

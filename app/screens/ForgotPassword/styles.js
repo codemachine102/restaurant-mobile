@@ -5,26 +5,26 @@ import { arrowIcon } from 'assets/images'
 import { Text, Icon, TouchableOpacity } from 'components/ui'
 
 export {
-  Form,
   Container,
   Scrollable,
-  FormField,
-  FormTextInput,
-  TimerText,
-  ResendText,
+  Top,
   Logo,
   LogoContainer,
-  Top,
   Middle,
+  Title,
+  Description,
+  Instruction,
   Bottom,
-  Footer,
-  Motto,
+  Form,
+  FormSpy,
+  FormField,
+  FormTextInput,
   Inner,
   Content,
-  Title,
-  Usage,
+  Footer,
   Button,
-} from '../common/auth'
+} from 'screens/common/auth'
+export { Resend } from './Resend'
 
 export const BackToSignIn = styled(TouchableOpacity)`
   flex-direction: row;
@@ -41,6 +41,7 @@ export const BackToSignInIcon = styled(Icon).attrs(() => {
   return {
     mr: 3,
     glyph: arrowIcon,
+    tintColor: 'persimmon75',
   }
 })`
   width: 14px;

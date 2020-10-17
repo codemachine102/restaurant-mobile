@@ -21,15 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-	<key>NSPhotoLibraryUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like access to your photo gallery</string>
-    <key>NSCameraUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like to use your camera</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like to save photos to your photo gallery</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like to use your microphone (for videos)</string>
-	<array>
+  <array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -41,6 +33,14 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like access to your photo gallery</string>
+  <key>NSCameraUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like to use your camera</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like to save photos to your photo gallery</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>$(PRODUCT_NAME) would like to use your microphone (for videos)</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -80,8 +80,6 @@
 		<string>SF-Pro-Display-ThinItalic.ttf</string>
 		<string>SF-Pro-Display-Ultralight.ttf</string>
 		<string>SF-Pro-Display-UltralightItalic.ttf</string>
-		<string>Bfast.otf</string>
-		<string>Bfast.ttf</string>
 		<string>Bfast-Regular.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

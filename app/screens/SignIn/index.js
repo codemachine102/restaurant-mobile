@@ -6,40 +6,38 @@ import get from 'lodash/get'
 
 import i18n from 'i18n'
 import Utils from 'utils'
-
 import ValidationService from 'services/validation'
 
 import AppConfig from 'config/app'
-
 import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
 import SIGN_IN from 'graphql/mutations/signIn.graphql'
 
-import { TAB_HASH } from 'screens/common/auth'
 import { signInSuccess } from 'store/slices/session'
 
 import {
   Container,
   Scrollable,
   Top,
+  LogoContainer,
+  Logo,
+  TabBar,
   Middle,
-  Bottom,
-  Form,
-  FormField,
+  Title,
+  Description,
+  Instruction,
+  InstructionHighlight,
   Inner,
   Content,
-  FormTextInput,
-  Title,
-  Motto,
-  Usage,
-  UsageHighlight,
-  Logo,
-  LogoContainer,
-  TabBar,
+  Bottom,
   Footer,
   Button,
-  LinkButton,
+  Form,
+  FormField,
+  FormTextInput,
+  ForgotPassword,
+  TAB_HASH,
 } from './styles'
 
 const SignInScreen = ({ navigation }) => {
@@ -59,10 +57,14 @@ const SignInScreen = ({ navigation }) => {
   const validate = (values) => {
     const constraints = {
       phone: {
-        presence: true,
+        presence: {
+          allowEmpty: false,
+        },
       },
       password: {
-        presence: true,
+        presence: {
+          allowEmpty: false,
+        },
         length: { minimum: 6, maximum: 100 },
       },
     }
@@ -92,9 +94,21 @@ const SignInScreen = ({ navigation }) => {
     [signIn, dispatch],
   )
 
-  const handleSubmitPhone = useCallback(() => {
-    passwordRef.current.focus()
-  }, [])
+  const instruction = Utils.Strings.replaceWithComponent(
+    i18n.t('screen.signIn.phrase.useBfast'),
+    (match, i) => {
+      return <InstructionHighlight key={match + i}>{match}</InstructionHighlight>
+    },
+  )
+
+  const handleTabChange = useCallback(
+    (nextTab) => {
+      if (nextTab === TAB_HASH.SIGN_UP) {
+        navigation.navigate(Routes.SignUp)
+      }
+    },
+    [navigation],
+  )
 
   const handleForgotPassword = useCallback(
     (values) => {
@@ -107,14 +121,9 @@ const SignInScreen = ({ navigation }) => {
     [navigation],
   )
 
-  const handleTabChange = useCallback(
-    (nextTab) => {
-      if (nextTab === TAB_HASH.SIGN_UP) {
-        navigation.navigate(Routes.SignUp)
-      }
-    },
-    [navigation],
-  )
+  const handleSubmitPhone = useCallback(() => {
+    passwordRef.current.focus()
+  }, [])
 
   const renderForm = useCallback(
     ({ values, submitting, handleSubmit }) => {
@@ -154,21 +163,14 @@ const SignInScreen = ({ navigation }) => {
               onPress={handleSubmit}
             />
 
-            <LinkButton onPress={handleForgotPassword(values)}>
+            <ForgotPassword onPress={handleForgotPassword(values)}>
               {i18n.t('screen.signIn.button.forgotPassword')}
-            </LinkButton>
+            </ForgotPassword>
           </Footer>
         </Inner>
       )
     },
     [handleForgotPassword, handleSubmitPhone],
-  )
-
-  const usage = Utils.Strings.replaceWithComponent(
-    i18n.t('screen.signIn.phrase.usage'),
-    (match, i) => {
-      return <UsageHighlight key={match + i}>{match}</UsageHighlight>
-    },
   )
 
   return (
@@ -191,9 +193,9 @@ const SignInScreen = ({ navigation }) => {
         </Top>
 
         <Middle>
-          <Title>{i18n.t('screen.signIn.phrase.title')}</Title>
-          <Motto>{i18n.t('screen.signIn.phrase.motto')}</Motto>
-          <Usage>{usage}</Usage>
+          <Title>{i18n.t('screen.signIn.phrase.bfast')}</Title>
+          <Description>{i18n.t('screen.signIn.phrase.importantApp')}</Description>
+          <Instruction>{instruction}</Instruction>
         </Middle>
 
         <Bottom>

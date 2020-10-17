@@ -1,58 +1,13 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
-import { DateTime } from 'luxon'
 import styled from 'styled-components/native'
 
 import { logoImage } from 'assets/images'
 
 import { Box, Text, Image } from 'components/ui'
 
-export { Form } from 'react-final-form'
+export { Form, FormSpy } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
 export { FormField, FormTextInput } from 'components/blocks'
 export { Button, TabBar } from 'components/ui'
-
-export const TAB_HASH = {
-  SIGN_IN: 'SIGN_IN',
-  SIGN_UP: 'SIGN_UP',
-}
-
-export function useTimer(seconds) {
-  const [isActive, setActive] = useState(false)
-  const endRef = useRef()
-  const [countdown, setCountDown] = useState(seconds)
-  const hasEnded = countdown === 0
-
-  const start = useCallback(() => {
-    endRef.current = DateTime.utc().plus(seconds * 1000)
-    setCountDown(seconds)
-    setActive(true)
-  }, [seconds])
-
-  useEffect(() => {
-    let interval
-    if (isActive) {
-      interval = setInterval(() => {
-        const nowDT = DateTime.utc().set({ milliseconds: 0 })
-        const sinceMountTime = -nowDT.diff(endRef.current).as('seconds')
-        const isDelayed = sinceMountTime <= 0
-
-        if (isDelayed) {
-          clearInterval(interval)
-          setCountDown(0)
-          setActive(false)
-        } else {
-          setCountDown(sinceMountTime)
-        }
-      }, 1000)
-    }
-
-    return () => {
-      return clearInterval(interval)
-    }
-  }, [isActive, seconds])
-
-  return [countdown, hasEnded, start]
-}
 
 export const Top = styled(Box).attrs(() => {
   return {
@@ -115,26 +70,32 @@ export const Title = styled(Text).attrs(() => {
   }
 })``
 
-export const Motto = styled(Text).attrs(() => {
+export const Description = styled(Text).attrs(() => {
   return {
     mb: 4,
     fontSize: 2,
     fontFamilyGroup: 'group.bfast',
   }
-})``
-
-export const Usage = styled(Text)`
-  width: 70%;
+})`
+  width: 75%;
 `
 
-export const TimerText = styled(Text).attrs(() => {
-  return {
-    color: 'persimmon100',
-  }
-})``
+export const Instruction = styled(Text)`
+  width: 75%;
+`
 
 export const ResendText = styled(Text).attrs(() => {
   return {
     color: 'persimmon100',
+    fontFamilyStyle: 'style.semiBold',
+    lineHeight: 2,
+  }
+})``
+
+export const CountdownText = styled(Text).attrs(() => {
+  return {
+    color: 'persimmon100',
+    fontFamilyStyle: 'style.semiBold',
+    lineHeight: 2,
   }
 })``

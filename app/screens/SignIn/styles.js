@@ -1,37 +1,36 @@
 import styled from 'styled-components/native'
 
-import { Link, Text } from 'components/ui'
+import { Text, Link } from 'components/ui'
 
 export {
-  Form,
   Container,
   Scrollable,
-  FormField,
-  FormTextInput,
-  TimerText,
-  ResendText,
+  Top,
   Logo,
   LogoContainer,
-  Top,
+  TabBar,
   Middle,
+  Title,
+  Description,
+  Instruction,
   Bottom,
-  Footer,
-  Motto,
   Inner,
   Content,
-  Title,
-  Usage,
+  Form,
+  FormField,
+  FormTextInput,
+  Footer,
   Button,
-  TabBar,
-} from '../common/auth'
+  TAB_HASH,
+} from 'screens/common/auth'
 
-export const UsageHighlight = styled(Text).attrs(() => {
+export const InstructionHighlight = styled(Text).attrs(() => {
   return {
     fontFamilyGroup: 'group.bfast',
   }
 })``
 
-export const LinkButton = styled(Link).attrs(() => {
+export const ForgotPassword = styled(Link).attrs(() => {
   return {
     variant: 'neutral',
 

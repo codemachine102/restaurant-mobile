@@ -7,7 +7,7 @@ import { SimpleHeader } from 'components/headers'
 
 import { ForgotPasswordScreen } from 'screens/ForgotPassword'
 import { SignInScreen } from 'screens/SignIn'
-import { SignUpScreen } from 'screens/SignUp'
+// import { SignUpScreen } from 'screens/SignUp'
 
 const Stack = createStackNavigator()
 
@@ -24,10 +24,11 @@ const AuthNavigator = () => {
       }}
     >
       <Stack.Screen name={Routes.SignIn} component={SignInScreen} />
-      <Stack.Screen name={Routes.SignUp} component={SignUpScreen} />
       <Stack.Screen name={Routes.ForgotPassword} component={ForgotPasswordScreen} />
     </Stack.Navigator>
   )
 }
+
+// <Stack.Screen name={Routes.SignUp} component={SignUpScreen} />
 
 export { AuthNavigator }
