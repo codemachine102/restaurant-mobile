@@ -293,8 +293,8 @@ const SignUpScreen = ({ navigation }) => {
         </Top>
 
         <Middle>
-          <Title>{i18n.t('screen.signUp.phrase.title')}</Title>
-          <Description>{i18n.t('screen.signUp.phrase.motto')}</Description>
+          <Title>{i18n.t('screen.signUp.phrase.bfast')}</Title>
+          <Description>{i18n.t('screen.signUp.phrase.verifyPhone')}</Description>
 
           {renderInstruction()}
           {renderResend()}

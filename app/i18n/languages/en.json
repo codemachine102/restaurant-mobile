@@ -62,10 +62,10 @@
     },
     "signUp": {
       "phrase": {
-        "title": "Bfast",
+        "bfast": "Bfast",
         "signIn": "Sign In",
         "signUp": "Sign Up",
-        "motto": "Verify your phone number",
+        "verifyPhone": "Verify your phone number",
         "enterPhone": "Please make sure your phone number is correct. We will send a verfication code to this number.",
         "enterPassword": "Please type the verification code from SMS and set up your password.",
         "noCode": "Didn't receive the code?"
