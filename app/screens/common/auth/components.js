@@ -8,6 +8,7 @@ export { Form, FormSpy } from 'react-final-form'
 export { Container, Scrollable } from 'components/common'
 export { FormField, FormTextInput } from 'components/blocks'
 export { Button, TabBar } from 'components/ui'
+export { Resend } from './Resend'
 
 export const Top = styled(Box).attrs(() => {
   return {

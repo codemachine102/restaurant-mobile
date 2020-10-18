@@ -7,6 +7,13 @@
     }
   },
   "screen": {
+    "common": {
+      "auth": {
+        "phrase": {
+          "resend": "Resend"
+        }
+      }
+    },
     "signIn": {
       "phrase": {
         "bfast": "Bfast",
@@ -37,7 +44,8 @@
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
         "enterPassword": "Please type the verification code from SMS and change your passsword.",
         "changeSuccess": "Your password was successfully changed. Go to sign in page and continue use your account.",
-        "noCode": "Didn't receive the code?"
+        "noCode": "Didn't receive the code?",
+        "backToSignIn": "Back to Sign In"
       },
       "form": {
         "label": {
@@ -52,10 +60,8 @@
         }
       },
       "button": {
-        "backToSignIn": "Back to Sign In",
         "reset": "Reset",
         "back": "Back",
-        "resend": "Resend",
         "signIn": "Sign In",
         "confirm": "Confirm"
       }
@@ -84,7 +90,6 @@
       },
       "button": {
         "back": "Back",
-        "resend": "Resend",
         "proceed": "Proceed",
         "confirm": "Confirm"
       }

@@ -16,7 +16,7 @@ export {
   FormTextInput,
   Inner,
   Content,
+  Resend,
   Footer,
   Button,
 } from 'screens/common/auth'
-export { Resend } from '../ForgotPassword/Resend'

@@ -21,10 +21,10 @@ export {
   FormTextInput,
   Inner,
   Content,
+  Resend,
   Footer,
   Button,
 } from 'screens/common/auth'
-export { Resend } from './Resend'
 
 export const BackToSignIn = styled(TouchableOpacity)`
   flex-direction: row;

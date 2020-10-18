@@ -45,7 +45,7 @@ const STAGE_HASH = {
   ENTER_PASSWORD: 'ENTER_CODE_PASSWORD',
 }
 
-const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit }, loading }) => {
+const renderEnterPhone = ({ meta: { invalid, submitting, handleSubmit }, loading }) => {
   return (
     <Inner>
       <Content>
@@ -71,7 +71,7 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit }, loading
   )
 }
 
-const renderCodePasswordStage = ({
+const renderEnterPassword = ({
   meta: { invalid, handleSubmit, submitting },
   loading,
   setStage,
@@ -249,10 +249,10 @@ const SignUpScreen = ({ navigation }) => {
 
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          content = renderPhoneStage({ ...payload, loading: signUpLoading })
+          content = renderEnterPhone({ ...payload, loading: signUpLoading })
           break
         case STAGE_HASH.ENTER_PASSWORD:
-          content = renderCodePasswordStage({ ...payload, loading: verifyPhoneLoading })
+          content = renderEnterPassword({ ...payload, loading: verifyPhoneLoading })
           break
         default:
           break

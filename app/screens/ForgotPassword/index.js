@@ -299,7 +299,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
               <BackToSignInIcon />
 
               <BackToSignInText>
-                {i18n.t('screen.forgotPassword.button.backToSignIn')}
+                {i18n.t('screen.forgotPassword.phrase.backToSignIn')}
               </BackToSignInText>
             </BackToSignIn>
           )}

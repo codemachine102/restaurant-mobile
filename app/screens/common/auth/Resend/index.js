@@ -18,7 +18,7 @@ const Resend = ({ onResendCode }) => {
   }, [startCountdown, onResendCode])
 
   return isFinished ? (
-    <ResendText onPress={handleResend}>{i18n.t('screen.forgotPassword.button.resend')}</ResendText>
+    <ResendText onPress={handleResend}>{i18n.t('screen.common.auth.phrase.resend')}</ResendText>
   ) : (
     <CountdownText onPress={handleResend}>{countdownDur.toFormat('mm:ss')}</CountdownText>
   )
