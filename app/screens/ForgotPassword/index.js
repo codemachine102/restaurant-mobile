@@ -135,7 +135,7 @@ const renderChangeSuccess = ({ navigation }) => {
 
 const ForgotPasswordScreen = ({ navigation }) => {
   const valuesRef = useRef({})
-  const [stage, setStage] = useState(STAGE_HASH.CHANGE_SUCCESS)
+  const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
 
   const [resetPassword, resetResponse] = useMutation(RESET_PASSWORD, {
     onCompleted: () => {

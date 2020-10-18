@@ -1,7 +1,6 @@
-import React, { useRef, useCallback, useState } from 'react'
+import React, { useRef, useCallback, useState, useMemo } from 'react'
 import { useMutation } from '@apollo/client'
 import { useDispatch } from 'react-redux'
-import { Duration } from 'luxon'
 
 import assign from 'lodash/assign'
 
@@ -16,30 +15,29 @@ import { ReactNavigationPropTypes } from 'constants/propTypes'
 import VERIFY_PHONE from 'graphql/mutations/verifyPhone.graphql'
 import SIGN_UP from 'graphql/mutations/signUp.graphql'
 
-import { TAB_HASH, useTimer } from 'screens/common/auth'
-import { Text } from 'components/ui'
+import { TAB_HASH } from 'screens/common/auth'
 
 import {
   Container,
   Scrollable,
   Top,
-  Middle,
-  TimerText,
-  Bottom,
-  Form,
-  TabBar,
-  FormField,
-  Inner,
-  Content,
-  FormTextInput,
-  Title,
-  Motto,
-  Usage,
   Logo,
   LogoContainer,
+  Middle,
+  Title,
+  TabBar,
+  Description,
+  Instruction,
+  Resend,
+  Bottom,
+  Form,
+  FormSpy,
+  FormField,
+  FormTextInput,
+  Inner,
+  Content,
   Footer,
   Button,
-  ResendText,
 } from './styles'
 
 const STAGE_HASH = {
@@ -47,7 +45,7 @@ const STAGE_HASH = {
   ENTER_PASSWORD: 'ENTER_CODE_PASSWORD',
 }
 
-const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
+const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit }, loading }) => {
   return (
     <Inner>
       <Content>
@@ -65,7 +63,7 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
         <Button
           title={i18n.t('screen.signUp.button.proceed')}
           isDisabled={invalid}
-          isProgress={submitting}
+          isProgress={submitting || loading}
           onPress={handleSubmit}
         />
       </Footer>
@@ -74,8 +72,7 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
 }
 
 const renderCodePasswordStage = ({
-  refs: { secondFieldRef },
-  meta: { invalid, handleSubmit },
+  meta: { invalid, handleSubmit, submitting },
   loading,
   setStage,
 }) => {
@@ -91,15 +88,11 @@ const renderCodePasswordStage = ({
           blurOnSubmit={false}
           label={i18n.t('screen.signUp.form.label.code')}
           placeholder={i18n.t('screen.signUp.form.placeholder.code')}
-          onSubmitEditing={() => {
-            return secondFieldRef?.current.focus()
-          }}
         />
 
         <FormField
           name="password"
           component={FormTextInput}
-          innerRef={secondFieldRef}
           label={i18n.t('screen.signUp.form.label.password')}
           placeholder={i18n.t('screen.signUp.form.placeholder.password')}
           autoCapitalize="none"
@@ -113,7 +106,7 @@ const renderCodePasswordStage = ({
           title={i18n.t('screen.signUp.button.confirm')}
           mb={4}
           isDisabled={invalid}
-          isProgress={loading}
+          isProgress={loading || submitting}
           onPress={handleSubmit}
         />
 
@@ -130,21 +123,18 @@ const renderCodePasswordStage = ({
 }
 
 const SignUpScreen = ({ navigation }) => {
+  const valuesRef = useRef({})
   const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
-  const [countdown, hasEnded, startCountDown] = useTimer(60)
 
-  const secondFieldRef = useRef()
-  const phoneNumberRef = useRef()
   const dispatch = useDispatch()
 
-  const [signUp, { loading }] = useMutation(SIGN_UP, {
+  const [signUp, { loading: signUpLoading }] = useMutation(SIGN_UP, {
     onCompleted: () => {
       setStage(STAGE_HASH.ENTER_PASSWORD)
-      startCountDown()
     },
   })
 
-  const [verifyPhone] = useMutation(VERIFY_PHONE, {
+  const [verifyPhone, { loading: verifyPhoneLoading }] = useMutation(VERIFY_PHONE, {
     onCompleted: ({ verifyPhone: { accessToken, refreshToken } }) => {
       dispatch(
         signInSuccess({
@@ -155,27 +145,17 @@ const SignUpScreen = ({ navigation }) => {
     },
   })
 
-  const onSubmit = useCallback(
-    (values) => {
-      switch (stage) {
-        case STAGE_HASH.ENTER_PHONE:
-          phoneNumberRef.current = values.phone
-          signUp({ variables: values })
-          break
-        case STAGE_HASH.ENTER_PASSWORD:
-          verifyPhone({ variables: values })
-          break
-        default:
-          break
-      }
-    },
-    [stage, signUp, verifyPhone],
-  )
+  const initialValues = useMemo(() => {
+    return {
+      phone: '',
+      code: '',
+      password: '',
+    }
+  }, [])
 
   const validate = useCallback(
     (values) => {
       const constraints = assign(
-        {},
         stage === STAGE_HASH.ENTER_PHONE && {
           phone: {
             presence: true,
@@ -203,6 +183,22 @@ const SignUpScreen = ({ navigation }) => {
     [stage],
   )
 
+  const onSubmit = useCallback(
+    (values) => {
+      switch (stage) {
+        case STAGE_HASH.ENTER_PHONE:
+          signUp({ variables: values })
+          break
+        case STAGE_HASH.ENTER_PASSWORD:
+          verifyPhone({ variables: values })
+          break
+        default:
+          break
+      }
+    },
+    [stage, signUp, verifyPhone],
+  )
+
   const handleTabChange = useCallback(
     (nextTab) => {
       if (nextTab === TAB_HASH.SIGN_IN) {
@@ -212,63 +208,71 @@ const SignUpScreen = ({ navigation }) => {
     [navigation],
   )
 
-  const renderForm = useCallback(
-    (meta) => {
-      const payload = { meta, navigation, refs: { secondFieldRef }, loading, setStage }
+  const handleResendCode = useCallback(() => {
+    signUp({ variables: { phone: valuesRef.current.phone } })
+  }, [valuesRef, signUp])
 
-      switch (stage) {
-        case STAGE_HASH.ENTER_PHONE:
-          return renderPhoneStage(payload)
-        case STAGE_HASH.ENTER_PASSWORD:
-          return renderCodePasswordStage(payload)
-        default:
-          return null
-      }
-    },
-    [stage, navigation, loading],
-  )
-
-  const renderTimer = () => {
+  const renderResend = () => {
     if (stage === STAGE_HASH.ENTER_PASSWORD) {
-      const handleResend = () => {
-        startCountDown()
-        return signUp({ variables: { phone: phoneNumberRef } })
-      }
-
       return (
-        <Text>
-          {`${i18n.t('screen.signUp.phrase.noCode')}  `}
-
-          {!hasEnded ? (
-            <TimerText>{Duration.fromObject({ seconds: countdown }).toFormat('mm:ss')}</TimerText>
-          ) : (
-            <ResendText onPress={handleResend}>{i18n.t('screen.signUp.button.resend')}</ResendText>
-          )}
-        </Text>
+        <>
+          <Instruction mt={3}>{i18n.t('screen.signUp.phrase.noCode')}</Instruction>
+          <Resend onResendCode={handleResendCode} />
+        </>
       )
     }
 
     return null
   }
 
-  const renderUsage = () => {
-    const usage = assign(
-      stage === STAGE_HASH.ENTER_PHONE && { v: i18n.t('screen.signUp.phrase.enterPhoneNumber') },
-      stage === STAGE_HASH.ENTER_PASSWORD && {
-        v: i18n.t('screen.signUp.phrase.enterPassword'),
-      },
-    )
+  const renderInstruction = () => {
+    let instruction
 
-    return <Usage>{usage.v}</Usage>
+    switch (stage) {
+      case STAGE_HASH.ENTER_PHONE:
+        instruction = i18n.t('screen.signUp.phrase.enterPhone')
+        break
+      case STAGE_HASH.ENTER_PASSWORD:
+        instruction = i18n.t('screen.signUp.phrase.enterPassword')
+        break
+      default:
+        break
+    }
+
+    return instruction && <Instruction>{instruction}</Instruction>
   }
 
-  const initialValues = {
-    phone: '',
-    code: '',
-    password: '',
-    withRefresh: true,
-  }
+  const renderForm = useCallback(
+    (meta) => {
+      const payload = { meta, navigation, setStage }
+      let content
 
+      switch (stage) {
+        case STAGE_HASH.ENTER_PHONE:
+          content = renderPhoneStage({ ...payload, loading: signUpLoading })
+          break
+        case STAGE_HASH.ENTER_PASSWORD:
+          content = renderCodePasswordStage({ ...payload, loading: verifyPhoneLoading })
+          break
+        default:
+          break
+      }
+
+      return (
+        <>
+          {content}
+
+          <FormSpy
+            subscription={{ values: true }}
+            onChange={(state) => {
+              valuesRef.current = state.values
+            }}
+          />
+        </>
+      )
+    },
+    [stage, navigation, signUpLoading, verifyPhoneLoading],
+  )
   return (
     <Container>
       <Scrollable fromTop toBottom>
@@ -290,10 +294,10 @@ const SignUpScreen = ({ navigation }) => {
 
         <Middle>
           <Title>{i18n.t('screen.signUp.phrase.title')}</Title>
-          <Motto>{i18n.t('screen.signUp.phrase.motto')}</Motto>
+          <Description>{i18n.t('screen.signUp.phrase.motto')}</Description>
 
-          {renderUsage()}
-          {renderTimer()}
+          {renderInstruction()}
+          {renderResend()}
         </Middle>
 
         <Bottom>
