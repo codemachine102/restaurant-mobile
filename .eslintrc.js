@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require('fs')
 
-const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'));
+const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'))
 
 module.exports = {
   parser: 'babel-eslint',
@@ -50,4 +50,4 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'react-hooks/rules-of-hooks': 'error',
   },
-};
+}

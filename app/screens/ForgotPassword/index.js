@@ -1,11 +1,9 @@
-import React, { useRef, useCallback, useState } from 'react'
+import React, { useMemo, useRef, useCallback, useState } from 'react'
 import { useMutation } from '@apollo/client'
 
 import assign from 'lodash/assign'
-import isEqual from 'lodash/isEqual'
 
 import i18n from 'i18n'
-
 import ValidationService from 'services/validation'
 
 import * as Routes from 'navigation/routes'
@@ -18,33 +16,34 @@ import {
   Container,
   Scrollable,
   Top,
-  Middle,
-  Bottom,
-  Form,
-  FormField,
-  Inner,
-  Content,
-  FormTextInput,
-  Title,
-  Motto,
-  Usage,
   Logo,
   LogoContainer,
-  Footer,
-  Button,
   BackToSignIn,
   BackToSignInIcon,
   BackToSignInText,
+  Middle,
+  Title,
+  Description,
+  Instruction,
+  Resend,
+  Bottom,
+  Form,
+  FormSpy,
+  FormField,
+  FormTextInput,
+  Inner,
+  Content,
+  Footer,
+  Button,
 } from './styles'
 
 const STAGE_HASH = {
   ENTER_PHONE: 'ENTER_PHONE',
-  ENTER_CODE: 'ENTER_CODE',
   ENTER_PASSWORD: 'ENTER_PASSWORD',
-  SUCCESS: 'CHANGE_SUCCESS',
+  CHANGE_SUCCESS: 'CHANGE_SUCCESS',
 }
 
-const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
+const renderEnterPhone = ({ meta: { invalid, submitting, handleSubmit }, loading }) => {
   return (
     <Inner>
       <Content>
@@ -62,7 +61,7 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
         <Button
           title={i18n.t('screen.forgotPassword.button.reset')}
           isDisabled={invalid}
-          isProgress={submitting}
+          isProgress={submitting || loading}
           onPress={handleSubmit}
         />
       </Footer>
@@ -70,58 +69,29 @@ const renderPhoneStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
   )
 }
 
-const renderCodeStage = ({ meta: { invalid, submitting, handleSubmit } }) => {
+const renderEnterPassword = ({
+  loading,
+  setStage,
+  meta: { invalid, submitting, handleSubmit },
+}) => {
   return (
     <Inner>
       <Content>
         <FormField
           name="code"
           component={FormTextInput}
+          mb={5}
+          blurOnSubmit={false}
           keyboardType="number-pad"
           label={i18n.t('screen.forgotPassword.form.label.code')}
           placeholder={i18n.t('screen.forgotPassword.form.placeholder.code')}
         />
-      </Content>
 
-      <Footer>
-        <Button
-          title={i18n.t('screen.forgotPassword.button.proceed')}
-          isDisabled={invalid}
-          isProgress={submitting}
-          onPress={handleSubmit}
-        />
-      </Footer>
-    </Inner>
-  )
-}
-
-const renderPasswordStage = ({ refs, meta: { invalid, submitting, handleSubmit } }) => {
-  const handleSubmitPassword = () => {
-    refs?.password?.current.focus()
-  }
-
-  return (
-    <Inner>
-      <Content>
         <FormField
           name="password"
           component={FormTextInput}
           label={i18n.t('screen.forgotPassword.form.label.password')}
           placeholder={i18n.t('screen.forgotPassword.form.placeholder.password')}
-          autoCapitalize="none"
-          returnKeyType="next"
-          mb={5}
-          secureTextEntry
-          blurOnSubmit={false}
-          onSubmitEditing={handleSubmitPassword}
-        />
-
-        <FormField
-          innerRef={refs.password}
-          name="confirmPassword"
-          component={FormTextInput}
-          label={i18n.t('screen.forgotPassword.form.label.confirmPassword')}
-          placeholder={i18n.t('screen.forgotPassword.form.placeholder.confirmPassword')}
           autoCapitalize="none"
           returnKeyType="go"
           secureTextEntry
@@ -130,17 +100,26 @@ const renderPasswordStage = ({ refs, meta: { invalid, submitting, handleSubmit }
 
       <Footer>
         <Button
-          title={i18n.t('screen.forgotPassword.button.change')}
+          title={i18n.t('screen.forgotPassword.button.confirm')}
+          mb={4}
           isDisabled={invalid}
-          isProgress={submitting}
+          isProgress={submitting || loading}
           onPress={handleSubmit}
+        />
+
+        <Button
+          title={i18n.t('screen.forgotPassword.button.back')}
+          isOutlined
+          onPress={() => {
+            setStage(STAGE_HASH.ENTER_PHONE)
+          }}
         />
       </Footer>
     </Inner>
   )
 }
 
-const renderSuccess = ({ navigation }) => {
+const renderChangeSuccess = ({ navigation }) => {
   const handlePress = () => {
     navigation.navigate(Routes.SignIn)
   }
@@ -155,36 +134,51 @@ const renderSuccess = ({ navigation }) => {
 }
 
 const ForgotPasswordScreen = ({ navigation }) => {
-  const passwordRef = useRef()
+  const valuesRef = useRef({})
   const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
+
+  const [resetPassword, resetResponse] = useMutation(RESET_PASSWORD, {
+    onCompleted: () => {
+      return setStage(STAGE_HASH.ENTER_PASSWORD)
+    },
+  })
+
+  const [changePassword, changeResponse] = useMutation(CHANGE_PASSWORD, {
+    onCompleted: () => {
+      return setStage(STAGE_HASH.CHANGE_SUCCESS)
+    },
+  })
+
+  const initialValues = useMemo(() => {
+    return {
+      phone: '',
+      code: '',
+      password: '',
+    }
+  }, [])
 
   const validate = useCallback(
     (values) => {
       const constraints = assign(
-        {},
         stage === STAGE_HASH.ENTER_PHONE && {
           phone: {
-            presence: true,
-          },
-        },
-        stage === STAGE_HASH.ENTER_CODE && {
-          code: {
-            presence: true,
-          },
-        },
-        stage === STAGE_HASH.ENTER_PASSWORD && {
-          password: {
-            presence: true,
-            length: { minimum: 6, maximum: 100 },
-          },
-
-          confirmPassword: {
-            presence: true,
-            length: { minimum: 6, maximum: 100 },
-            equality: {
-              attribute: 'password',
-              comparator: isEqual,
+            presence: {
+              allowEmpty: false,
             },
+          },
+        },
+
+        stage === STAGE_HASH.ENTER_PASSWORD && {
+          code: {
+            presence: {
+              allowEmpty: false,
+            },
+          },
+          password: {
+            presence: {
+              allowEmpty: false,
+            },
+            length: { minimum: 6, maximum: 100 },
           },
         },
       )
@@ -194,24 +188,11 @@ const ForgotPasswordScreen = ({ navigation }) => {
           code: i18n.t('screen.forgotPassword.form.label.code'),
           phone: i18n.t('screen.forgotPassword.form.label.phone'),
           password: i18n.t('screen.forgotPassword.form.label.password'),
-          confirmPassword: i18n.t('screen.forgotPassword.form.label.confirmPassword'),
         },
       })
     },
     [stage],
   )
-
-  const [resetPassword] = useMutation(RESET_PASSWORD, {
-    onCompleted: () => {
-      return setStage(STAGE_HASH.ENTER_CODE)
-    },
-  })
-
-  const [changePassword] = useMutation(CHANGE_PASSWORD, {
-    onCompleted: () => {
-      return setStage(STAGE_HASH.CHANGE_SUCCESS)
-    },
-  })
 
   const onSubmit = useCallback(
     (values) => {
@@ -226,55 +207,84 @@ const ForgotPasswordScreen = ({ navigation }) => {
           break
       }
     },
-    [stage, resetPassword, changePassword],
+    [stage, changePassword, resetPassword],
   )
 
   const handleBackPress = useCallback(() => {
-    return navigation.navigate(Routes.SignIn)
+    navigation.navigate(Routes.SignIn)
   }, [navigation])
 
-  const renderForm = useCallback(
-    (meta) => {
-      const payload = { meta, navigation, refs: { password: passwordRef } }
+  const handleResendCode = useCallback(() => {
+    resetPassword({ variables: { phone: valuesRef.current.phone } })
+  }, [valuesRef, resetPassword])
 
-      switch (stage) {
-        case STAGE_HASH.ENTER_PHONE:
-          return renderPhoneStage(payload)
-        case STAGE_HASH.ENTER_CODE:
-          return renderCodeStage(payload)
-        case STAGE_HASH.ENTER_PASSWORD:
-          return renderPasswordStage(payload)
-        case STAGE_HASH.SUCCESS:
-          return renderSuccess(payload)
-        default:
-          return null
-      }
-    },
-    [stage, navigation],
-  )
-
-  const renderUsage = () => {
-    let usage
+  const renderInstruction = () => {
+    let instruction
 
     switch (stage) {
       case STAGE_HASH.ENTER_PHONE:
-        usage = i18n.t('screen.forgotPassword.phrase.enterPhoneNumber')
-        break
-      case STAGE_HASH.ENTER_CODE:
-        usage = i18n.t('screen.forgotPassword.phrase.enterSecretCode')
+        instruction = i18n.t('screen.forgotPassword.phrase.enterPhoneNumber')
         break
       case STAGE_HASH.ENTER_PASSWORD:
-        usage = i18n.t('screen.forgotPassword.phrase.enterPassword')
+        instruction = i18n.t('screen.forgotPassword.phrase.enterPassword')
         break
-      case STAGE_HASH.SUCCESS:
-        usage = i18n.t('screen.forgotPassword.phrase.success')
+      case STAGE_HASH.CHANGE_SUCCESS:
+        instruction = i18n.t('screen.forgotPassword.phrase.changeSuccess')
         break
       default:
         break
     }
 
-    return <Usage>{usage}</Usage>
+    return instruction ? <Instruction>{instruction}</Instruction> : null
   }
+
+  const renderResend = () => {
+    if (stage === STAGE_HASH.ENTER_PASSWORD) {
+      return (
+        <>
+          <Instruction mt={3}>{i18n.t('screen.forgotPassword.phrase.noCode')}</Instruction>
+          <Resend onResendCode={handleResendCode} />
+        </>
+      )
+    }
+
+    return null
+  }
+
+  const renderForm = useCallback(
+    (meta) => {
+      const payload = { meta, navigation, setStage }
+      let content
+
+      switch (stage) {
+        case STAGE_HASH.ENTER_PHONE:
+          content = renderEnterPhone({ ...payload, loading: resetResponse.loading })
+          break
+        case STAGE_HASH.ENTER_PASSWORD:
+          content = renderEnterPassword({ ...payload, loading: changeResponse.loading })
+          break
+        case STAGE_HASH.CHANGE_SUCCESS:
+          content = renderChangeSuccess(payload)
+          break
+        default:
+          break
+      }
+
+      return (
+        <>
+          {content}
+
+          <FormSpy
+            subscription={{ values: true }}
+            onChange={(state) => {
+              valuesRef.current = state.values
+            }}
+          />
+        </>
+      )
+    },
+    [stage, navigation, setStage, resetResponse, changeResponse],
+  )
 
   return (
     <Container>
@@ -284,26 +294,27 @@ const ForgotPasswordScreen = ({ navigation }) => {
             <Logo />
           </LogoContainer>
 
-          {stage !== STAGE_HASH.SUCCESS && (
+          {stage !== STAGE_HASH.CHANGE_SUCCESS && (
             <BackToSignIn onPress={handleBackPress}>
               <BackToSignInIcon />
 
               <BackToSignInText>
-                {i18n.t('screen.forgotPassword.button.backToSignIn')}
+                {i18n.t('screen.forgotPassword.phrase.backToSignIn')}
               </BackToSignInText>
             </BackToSignIn>
           )}
         </Top>
 
         <Middle>
-          <Title>{i18n.t('screen.forgotPassword.phrase.title')}</Title>
-          <Motto>{i18n.t('screen.forgotPassword.phrase.motto')}</Motto>
+          <Title>{i18n.t('screen.forgotPassword.phrase.bfast')}</Title>
+          <Description>{i18n.t('screen.forgotPassword.phrase.forgotPassword')}</Description>
 
-          {renderUsage()}
+          {renderInstruction()}
+          {renderResend()}
         </Middle>
 
         <Bottom>
-          <Form {...{ validate, onSubmit }} render={renderForm} />
+          <Form {...{ validate, initialValues, onSubmit }} render={renderForm} />
         </Bottom>
       </Scrollable>
     </Container>

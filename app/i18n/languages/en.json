@@ -7,11 +7,18 @@
     }
   },
   "screen": {
+    "common": {
+      "auth": {
+        "phrase": {
+          "resend": "Resend"
+        }
+      }
+    },
     "signIn": {
       "phrase": {
-        "title": "Bfast",
-        "motto": "The most important\nApp of the day.",
-        "usage": "Use $[Bfast] to quickly and safely pick-up your food without delay.",
+        "bfast": "Bfast",
+        "importantApp": "The most important App of the day.",
+        "useBfast": "Use $[Bfast] to quickly and safely pick-up your food without delay.",
         "signIn": "Sign In",
         "signUp": "Sign Up"
       },
@@ -32,33 +39,59 @@
     },
     "forgotPassword": {
       "phrase": {
-        "title": "Bfast",
-        "motto": "Forgot password",
+        "bfast": "Bfast",
+        "forgotPassword": "Forgot password",
         "enterPhoneNumber": "Enter your phone number and click Reset button to change your password.",
-        "enterSecretCode": "Type the secret code from the SMS we sent to the form below.",
-        "enterPassword": "Choose new password and click on the button below. As far 8 symbols, 1 uppercase, 1 special symbol required.",
-        "success": "Your password was successfully changed. Go to sign in page and continue use your account."
+        "enterPassword": "Please type the verification code from SMS and change your passsword.",
+        "changeSuccess": "Your password was successfully changed. Go to sign in page and continue use your account.",
+        "noCode": "Didn't receive the code?",
+        "backToSignIn": "Back to Sign In"
       },
       "form": {
         "label": {
           "phone": "Phone Number",
-          "code": "Secret Code",
-          "password": "New Password",
-          "confirmPassword": "Confirm Password"
+          "code": "Verification Code",
+          "password": "New Password"
         },
         "placeholder": {
           "phone": "Type your phone number",
           "code": "Enter code",
-          "password": "Enter new password",
-          "confirmPassword": "Re-enter new password"
+          "password": "Enter new password"
         }
       },
       "button": {
-        "backToSignIn": "Back to Sign In",
         "reset": "Reset",
+        "back": "Back",
         "signIn": "Sign In",
+        "confirm": "Confirm"
+      }
+    },
+    "signUp": {
+      "phrase": {
+        "bfast": "Bfast",
+        "signIn": "Sign In",
+        "signUp": "Sign Up",
+        "verifyPhone": "Verify your phone number",
+        "enterPhone": "Please make sure your phone number is correct. We will send a verfication code to this number.",
+        "enterPassword": "Please type the verification code from SMS and set up your password.",
+        "noCode": "Didn't receive the code?"
+      },
+      "form": {
+        "label": {
+          "phone": "Phone Number",
+          "code": "Verification code",
+          "password": "Password"
+        },
+        "placeholder": {
+          "phone": "Type your phone number",
+          "code": "Type your verification code",
+          "password": "Enter password"
+        }
+      },
+      "button": {
+        "back": "Back",
         "proceed": "Proceed",
-        "change": "Change"
+        "confirm": "Confirm"
       }
     }
   }
