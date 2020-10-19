@@ -158,15 +158,18 @@ const SignUpScreen = ({ navigation }) => {
       const constraints = assign(
         stage === STAGE_HASH.ENTER_PHONE && {
           phone: {
-            presence: true,
+            presence: {
+              allowEmpty: false,
+            },
           },
         },
         stage === STAGE_HASH.ENTER_PASSWORD && {
           code: {
-            presence: true,
+            presence: {
+              allowEmpty: false,
+            },
           },
           password: {
-            presence: true,
             length: { minimum: 6, maximum: 100 },
           },
         },
