@@ -13,6 +13,7 @@ import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
 import SIGN_IN from 'graphql/mutations/signIn.graphql'
+import { userIcon } from 'assets/images'
 
 import { signInSuccess } from 'store/slices/session'
 
@@ -39,6 +40,7 @@ import {
   ForgotPassword,
   TAB_HASH,
 } from './styles'
+import { IconButton } from '../../components/ui/IconButton'
 
 const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
@@ -142,6 +144,7 @@ const SignInScreen = ({ navigation }) => {
               blurOnSubmit={false}
               onSubmitEditing={handleSubmitPhone}
             />
+            <IconButton iconProps={{ glyph: userIcon, h: 20, w: 20 }} small />
 
             <FormField
               innerRef={passwordRef}
