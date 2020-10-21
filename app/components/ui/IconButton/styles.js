@@ -78,10 +78,15 @@ export const InnerGradient = styled(InnerBase.withComponent(LinearGradient)).att
   }
 })``
 
-export const Icon = styled(IconUI).attrs(({ isDisabled, iconProps: { glyph }, theme }) => {
+export const Icon = styled(IconUI).attrs((props) => {
+  const {
+    isDisabled,
+    iconProps: { glyph },
+  } = props
+
   return {
     glyph,
-    tintColor: isDisabled ? theme.colors.night100 : 'white',
+    tintColor: isDisabled ? getColor('night100')(props) : 'white',
   }
 })`
   ${({ iconProps: { h, w } }) => {
