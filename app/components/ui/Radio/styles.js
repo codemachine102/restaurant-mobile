@@ -1,9 +1,8 @@
 import styled from 'styled-components/native'
 import { space } from 'styled-system'
 
-import { getColor } from 'theme'
-
 import { Text, TouchableOpacity, Box } from 'components/ui'
+import { mapToTheme } from 'styled-map'
 import { FieldLabel as FieldLabelUI } from '../FieldLabel'
 
 export const InnerContainer = styled(TouchableOpacity).attrs(() => {
@@ -33,14 +32,16 @@ export const Outer = styled.View`
   border-radius: 16;
   align-items: center;
   justify-content: center;
-  background-color: ${getColor('night50')};
+  background-color: ${mapToTheme('components.radio.color.outer')};
 `
 export const Inner = styled.View`
   width: 16px;
   height: 16px;
   border-radius: 8;
   background-color: ${(props) => {
-    return props.isChecked ? getColor('persimmon100') : getColor('night100')
+    return props.isChecked
+      ? mapToTheme('components.radio.color.inner.selected')
+      : mapToTheme('components.radio.color.inner.default')
   }};
 `
 export const FieldLabel = styled(FieldLabelUI).attrs(() => {
