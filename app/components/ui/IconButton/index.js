@@ -5,7 +5,7 @@ import { StyledPropTypes } from 'constants/propTypes'
 
 import { Container, InnerFlat, InnerGradient, Icon } from './styles'
 
-const IconButton = ({ iconProps, variant, isDisabled, onPress, small, ...props }) => {
+const IconButton = ({ iconProps, variant, isDisabled, isSmall, onPress, ...props }) => {
   const [isPressed, setIsPressed] = useState(false)
 
   const handlePressIn = useCallback(() => {
@@ -23,22 +23,22 @@ const IconButton = ({ iconProps, variant, isDisabled, onPress, small, ...props }
   const renderInner = () => {
     if (isPressed || isDisabled) {
       return (
-        <InnerFlat {...props} {...{ variant, isDisabled, isPressed, small }}>
-          <Icon {...{ iconProps, isDisabled }} />
+        <InnerFlat {...props} {...{ variant, isDisabled, isPressed, isSmall }}>
+          <Icon {...iconProps} {...{ isDisabled }} />
         </InnerFlat>
       )
     }
 
     return (
-      <InnerGradient {...props} {...{ variant, isDisabled, isPressed, small }}>
-        <Icon {...{ iconProps, isDisabled }} />
+      <InnerGradient {...props} {...{ variant, isDisabled, isPressed, isSmall }}>
+        <Icon {...iconProps} {...{ isDisabled }} />
       </InnerGradient>
     )
   }
 
   return (
     <Container
-      isDisabled={isDisabled}
+      {...{ isDisabled }}
       onPress={handlePress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
@@ -49,17 +49,18 @@ const IconButton = ({ iconProps, variant, isDisabled, onPress, small, ...props }
 }
 
 IconButton.propTypes = {
-  iconProps: PT.shape({ glyph: PT.string.isRequired, h: PT.number, w: PT.number }).isRequired,
+  iconProps: PT.object,
   isDisabled: PT.bool,
-  small: PT.bool,
+  isSmall: PT.bool,
   variant: StyledPropTypes.variant,
   onPress: PT.func,
 }
 
 IconButton.defaultProps = {
+  iconProps: {},
   isDisabled: false,
+  isSmall: false,
   onPress: null,
-  small: false,
   variant: 'primary',
 }
 

@@ -1,39 +1,27 @@
 import styled, { css } from 'styled-components/native'
-import { space, border } from 'styled-system'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { space, border, layout } from 'styled-system'
 import LinearGradient from 'react-native-linear-gradient'
 
 import { getColor, mapToTheme } from 'theme'
 
 import { Box } from '../Box'
 import { Icon as IconUI } from '../Icon'
+import { TouchableWithoutFeedback } from '../TouchableWithoutFeedback'
 
-export const Container = styled(TouchableWithoutFeedback).attrs((props) => {
-  return {
-    disabled: props.isDisabled,
-  }
-})``
+export const Container = styled(TouchableWithoutFeedback)``
 
-const InnerBase = styled.View.attrs(() => {
+const InnerBase = styled.View.attrs((props) => {
   return {
     px: 5,
     borderRadius: 3,
+    size: props.isSmall ? 48 : 56,
   }
 })`
-  ${(props) => {
-    return props.small
-      ? css`
-          height: 48px;
-          width: 48px;
-        `
-      : css`
-          height: 56px;
-          width: 56px;
-        `
-  }}
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   ${border}
+  ${layout}
   ${space}
 `
 
@@ -52,14 +40,14 @@ export const InnerFlat = styled(InnerBase.withComponent(Box))`
 
     if (props.isPressed) {
       return css`
-        background-color: ${mapToTheme('components.button.isPressed.inner.bg')};
+        background-color: ${mapToTheme('components.iconButton.isPressed.inner.bg')};
       `
     }
 
     if (props.isOutlined) {
       return css`
         border-width: 1px;
-        border-color: ${mapToTheme('components.button.isOutlined.inner.border')};
+        border-color: ${mapToTheme('components.iconButton.isOutlined.inner.border')};
       `
     }
 
@@ -70,8 +58,8 @@ export const InnerFlat = styled(InnerBase.withComponent(Box))`
 export const InnerGradient = styled(InnerBase.withComponent(LinearGradient)).attrs((props) => {
   return {
     colors: [
-      mapToTheme('components.button.innerGradient.bg.color1')(props),
-      mapToTheme('components.button.innerGradient.bg.color2')(props),
+      mapToTheme('components.iconButton.innerGradient.bg.color1')(props),
+      mapToTheme('components.iconButton.innerGradient.bg.color2')(props),
     ],
     start: { x: 0, y: 0 },
     end: { x: 1, y: 1 },
@@ -79,20 +67,7 @@ export const InnerGradient = styled(InnerBase.withComponent(LinearGradient)).att
 })``
 
 export const Icon = styled(IconUI).attrs((props) => {
-  const {
-    isDisabled,
-    iconProps: { glyph },
-  } = props
-
   return {
-    glyph,
-    tintColor: isDisabled ? getColor('night100')(props) : 'white',
+    tintColor: props.isDisabled ? getColor('night100')(props) : 'white',
   }
-})`
-  ${({ iconProps: { h, w } }) => {
-    return css`
-      height: ${h}px;
-      width: ${w}px;
-    `
-  }}
-`
+})``
