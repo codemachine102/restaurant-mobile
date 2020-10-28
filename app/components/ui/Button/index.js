@@ -16,10 +16,6 @@ const Button = ({ title, variant, isDisabled, isOutlined, isProgress, onPress, .
     setIsPressed(false)
   }, [setIsPressed])
 
-  const handlePress = useCallback(() => {
-    if (onPress) onPress()
-  }, [onPress])
-
   const renderInner = () => {
     const content = isProgress ? (
       <ProgressIndicator {...{ variant }} />
@@ -44,8 +40,8 @@ const Button = ({ title, variant, isDisabled, isOutlined, isProgress, onPress, .
 
   return (
     <Container
+      {...{ onPress }}
       isDisabled={isDisabled || isProgress}
-      onPress={handlePress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
     >

@@ -6,13 +6,13 @@ import { FinalFormPropTypes } from 'constants/propTypes'
 
 import { Container } from './styles'
 
-const FormTextInput = ({ input, meta, ...props }) => {
+const FormRadio = ({ input, meta, ...props }) => {
   return <Container {...props} {...input} error={Utils.Form.getFieldError(meta)} />
 }
 
-FormTextInput.propTypes = {
+FormRadio.propTypes = {
   input: FinalFormPropTypes.input.isRequired,
   meta: FinalFormPropTypes.meta.isRequired,
 }
 
-export { FormTextInput }
+export { FormRadio }
