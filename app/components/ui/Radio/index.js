@@ -7,6 +7,7 @@ import { Container, OuterCircle, InnerCircle, Label } from './styles'
 
 const Radio = ({ value, label, onChange }) => {
   const [isPressed, setIsPressed] = useState(false)
+  const isChecked = !!value
 
   const handlePressIn = useCallback(() => {
     setIsPressed(true)
@@ -15,8 +16,6 @@ const Radio = ({ value, label, onChange }) => {
   const handlePressOut = useCallback(() => {
     setIsPressed(false)
   }, [setIsPressed])
-
-  const isChecked = !!value
 
   const handlePress = useCallback(() => {
     if (!value) {
