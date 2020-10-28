@@ -1,53 +1,63 @@
-import styled from 'styled-components/native'
-import { space } from 'styled-system'
+import styled, { css } from 'styled-components/native'
 
-import { Text, TouchableOpacity, Box } from 'components/ui'
-import { mapToTheme } from 'styled-map'
-import { FieldLabel as FieldLabelUI } from '../FieldLabel'
+import { mapToTheme } from 'theme'
 
-export const InnerContainer = styled(TouchableOpacity).attrs(() => {
-  return {
-    my: 2,
-  }
-})`
+import { Box } from '../Box'
+import { Text } from '../Text'
+import { TouchableWithoutFeedback } from '../TouchableWithoutFeedback'
+
+export const Container = styled(TouchableWithoutFeedback)`
   flex-direction: row;
   align-items: center;
-  ${space}
 `
 
-export const Container = styled(Box).attrs(() => {
-  return {}
-})``
-
-export const Value = styled(Text).attrs(() => {
+export const OuterCircle = styled(Box).attrs((props) => {
   return {
-    ml: 3,
-    mr: 5,
-  }
-})``
-
-export const Outer = styled.View`
-  height: 32px;
-  width: 32px;
-  border-radius: 16;
-  align-items: center;
-  justify-content: center;
-  background-color: ${mapToTheme('components.radio.color.outer')};
-`
-export const Inner = styled.View`
-  width: 16px;
-  height: 16px;
-  border-radius: 8;
-  background-color: ${(props) => {
-    return props.isChecked
-      ? mapToTheme('components.radio.color.inner.selected')
-      : mapToTheme('components.radio.color.inner.default')
-  }};
-`
-export const FieldLabel = styled(FieldLabelUI).attrs(() => {
-  return {
-    mb: 3,
+    size: 32,
+    borderRadius: 4,
+    borderColor: 'night50',
+    bg: mapToTheme('components.radio.outerCircle.bg')(props),
   }
 })`
-  ${space}
+  border-width: 1px;
+  align-items: center;
+  justify-content: center;
 `
+
+export const InnerCircle = styled(Box).attrs((props) => {
+  return {
+    size: 16,
+    borderRadius: 3,
+    borderColor: mapToTheme('components.radio.innerCircle.borderColor')(props),
+    bg: mapToTheme('components.radio.innerCircle.bg')(props),
+  }
+})`
+  border-width: 1px;
+
+  ${(props) => {
+    return (
+      props.isChecked &&
+      css`
+        border-color: ${mapToTheme('components.radio.isChecked.innerCircle.borderColor')};
+        background-color: ${mapToTheme('components.radio.isChecked.innerCircle.bg')};
+      `
+    )
+  }}
+
+  ${(props) => {
+    return (
+      props.isPressed &&
+      css`
+        border-color: ${mapToTheme('components.radio.isPressed.innerCircle.borderColor')};
+        background-color: ${mapToTheme('components.radio.isPressed.innerCircle.bg')};
+      `
+    )
+  }}
+`
+
+export const Caption = styled(Text).attrs(() => {
+  return {
+    ml: 4,
+    numberOfLines: 1,
+  }
+})``

@@ -1,17 +1,43 @@
 import { getColor } from '../../../helpers'
 
 export default {
-  color: {
-    inner: {
-      selected: {
+  outerCircle: {
+    bg: {
+      primary: getColor('night100'),
+    },
+  },
+
+  innerCircle: {
+    bg: {
+      primary: getColor('night50'),
+    },
+
+    borderColor: {
+      primary: getColor('night50'),
+    },
+  },
+
+  isChecked: {
+    innerCircle: {
+      bg: {
         primary: getColor('persimmon100'),
       },
-      default: {
-        primary: getColor('night100'),
+
+      borderColor: {
+        primary: getColor('persimmon100'),
       },
     },
-    outer: {
-      primary: getColor('night50'),
+  },
+
+  isPressed: {
+    innerCircle: {
+      bg: {
+        primary: getColor('persimmon75'),
+      },
+
+      borderColor: {
+        primary: getColor('persimmon75'),
+      },
     },
   },
 }

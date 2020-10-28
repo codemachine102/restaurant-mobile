@@ -1,25 +1,18 @@
 import React from 'react'
 
-import { Radio } from 'components/ui/Radio'
+import Utils from 'utils'
+
 import { FinalFormPropTypes } from 'constants/propTypes'
 
-const FormRadio = ({ input: { onChange, value, checked }, ...rest }) => {
-  return (
-    <Radio
-      {...rest}
-      input={{
-        value,
-        isChecked: checked,
-        onChange: () => {
-          return onChange({ target: { value } })
-        },
-      }}
-    />
-  )
+import { Container } from './styles'
+
+const FormRadio = ({ input, meta, ...rest }) => {
+  return <Container {...rest} {...input} error={Utils.Form.getFieldError(meta)} />
 }
 
 FormRadio.propTypes = {
   input: FinalFormPropTypes.input.isRequired,
+  meta: FinalFormPropTypes.meta.isRequired,
 }
 
 export { FormRadio }
