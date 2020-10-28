@@ -54,6 +54,7 @@ export default {
   getPlatformGroup,
   getPlatformOS,
   getPlatformVersion,
+  forAppType,
   forPlatform,
   invokeForPlatform,
   invokeForAppType,

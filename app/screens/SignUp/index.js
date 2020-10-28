@@ -5,15 +5,17 @@ import { useDispatch } from 'react-redux'
 import assign from 'lodash/assign'
 
 import i18n from 'i18n'
+import PickingService from 'services/picking'
 import ValidationService from 'services/validation'
 
 import { signInSuccess } from 'store/slices/session'
 
 import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
+import * as UserConstants from 'constants/user'
 
 import VERIFY_PHONE from 'graphql/mutations/verifyPhone.graphql'
-import SIGN_UP from 'graphql/mutations/signUp.graphql'
+import SIGN_UP_BY_PHONE from 'graphql/mutations/signUpByPhone.graphql'
 
 import { TAB_HASH } from 'screens/common/auth'
 
@@ -128,13 +130,13 @@ const SignUpScreen = ({ navigation }) => {
 
   const dispatch = useDispatch()
 
-  const [signUp, { loading: signUpLoading }] = useMutation(SIGN_UP, {
+  const [signUpByPhone, signUpResponse] = useMutation(SIGN_UP_BY_PHONE, {
     onCompleted: () => {
       setStage(STAGE_HASH.ENTER_PASSWORD)
     },
   })
 
-  const [verifyPhone, { loading: verifyPhoneLoading }] = useMutation(VERIFY_PHONE, {
+  const [verifyPhone, verifyPhoneResponse] = useMutation(VERIFY_PHONE, {
     onCompleted: ({ verifyPhone: { accessToken, refreshToken } }) => {
       dispatch(
         signInSuccess({
@@ -150,6 +152,11 @@ const SignUpScreen = ({ navigation }) => {
       phone: '',
       code: '',
       password: '',
+      role: PickingService.forAppType({
+        customer: UserConstants.USER_ROLE_HASH.CUSTOMER,
+        venue: UserConstants.USER_ROLE_HASH.VENUE,
+      }),
+      withRefresh: true,
     }
   }, [])
 
@@ -190,7 +197,7 @@ const SignUpScreen = ({ navigation }) => {
     (values) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          signUp({ variables: values })
+          signUpByPhone({ variables: values })
           break
         case STAGE_HASH.ENTER_PASSWORD:
           verifyPhone({ variables: values })
@@ -199,7 +206,7 @@ const SignUpScreen = ({ navigation }) => {
           break
       }
     },
-    [stage, signUp, verifyPhone],
+    [stage, signUpByPhone, verifyPhone],
   )
 
   const handleTabChange = useCallback(
@@ -212,8 +219,8 @@ const SignUpScreen = ({ navigation }) => {
   )
 
   const handleResendCode = useCallback(() => {
-    signUp({ variables: { phone: valuesRef.current.phone } })
-  }, [valuesRef, signUp])
+    signUpByPhone({ variables: valuesRef.current })
+  }, [signUpByPhone])
 
   const renderResend = () => {
     if (stage === STAGE_HASH.ENTER_PASSWORD) {
@@ -252,10 +259,10 @@ const SignUpScreen = ({ navigation }) => {
 
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          content = renderEnterPhone({ ...payload, loading: signUpLoading })
+          content = renderEnterPhone({ ...payload, loading: signUpResponse.loading })
           break
         case STAGE_HASH.ENTER_PASSWORD:
-          content = renderEnterPassword({ ...payload, loading: verifyPhoneLoading })
+          content = renderEnterPassword({ ...payload, loading: verifyPhoneResponse.loading })
           break
         default:
           break
@@ -274,7 +281,7 @@ const SignUpScreen = ({ navigation }) => {
         </>
       )
     },
-    [stage, navigation, signUpLoading, verifyPhoneLoading],
+    [stage, navigation, signUpResponse, verifyPhoneResponse],
   )
   return (
     <Container>

@@ -1,0 +1,5 @@
+mutation SignUpByPhone($phone: String!, $role: UserRole!) {
+  signUpByPhone(phone: $phone, role: $role) {
+    ok
+  }
+}

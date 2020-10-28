@@ -12,7 +12,7 @@ import AppConfig from 'config/app'
 import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
-import SIGN_IN from 'graphql/mutations/signIn.graphql'
+import SIGN_IN_BY_PHONE from 'graphql/mutations/signInByPhone.graphql'
 
 import { signInSuccess } from 'store/slices/session'
 
@@ -44,7 +44,7 @@ const SignInScreen = ({ navigation }) => {
   const passwordRef = useRef()
 
   const dispatch = useDispatch()
-  const [signIn] = useMutation(SIGN_IN)
+  const [signInByPhone] = useMutation(SIGN_IN_BY_PHONE)
 
   const initialValues = useMemo(() => {
     return {
@@ -80,7 +80,7 @@ const SignInScreen = ({ navigation }) => {
   const onSubmit = useCallback(
     async (values) => {
       try {
-        const signInMutation = await signIn({ variables: values })
+        const signInMutation = await signInByPhone({ variables: values })
         const signInResponse = get(signInMutation, 'data.signInByEmail')
 
         dispatch(
@@ -91,7 +91,7 @@ const SignInScreen = ({ navigation }) => {
         )
       } catch (error) {} // eslint-disable-line no-empty
     },
-    [signIn, dispatch],
+    [signInByPhone, dispatch],
   )
 
   const instruction = Utils.Strings.replaceWithComponent(

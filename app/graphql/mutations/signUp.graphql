@@ -1,5 +1,0 @@
-mutation SignUp($phone: String!) {
-  signUp(phone: $phone) {
-    ok
-  }
-}

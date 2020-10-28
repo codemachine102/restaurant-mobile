@@ -9,8 +9,8 @@ import ValidationService from 'services/validation'
 import * as Routes from 'navigation/routes'
 import { ReactNavigationPropTypes } from 'constants/propTypes'
 
-import RESET_PASSWORD from 'graphql/mutations/resetPassword.graphql'
-import CHANGE_PASSWORD from 'graphql/mutations/changePassword.graphql'
+import REQUEST_RESET_PHONE_PASSWORD from 'graphql/mutations/requestResetPhonePassword.graphql'
+import RESET_PHONE_PASSWORD from 'graphql/mutations/resetPhonePassword.graphql'
 
 import {
   Container,
@@ -137,13 +137,16 @@ const ForgotPasswordScreen = ({ navigation }) => {
   const valuesRef = useRef({})
   const [stage, setStage] = useState(STAGE_HASH.ENTER_PHONE)
 
-  const [resetPassword, resetResponse] = useMutation(RESET_PASSWORD, {
-    onCompleted: () => {
-      return setStage(STAGE_HASH.ENTER_PASSWORD)
+  const [requestResetPhonePassword, requestResetResponse] = useMutation(
+    REQUEST_RESET_PHONE_PASSWORD,
+    {
+      onCompleted: () => {
+        return setStage(STAGE_HASH.ENTER_PASSWORD)
+      },
     },
-  })
+  )
 
-  const [changePassword, changeResponse] = useMutation(CHANGE_PASSWORD, {
+  const [resetPhonePassword, resetResponse] = useMutation(RESET_PHONE_PASSWORD, {
     onCompleted: () => {
       return setStage(STAGE_HASH.CHANGE_SUCCESS)
     },
@@ -198,16 +201,16 @@ const ForgotPasswordScreen = ({ navigation }) => {
     (values) => {
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          resetPassword({ variables: values })
+          requestResetPhonePassword({ variables: values })
           break
         case STAGE_HASH.ENTER_PASSWORD:
-          changePassword({ variables: values })
+          resetPhonePassword({ variables: values })
           break
         default:
           break
       }
     },
-    [stage, changePassword, resetPassword],
+    [stage, requestResetPhonePassword, resetPhonePassword],
   )
 
   const handleBackPress = useCallback(() => {
@@ -215,8 +218,8 @@ const ForgotPasswordScreen = ({ navigation }) => {
   }, [navigation])
 
   const handleResendCode = useCallback(() => {
-    resetPassword({ variables: { phone: valuesRef.current.phone } })
-  }, [valuesRef, resetPassword])
+    requestResetPhonePassword({ variables: { phone: valuesRef.current.phone } })
+  }, [requestResetPhonePassword])
 
   const renderInstruction = () => {
     let instruction
@@ -258,10 +261,10 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
       switch (stage) {
         case STAGE_HASH.ENTER_PHONE:
-          content = renderEnterPhone({ ...payload, loading: resetResponse.loading })
+          content = renderEnterPhone({ ...payload, loading: requestResetResponse.loading })
           break
         case STAGE_HASH.ENTER_PASSWORD:
-          content = renderEnterPassword({ ...payload, loading: changeResponse.loading })
+          content = renderEnterPassword({ ...payload, loading: resetResponse.loading })
           break
         case STAGE_HASH.CHANGE_SUCCESS:
           content = renderChangeSuccess(payload)
@@ -283,7 +286,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         </>
       )
     },
-    [stage, navigation, setStage, resetResponse, changeResponse],
+    [stage, navigation, setStage, requestResetResponse, resetResponse],
   )
 
   return (
