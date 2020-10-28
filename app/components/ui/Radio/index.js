@@ -3,9 +3,9 @@ import PT from 'prop-types'
 
 import noop from 'lodash/noop'
 
-import { Container, OuterCircle, InnerCircle, Caption } from './styles'
+import { Container, OuterCircle, InnerCircle, Label } from './styles'
 
-const Radio = ({ value, caption, onChange }) => {
+const Radio = ({ value, label, onChange }) => {
   const [isPressed, setIsPressed] = useState(false)
 
   const handlePressIn = useCallback(() => {
@@ -30,19 +30,19 @@ const Radio = ({ value, caption, onChange }) => {
         <InnerCircle {...{ isChecked, isPressed }} />
       </OuterCircle>
 
-      <Caption>{caption}</Caption>
+      <Label>{label}</Label>
     </Container>
   )
 }
 
 Radio.propTypes = {
-  caption: PT.string,
+  label: PT.string,
   value: PT.bool,
   onChange: PT.func,
 }
 
 Radio.defaultProps = {
-  caption: null,
+  label: null,
   onChange: noop,
   value: false,
 }

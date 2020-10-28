@@ -1,20 +1,39 @@
 import styled from 'styled-components/native'
+import { space } from 'styled-system'
 
-import { Box, FieldLabel } from 'components/ui'
+import { Box } from '../Box'
+import { FieldLabel as FieldLabelUI } from '../FieldLabel'
+import { FieldBottom as FieldBottomUI } from '../FieldBottom'
 
-export const Container = styled(Box).attrs((props) => {
+export { OptionItem } from './OptionItem'
+
+export const Container = styled(Box)``
+
+export const FieldLabel = styled(FieldLabelUI).attrs(() => {
   return {
-    mt: props.mt || 5,
+    mb: 3,
+  }
+})`
+  ${space}
+`
+
+export const FieldBottom = styled(FieldBottomUI).attrs(() => {
+  return {
+    mt: 3,
+  }
+})`
+  ${space}
+`
+
+export const ItemSeparator = styled(Box).attrs((props) => {
+  return {
+    ml: props.isHorizontal ? 3 : 0,
+    mt: props.isHorizontal ? 0 : 3,
   }
 })``
 
-export const RadioContainer = styled(Box).attrs(() => {
-  return {
-    my: 3,
-  }
-})`
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
+export const OptionListContainer = styled.View`
+  flex-direction: ${(props) => {
+    return props.isHorizontal ? 'row' : 'column'
+  }};
 `
-export const GroupLabel = styled(FieldLabel)``

@@ -2,7 +2,6 @@ import styled from 'styled-components/native'
 
 import { Text, Link } from 'components/ui'
 
-export { FormRadio } from 'components/blocks'
 export {
   Container,
   Scrollable,

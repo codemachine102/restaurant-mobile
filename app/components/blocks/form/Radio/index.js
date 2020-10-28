@@ -6,8 +6,8 @@ import { FinalFormPropTypes } from 'constants/propTypes'
 
 import { Container } from './styles'
 
-const FormRadio = ({ input, meta, ...rest }) => {
-  return <Container {...rest} {...input} error={Utils.Form.getFieldError(meta)} />
+const FormRadio = ({ input, meta, ...props }) => {
+  return <Container {...props} {...input} error={Utils.Form.getFieldError(meta)} />
 }
 
 FormRadio.propTypes = {

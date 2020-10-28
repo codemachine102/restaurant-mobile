@@ -55,9 +55,11 @@ export const InnerCircle = styled(Box).attrs((props) => {
   }}
 `
 
-export const Caption = styled(Text).attrs(() => {
+export const Label = styled(Text).attrs(() => {
   return {
     ml: 4,
     numberOfLines: 1,
   }
-})``
+})`
+  flex-shrink: 1;
+`
